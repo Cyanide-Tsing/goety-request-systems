@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="requiem"
+version="1.0.0"
+displayName="Goety: Request Systems"
+description="Goety addon that provides the requiem:apprentice and requiem:gardener servants."
+
+[[dependencies.requiem]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+
+[[dependencies.requiem]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+
+[[dependencies.requiem]]
+    modId="goety"
+    mandatory=true
+    versionRange="[2.5.57.3,)"

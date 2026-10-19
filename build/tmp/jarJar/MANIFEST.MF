@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Specification-Title: goetyrequests
+Specification-Vendor: requiem
+Implementation-Title: goety-request-systems
+Implementation-Version: 1.0.0
+Implementation-Vendor: requiem
+
