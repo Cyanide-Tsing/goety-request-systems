@@ -24,6 +24,7 @@
     "item.requiem.assault_order": "Assault Order",
     "item.requiem.demolition_scroll": "Demolition Scroll",
     "item.requiem.artillery_horn": "Artillery Horn",
+    "item.requiem.pale_saber": "Pale Saber",
     "requiem.horn.bound": "Horn bound to artillery captain: %s",
     "requiem.horn.unbound": "This horn is not bound to an artillery captain. Right-click one first.",
     "requiem.horn.lost": "The bound artillery captain is gone.",

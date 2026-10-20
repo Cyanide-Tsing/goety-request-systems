@@ -114,6 +114,8 @@ public class CompanyController {
     private static final int ASSAULT_INTERVAL = 20;
     /** 逼近阶段的兜底超时：路被堵住也不能永远卡在第一步。 */
     private static final int APPROACH_TIMEOUT = 1200;
+    /** 炮火覆盖区未清空时，指挥位额外后撤的距离（让步兵先撤出覆盖区）。 */
+    private static final double BREACH_WITHDRAW_OFFSET = 14.0D;
     /** 连队长站在阵型锚点之后多远（指挥位与锚点的距离）。 */
     private static final double CAPTAIN_REAR_OFFSET = CAPTAIN_STANDOFF * 2.0D;
     /** 到位判定的宽容量。 */
@@ -192,8 +194,6 @@ public class CompanyController {
     private int assaultHeadcount;
     /** 侦察阶段标记的墙面爆破点（目标被墙挡住时）。 */
     private BlockPos breachTarget;
-    /** 本轮爆破呼叫已打击的轮数。 */
-    private int breachRounds;
 
     /** 每支小队当前的任务与落脚点，按 {@link #squads} 的下标索引。 */
     private final Map<Integer, SquadOrder> squadOrders = new HashMap<>();
@@ -441,8 +441,8 @@ public class CompanyController {
             case SCOUT -> {
                 this.runScout(level, objectiveCenter);
                 if (this.phaseTicks >= SCOUT_TICKS) {
-                    // 侦察完毕：有守军且有炮就先炮击，否则直接压上去
-                    if (defenders > 0 && this.hasCannons(level)) {
+                    // 侦察完毕：有守军且有炮（或支援炮兵队长）就先炮击，否则直接压上去
+                    if (defenders > 0 && (this.hasCannons(level) || this.hasSupportCaptains(level))) {
                         this.defendersAtBombardStart = defenders;
                         this.enterPhase(AssaultPhase.BOMBARD);
                     } else {
@@ -476,7 +476,7 @@ public class CompanyController {
             }
         }
 
-        this.applyAssaultPosture(objectiveCenter);
+        this.applyAssaultPosture(level, objectiveCenter);
     }
 
     /**
@@ -490,7 +490,7 @@ public class CompanyController {
      * 这样阵型始终夹在连队长与目标之间，而且无论连队长站得太远还是冲得太近，
      * 都会被拉回正确的半径上（炮击阶段因此会自动后退到安全距离）。
      */
-    private void applyAssaultPosture(Vec3 objectiveCenter) {
+    private void applyAssaultPosture(ServerLevel level, Vec3 objectiveCenter) {
         this.applyFormation(this.phase.formation());
         this.stance = this.phase.stance();
         this.pendingStance = null;
@@ -505,6 +505,10 @@ public class CompanyController {
                 : new Vec3(outward.x / horizontal, 0.0D, outward.z / horizontal);
 
         double standoff = this.phase.standoff();
+        // 炮火覆盖区未清空时，把指挥位往后拉，让步兵先撤出覆盖区
+        if (this.breachTarget != null && !this.isFireSafe(level, Vec3.atCenterOf(this.breachTarget))) {
+            standoff += BREACH_WITHDRAW_OFFSET;
+        }
         Vec3 postPos = objectiveCenter.add(unit.scale(standoff + CAPTAIN_REAR_OFFSET));
 
         // 只把朝向对准目标、把指挥位定在目标方向；不把锚点钉到目标附近，
@@ -529,7 +533,7 @@ public class CompanyController {
         }
         if (next != AssaultPhase.SCOUT) {
             this.breachTarget = null;
-            this.breachRounds = 0;
+            this.clearSupportCaptainStrikes();
         }
         this.announce(Component.translatable("requiem.assault.phase", next.getDisplayName()));
     }
@@ -552,20 +556,44 @@ public class CompanyController {
     /**
      * 侦察：检查目标是否被墙挡住。
      *
-     * <p>从连队长到目标做一次视线射线；被实心方块挡住说明敌人隔墙，此时二选一：
-     * 有炮兵就呼叫炮兵打击爆破点（每次 2 轮）把墙炸开；没有炮兵则保持原样，
-     * 后续 {@code CaptainMarchGoal} 的寻路会自己绕墙找缺口。
+     * <p>每刻从连队长到目标做一次视线射线；被实心方块挡住说明敌人隔墙，
+     * 覆盖区清空后直接把爆破点坐标下发给炮兵（自有炮兵与支援队长统一走
+     * {@code CompanyStrike}），墙一消失就立即撤回坐标。
      */
     private void runScout(ServerLevel level, Vec3 objectiveCenter) {
         BlockPos breach = this.findBreachPoint(level, this.captain.getEyePosition(), objectiveCenter);
         if (breach == null) {
+            // 墙没了：撤回所有定点打击坐标
             this.breachTarget = null;
-            this.breachRounds = 0;
+            this.clearAllStrikes(level);
             return;
         }
         this.breachTarget = breach;
-        if (this.hasCannons(level)) {
-            this.callBreachStrike(level, breach);
+        // 覆盖区还有自己人就不开火，等步兵先撤出（applyAssaultPosture 会把指挥位往后拉）
+        if (this.isFireSafe(level, Vec3.atCenterOf(breach))) {
+            this.pushStrikeTarget(level, breach);
+        }
+    }
+
+    /** 支援清单里是否还有活着的炮兵队长。 */
+    private boolean hasSupportCaptains(ServerLevel level) {
+        for (UUID id : this.supportCaptains) {
+            if (level.getEntity(id) instanceof ArtilleryCaptainEntity captain && captain.isAlive()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** 清除支援炮兵队长身上的定点打击坐标（离开侦察/结束作战时调用）。 */
+    private void clearSupportCaptainStrikes() {
+        if (!(this.captain.level() instanceof ServerLevel level)) {
+            return;
+        }
+        for (UUID id : this.supportCaptains) {
+            if (level.getEntity(id) instanceof ArtilleryCaptainEntity captain) {
+                captain.clearCompanyStrike();
+            }
         }
     }
 
@@ -587,26 +615,36 @@ public class CompanyController {
     }
 
     /**
-     * 呼叫炮兵打击爆破点：每次呼叫打 2 轮，每 2 秒下达一轮。
-     * 打满 2 轮后停手，等下一轮侦察再判断墙是否已被炸开。
+     * 把爆破点坐标统一下发给自有炮兵与支援炮兵队长。
+     *
+     * <p>统一走 {@code CompanyStrike}（Java 侧 ForgeData + KubeJS 读 getter），
+     * 小队炮兵复用定点炮击流程自行装填重炮弹/火焰弹。
      */
-    private void callBreachStrike(ServerLevel level, BlockPos breach) {
-        if (this.breachRounds >= 2 || this.phaseTicks % VOLLEY_INTERVAL != 0) {
-            return;
-        }
-        boolean any = false;
+    private void pushStrikeTarget(ServerLevel level, BlockPos breach) {
         for (UUID id : this.roster) {
-            if (level.getEntity(id) instanceof Mob mob
-                    && mob instanceof ArtilleryEntity
-                    && ArtilleryEmplacement.hasCannon(mob)) {
-                any |= ArtilleryEmplacement.setStrikeTarget(mob, breach);
+            if (level.getEntity(id) instanceof ArtilleryEntity artillery) {
+                artillery.setCompanyStrike(breach);
             }
         }
-        if (any) {
-            this.breachRounds++;
+        for (UUID id : this.supportCaptains) {
+            if (level.getEntity(id) instanceof ArtilleryCaptainEntity captain && captain.isAlive()) {
+                captain.setCompanyStrike(breach);
+            }
+        }
+        if (this.phaseTicks % VOLLEY_INTERVAL == 0) {
             this.announce(Component.translatable("requiem.assault.breach",
                     breach.getX(), breach.getY(), breach.getZ()));
         }
+    }
+
+    /** 撤回自有炮兵与支援队长的定点打击坐标。 */
+    private void clearAllStrikes(ServerLevel level) {
+        for (UUID id : this.roster) {
+            if (level.getEntity(id) instanceof ArtilleryEntity artillery) {
+                artillery.clearCompanyStrike();
+            }
+        }
+        this.clearSupportCaptainStrikes();
     }
 
     /** 突击伤亡过半，判定失败并撤离。 */
@@ -1747,7 +1785,7 @@ public class CompanyController {
         this.phaseTicks = 0;
         this.assaultHeadcount = 0;
         this.breachTarget = null;
-        this.breachRounds = 0;
+        this.clearSupportCaptainStrikes();
         this.pinnedAnchor = null;
         this.anchor = null;
         this.captain.setCommandPost(null);

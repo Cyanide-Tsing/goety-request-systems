@@ -2,13 +2,17 @@ package com.requiem.servants.entity;
 
 import com.Polarice3.Goety.common.entities.ally.illager.AbstractIllagerServant.IllagerServantArmPose;
 import com.Polarice3.Goety.common.entities.ally.illager.VindicatorServant;
+import com.requiem.servants.ModItems;
 import com.requiem.servants.item.ArtilleryHornItem;
 import com.requiem.servants.item.CompanyStandardItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -36,6 +40,13 @@ public class ArtilleryCaptainEntity extends VindicatorServant {
     @Override
     public IllagerServantArmPose getArmPose() {
         return IllagerServantArmPose.NEUTRAL;
+    }
+
+    /** 炮兵队长生成即持苍白军刀作为近战武器，覆盖卫道士默认的斧头。 */
+    @Override
+    protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
+        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.PALE_SABER.get()));
+        this.setDropChance(EquipmentSlot.MAINHAND, 0.0F);
     }
 
     /** 炮兵队长默认为小队队长（goety 袭击队长机制）。 */
@@ -117,6 +128,31 @@ public class ArtilleryCaptainEntity extends VindicatorServant {
         } catch (RuntimeException e) {
             return null;
         }
+    }
+
+    /** 连队长下达的定点打击坐标（KubeJS 队长 AI 读取并同步给小队炮兵）。 */
+    public void setCompanyStrike(BlockPos pos) {
+        this.getPersistentData().putString("CompanyStrike",
+                "[" + pos.getX() + "," + pos.getY() + "," + pos.getZ() + "]");
+    }
+
+    /** 读取连队长下达的定点打击坐标；未设定时返回 {@code null}。 */
+    public BlockPos getCompanyStrike() {
+        String s = this.getPersistentData().getString("CompanyStrike");
+        if (s.isEmpty()) {
+            return null;
+        }
+        try {
+            String[] parts = s.substring(1, s.length() - 1).split(",");
+            return new BlockPos(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
+        } catch (RuntimeException e) {
+            return null;
+        }
+    }
+
+    /** 清除连队长下达的定点打击坐标。 */
+    public void clearCompanyStrike() {
+        this.getPersistentData().remove("CompanyStrike");
     }
 
     // 炮兵队长不主动索敌：它是军官，开火由号角/标记地点控制

@@ -5,6 +5,7 @@ import com.requiem.servants.item.ArtilleryHornItem;
 import com.requiem.servants.item.AssaultOrderItem;
 import com.requiem.servants.item.CompanyStandardItem;
 import com.requiem.servants.item.DemolitionScrollItem;
+import com.requiem.servants.item.PaleSaberItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -77,6 +78,10 @@ public class ModItems {
     public static final RegistryObject<Item> ARTILLERY_HORN = ITEMS.register("artillery_horn",
             () -> new ArtilleryHornItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
 
+    // 苍白军刀：炮兵/掷弹兵/炮兵队长/连队长的近战武器
+    public static final RegistryObject<Item> PALE_SABER = ITEMS.register("pale_saber",
+            () -> new PaleSaberItem(new Item.Properties().stacksTo(1)));
+
     public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_MODE_TABS.register("requiem",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.requiem"))
@@ -96,6 +101,7 @@ public class ModItems {
                         output.accept(ASSAULT_ORDER.get());
                         output.accept(DEMOLITION_SCROLL.get());
                         output.accept(ARTILLERY_HORN.get());
+                        output.accept(PALE_SABER.get());
                     })
                     .build());
 

@@ -2,6 +2,7 @@ package com.requiem.servants.entity;
 
 import com.Polarice3.Goety.common.entities.ally.illager.AbstractIllagerServant.IllagerServantArmPose;
 import com.Polarice3.Goety.common.entities.ally.illager.VindicatorServant;
+import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
@@ -58,6 +59,56 @@ public class ArtilleryEntity extends VindicatorServant {
     // 供 KubeJS 读取：持久化的队长 UUID（存于 ForgeData，与 KubeJS persistentData 不同侧）
     public String getArtilleryCaptainUuid() {
         return this.getPersistentData().getString("artilleryCaptainUuid");
+    }
+
+    /** 连队长下达的定点打击坐标（KubeJS 炮兵 AI 通过 {@link #getCompanyStrike()} 读取）。 */
+    public void setCompanyStrike(BlockPos pos) {
+        this.getPersistentData().putString("CompanyStrike",
+                "[" + pos.getX() + "," + pos.getY() + "," + pos.getZ() + "]");
+    }
+
+    /** 读取连队长下达的定点打击坐标；未设定时返回 {@code null}。 */
+    public BlockPos getCompanyStrike() {
+        String s = this.getPersistentData().getString("CompanyStrike");
+        if (s.isEmpty()) {
+            return null;
+        }
+        try {
+            String[] parts = s.substring(1, s.length() - 1).split(",");
+            return new BlockPos(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
+        } catch (RuntimeException e) {
+            return null;
+        }
+    }
+
+    /** 清除连队长下达的定点打击坐标。 */
+    public void clearCompanyStrike() {
+        this.getPersistentData().remove("CompanyStrike");
+    }
+
+    /** 连队长下达的炮位（KubeJS 炮兵 AI 通过 {@link #getCompanyCannon()} 读取）。 */
+    public void setCompanyCannon(BlockPos pos) {
+        this.getPersistentData().putString("CompanyCannon",
+                "[" + pos.getX() + "," + pos.getY() + "," + pos.getZ() + "]");
+    }
+
+    /** 读取连队长下达的炮位；未设定时返回 {@code null}。 */
+    public BlockPos getCompanyCannon() {
+        String s = this.getPersistentData().getString("CompanyCannon");
+        if (s.isEmpty()) {
+            return null;
+        }
+        try {
+            String[] parts = s.substring(1, s.length() - 1).split(",");
+            return new BlockPos(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
+        } catch (RuntimeException e) {
+            return null;
+        }
+    }
+
+    /** 清除连队长下达的炮位。 */
+    public void clearCompanyCannon() {
+        this.getPersistentData().remove("CompanyCannon");
     }
 
     @Override

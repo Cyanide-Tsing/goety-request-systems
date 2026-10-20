@@ -24,6 +24,7 @@
     "item.requiem.assault_order": "突击令",
     "item.requiem.demolition_scroll": "爆破卷轴",
     "item.requiem.artillery_horn": "炮兵号角",
+    "item.requiem.pale_saber": "苍白军刀",
     "requiem.horn.bound": "号角已绑定炮兵队长：%s",
     "requiem.horn.unbound": "号角尚未绑定炮兵队长。请先右键一名炮兵队长。",
     "requiem.horn.lost": "绑定的炮兵队长已不在。",

@@ -5,6 +5,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.requiem.servants.entity.ArtilleryEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -93,7 +94,7 @@ public final class ArtilleryEmplacement {
 
     /** 该仆从绑定的炮位；没有则返回 {@code null}。 */
     public static BlockPos getCannonPos(Mob mob) {
-        return readPos(readPositions(mob), KEY_CANNON);
+        return mob instanceof ArtilleryEntity artillery ? artillery.getCompanyCannon() : null;
     }
 
     /** 脚本当前的打击坐标；没有则返回 {@code null}。 */
@@ -246,27 +247,19 @@ public final class ArtilleryEmplacement {
     }
 
     /**
-     * 由连队长给炮兵指派炮位（写入脚本读取的 {@value #KEY_CANNON}）。
+     * 由连队长给炮兵指派炮位（写入 {@code CompanyCannon}，走 Java getter/setter 通道，
+     * 与 {@code CompanyStrike} 一致，KubeJS 炮兵 AI 通过 {@code getCompanyCannon()} 读取）。
      *
      * <p>原本炮位只能由玩家手持传送石一个个绑。连队长可以代劳：读出周围的炮位，
      * 把没有炮位的炮兵分配到空着的炮上，于是一队炮兵能自动铺开到整个炮兵阵地。
      *
-     * <p>如果炮兵身上还没有 {@value #POSITIONS_KEY} 数据（从没被玩家配置过），
-     * 这里会新建一个只含炮位的对象——脚本自己的 {@code readPositions} 对缺字段是容错的。
-     *
      * @return 是否写入成功
      */
     public static boolean assignCannon(Mob mob, BlockPos cannon) {
-        JsonObject positions = readPositions(mob);
-        if (positions == null) {
-            positions = new JsonObject();
+        if (!(mob instanceof ArtilleryEntity artillery)) {
+            return false;
         }
-        JsonArray coords = new JsonArray();
-        coords.add(cannon.getX());
-        coords.add(cannon.getY());
-        coords.add(cannon.getZ());
-        positions.add(KEY_CANNON, coords);
-        mob.getPersistentData().putString(POSITIONS_KEY, positions.toString());
+        artillery.setCompanyCannon(cannon);
         return true;
     }
 

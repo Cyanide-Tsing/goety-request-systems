@@ -2,6 +2,7 @@ package com.requiem.servants.entity;
 
 import com.Polarice3.Goety.common.entities.ally.illager.AbstractIllagerServant.IllagerServantArmPose;
 import com.Polarice3.Goety.common.entities.ally.illager.VindicatorServant;
+import com.requiem.servants.ModItems;
 import com.requiem.servants.ai.CaptainMarchGoal;
 import com.requiem.servants.ai.CaptainRetreatGoal;
 import com.requiem.servants.command.CompanyController;
@@ -16,10 +17,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -74,6 +78,13 @@ public class CaptainEntity extends VindicatorServant {
     @Override
     public IllagerServantArmPose getArmPose() {
         return IllagerServantArmPose.NEUTRAL;
+    }
+
+    /** 连队长生成即持苍白军刀作为近战武器，覆盖卫道士默认的斧头。 */
+    @Override
+    protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
+        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.PALE_SABER.get()));
+        this.setDropChance(EquipmentSlot.MAINHAND, 0.0F);
     }
 
     /**
