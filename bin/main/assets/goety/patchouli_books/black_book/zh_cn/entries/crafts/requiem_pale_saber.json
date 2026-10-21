@@ -1,0 +1,16 @@
+{
+  "name": "苍白军刀",
+  "icon": "requiem:pale_saber",
+  "category": "goety:requiem_crafts",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:pale_saber",
+      "text": "苍白军刀是炮兵、掷弹兵、炮兵队长与连队长的制式近战武器。攻击伤害 7.0，攻击速度 2.5，耐久 962。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "炮兵与掷弹兵平时不会持有它——只有在被敌人近身、不得不格斗时，才会收起火把或炸弹、拔出苍白军刀自卫。"
+    }
+  ]
+}

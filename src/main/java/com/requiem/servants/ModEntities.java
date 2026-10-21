@@ -5,6 +5,7 @@ import com.requiem.servants.entity.ArtilleryCaptainEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
 import com.requiem.servants.entity.CaptainEntity;
 import com.requiem.servants.entity.ConquerorEntity;
+import com.requiem.servants.entity.DrummerEntity;
 import com.requiem.servants.entity.GardenerEntity;
 import com.requiem.servants.entity.GrenadierEntity;
 import com.requiem.servants.entity.RecruiterEntity;
@@ -94,6 +95,14 @@ public class ModEntities {
                     .clientTrackingRange(16)
                     .updateInterval(3)
                     .build("requiem:artillery_captain"));
+
+    // 鼓手：持小军鼓，为连队提供节奏增益
+    public static final RegistryObject<EntityType<DrummerEntity>> DRUMMER = ENTITY_TYPES.register("drummer",
+            () -> EntityType.Builder.of(DrummerEntity::new, MobCategory.CREATURE)
+                    .sized(0.6f, 1.95f)
+                    .clientTrackingRange(16)
+                    .updateInterval(3)
+                    .build("requiem:drummer"));
 
     public static void register() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

@@ -1,0 +1,12 @@
+{
+  "name": "Rumors of the Demolition Scroll",
+  "icon": "requiem:demolition_scroll",
+  "category": "goety:requiem_rumors",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Rumor has it that the Red Merchant carries a notebook of demolition lore — the Demolition Scroll. Find it and study it, and perhaps you might glean the training of artillerymen and grenadiers from its pages."
+    }
+  ]
+}

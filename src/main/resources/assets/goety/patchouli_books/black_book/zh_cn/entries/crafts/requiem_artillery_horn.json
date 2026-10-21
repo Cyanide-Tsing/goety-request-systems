@@ -1,0 +1,16 @@
+{
+  "name": "炮兵号角",
+  "icon": "requiem:artillery_horn",
+  "category": "goety:requiem_crafts",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:artillery_horn",
+      "text": "炮兵号角绑定一名炮兵队长。右键空中吹号，命令小队炮兵齐射一轮；右键地面设定炮兵阵地。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "右键一名炮兵，可将其编入号角所绑定队长的小队。"
+    }
+  ]
+}

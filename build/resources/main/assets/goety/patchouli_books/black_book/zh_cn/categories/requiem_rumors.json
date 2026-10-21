@@ -1,0 +1,7 @@
+{
+  "name": "谣言与蜚语",
+  "description": "关于红商人与爆破卷轴的传闻。",
+  "icon": "requiem:demolition_scroll",
+  "sortnum": 3,
+  "parent": "goety:requiem"
+}

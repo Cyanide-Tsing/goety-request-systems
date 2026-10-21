@@ -5,6 +5,7 @@ import com.requiem.servants.entity.ArtilleryCaptainEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
 import com.requiem.servants.entity.CaptainEntity;
 import com.requiem.servants.entity.ConquerorEntity;
+import com.requiem.servants.entity.DrummerEntity;
 import com.requiem.servants.entity.GardenerEntity;
 import com.requiem.servants.entity.GrenadierEntity;
 import com.requiem.servants.entity.RecruiterEntity;
@@ -26,5 +27,6 @@ public class CommonSetup {
         event.put(ModEntities.CONQUEROR.get(), ConquerorEntity.createAttributes().build());
         event.put(ModEntities.ARTILLERY_CAPTAIN.get(), ArtilleryCaptainEntity.createAttributes().build());
         event.put(ModEntities.CAPTAIN.get(), CaptainEntity.createAttributes().build());
+        event.put(ModEntities.DRUMMER.get(), DrummerEntity.createAttributes().build());
     }
 }

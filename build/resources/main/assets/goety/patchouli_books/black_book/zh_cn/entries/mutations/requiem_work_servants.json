@@ -1,0 +1,35 @@
+{
+  "name": "工作仆从",
+  "icon": "requiem:apprentice_spawn_egg",
+  "category": "goety:requiem_mutations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "这些灾厄村民不直接上阵杀敌，而是维持你营地的运转，替你处理各种杂务。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:apprentice"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "学徒是编制中的基础劳工。他们会替你操作熔炉，完成繁琐的冶炼与合成，让营地运转起来。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:gardener"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "园丁照料作物与花园，并替你完成药水酿造等杂务。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:recruiter"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "征兵官负责登记名册与征募，维系你麾下的编制。"
+    }
+  ]
+}

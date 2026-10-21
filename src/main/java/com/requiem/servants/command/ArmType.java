@@ -7,6 +7,7 @@ import com.Polarice3.Goety.common.entities.ally.illager.StormCasterServant;
 import com.requiem.servants.entity.ApprenticeEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
 import com.requiem.servants.entity.ConquerorEntity;
+import com.requiem.servants.entity.DrummerEntity;
 import com.requiem.servants.entity.GardenerEntity;
 import com.requiem.servants.entity.GrenadierEntity;
 import com.requiem.servants.entity.RecruiterEntity;
@@ -101,7 +102,8 @@ public enum ArmType {
         if (mob instanceof ArtilleryEntity || mob instanceof GrenadierEntity || mob instanceof ConquerorEntity) {
             return RANGED;
         }
-        if (mob instanceof RecruiterEntity || mob instanceof ApprenticeEntity || mob instanceof GardenerEntity) {
+        if (mob instanceof RecruiterEntity || mob instanceof ApprenticeEntity || mob instanceof GardenerEntity
+                || mob instanceof DrummerEntity) {
             return SUPPORT;
         }
         if (mob instanceof IMobCrafter || mob instanceof SignalerServant) {

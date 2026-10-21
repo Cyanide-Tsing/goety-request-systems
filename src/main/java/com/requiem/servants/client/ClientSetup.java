@@ -6,6 +6,7 @@ import com.requiem.servants.client.render.ArtilleryCaptainRenderer;
 import com.requiem.servants.client.render.ArtilleryRenderer;
 import com.requiem.servants.client.render.CaptainRenderer;
 import com.requiem.servants.client.render.ConquerorRenderer;
+import com.requiem.servants.client.render.DrummerRenderer;
 import com.requiem.servants.client.render.GardenerRenderer;
 import com.requiem.servants.client.render.GrenadierRenderer;
 import com.requiem.servants.client.render.RecruiterRenderer;
@@ -24,6 +25,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.CONQUEROR.get(), ConquerorRenderer::new);
         event.registerEntityRenderer(ModEntities.ARTILLERY_CAPTAIN.get(), ArtilleryCaptainRenderer::new);
         event.registerEntityRenderer(ModEntities.CAPTAIN.get(), CaptainRenderer::new);
+        event.registerEntityRenderer(ModEntities.DRUMMER.get(), DrummerRenderer::new);
     }
 
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {

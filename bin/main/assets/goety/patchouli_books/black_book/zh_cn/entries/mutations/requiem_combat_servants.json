@@ -1,0 +1,19 @@
+{
+  "name": "战斗仆从",
+  "icon": "requiem:captain_spawn_egg",
+  "category": "goety:requiem_mutations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "这些灾厄村民是你麾下的军官，训练无需爆破卷轴。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:captain"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "连队长指挥整个连队，能列阵、行军、下达号令，并凭借$(l:crafts/requiem_assault_order)突击令$()自主逼近、侦察、炮击并发起突击，全程无需你在场。"
+    }
+  ]
+}

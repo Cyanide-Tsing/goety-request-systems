@@ -1,0 +1,16 @@
+{
+  "name": "Pale Saber",
+  "icon": "requiem:pale_saber",
+  "category": "goety:requiem_crafts",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:pale_saber",
+      "text": "The Pale Saber is the standard melee weapon of the artillerymen, grenadiers, artillery captains, and company captains. 7.0 attack damage, 2.5 attack speed, 962 durability."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Artillerymen and grenadiers do not carry it at rest — only when a foe closes in and they are forced to fight do they put away torch or bomb and draw the Pale Saber in self-defense."
+    }
+  ]
+}

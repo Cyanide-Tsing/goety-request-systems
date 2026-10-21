@@ -1,0 +1,43 @@
+{
+  "name": "爆破编制",
+  "icon": "supplementaries:bomb",
+  "category": "goety:requiem_mutations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "阅读$(l:rumors/requiem_demolition_scroll)爆破卷轴$()后解锁的训练，专门操持投射火力。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:artillery"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "炮兵是操控补充物大炮的炮手。他们会自行装填、瞄准并点火开炮，也能从你绑定的弹药木桶中取用火药与炮弹。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:grenadier"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "掷弹兵是投掷炸弹的重火力步兵，会与逼近的敌人保持距离；一旦被近身，便拔出$(l:crafts/requiem_pale_saber)苍白军刀$()自卫。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:conqueror"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "征服者是持弩的重装线列步兵，以烟花为弹药，用炫目的爆炸轰击敌人。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:artillery_captain"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "炮兵队长指挥一支炮兵小队。用$(l:crafts/requiem_artillery_horn)炮兵号角$()绑定他、设定阵地并吹号齐射，小队炮兵便会听他调度。"
+    }
+  ]
+}

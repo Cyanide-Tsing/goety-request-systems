@@ -1,0 +1,35 @@
+{
+  "name": "Work Servants",
+  "icon": "requiem:apprentice_spawn_egg",
+  "category": "goety:requiem_mutations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "These illagers do not take to the field themselves, but keep your camp running with all manner of chores."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:apprentice"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Apprentices are the basic laborers of the roster. They tend your furnaces and handle the tedious smelting and crafting that keeps camp running."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:gardener"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Gardeners tend the crops and garden, and brew potions for you."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:recruiter"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Recruiters keep the roster and muster new recruits into your ranks."
+    }
+  ]
+}

@@ -2,9 +2,11 @@ package com.requiem.servants.command;
 
 import com.Polarice3.Goety.api.entities.IOwned;
 import com.Polarice3.Goety.api.entities.ally.IServant;
+import com.requiem.servants.ModEntities;
 import com.requiem.servants.entity.ArtilleryCaptainEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
 import com.requiem.servants.entity.CaptainEntity;
+import com.requiem.servants.entity.DrummerEntity;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -22,8 +24,12 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -137,6 +143,13 @@ public class CompanyController {
     private static final double DETACH_LIMIT = 40.0D;
     /** 线列轮换一层的间隔：够前排放完一轮。 */
     private static final int VOLLEY_ROTATE_TICKS = 60;
+    /** 鼓手发放增益的间隔（刻）。 */
+    private static final int DRUMMER_BUFF_INTERVAL = 40;
+    /** 鼓手离连队长这个范围以内才发增益。 */
+    private static final double DRUMMER_RANGE = 32.0D;
+    private static final double DRUMMER_RANGE_SQR = DRUMMER_RANGE * DRUMMER_RANGE;
+    /** 鼓手增益的持续时间（刻），略长于发放间隔，保证不失效。 */
+    private static final int DRUMMER_BUFF_DURATION = 60;
     /**
      * 炮击弹着点周围这个范围内有自己人就不开火。
      *
@@ -203,6 +216,10 @@ public class CompanyController {
     private final Set<BlockPos> knownCannons = new LinkedHashSet<>();
     /** 支援清单里的炮兵队长 UUID（由连旗加入，炮火支援时吹号开火）。 */
     private final List<UUID> supportCaptains = new ArrayList<>();
+    /** 鼓手槽：被连旗绑定的鼓手仆从 UUID，为连队提供节奏增益。 */
+    private UUID drummerId;
+    /** 鼓手发放增益的节流计时。 */
+    private int drummerBuffTimer;
 
     private int rosterTimer;
     private int stanceTimer;
@@ -276,6 +293,10 @@ public class CompanyController {
         if (--this.volleyTimer <= 0) {
             this.volleyTimer = VOLLEY_INTERVAL;
             this.directVolley(level);
+        }
+        if (--this.drummerBuffTimer <= 0) {
+            this.drummerBuffTimer = DRUMMER_BUFF_INTERVAL;
+            this.applyDrummerBuffs(level);
         }
     }
 
@@ -969,6 +990,21 @@ public class CompanyController {
         return level.getEntitiesOfClass(LivingEntity.class, box, this::isThreat).size();
     }
 
+    /** 线列三层架构的层号：掷弹兵(0) → 征服者(1) → 掠夺者(2)，其余远程默认 0。 */
+    private static int firingLineRank(EntityType<?> type) {
+        if (type == ModEntities.GRENADIER.get()) {
+            return 0;
+        }
+        if (type == ModEntities.CONQUEROR.get()) {
+            return 1;
+        }
+        ResourceLocation key = EntityType.getKey(type);
+        if (key != null && "pillager_servant".equals(key.getPath())) {
+            return 2;
+        }
+        return 0;
+    }
+
     private CompanyStance decideStance(ServerLevel level, Vec3 reference, LivingEntity threat) {
         if (this.isScattered(level, reference)) {
             return CompanyStance.RALLY;
@@ -1119,7 +1155,7 @@ public class CompanyController {
             }
         }
 
-        // 线列：给每支远程小队排一个层号，按轮换节奏滚动。层 0 在最前、获准开火。
+        // 线列：给每支远程小队排一个层号。层 0 在最前、获准开火。
         Map<Integer, Integer> volleyRank = new HashMap<>();
         if (this.formation.usesVolleyRanks()) {
             List<Integer> shooters = new ArrayList<>();
@@ -1129,8 +1165,16 @@ public class CompanyController {
                 }
             }
             if (!shooters.isEmpty()) {
-                for (int i = 0; i < shooters.size(); i++) {
-                    volleyRank.put(shooters.get(i), (i + this.volleyPhase) % shooters.size());
+                if (this.stance == CompanyStance.FORM_UP) {
+                    // 整队：固定三层架构（掷弹兵→征服者→掠夺者），不轮换
+                    for (int squadIndex : shooters) {
+                        volleyRank.put(squadIndex, firingLineRank(this.squads.get(squadIndex).memberType()));
+                    }
+                } else {
+                    // 其余姿态：按节奏轮换各层的前后次序
+                    for (int i = 0; i < shooters.size(); i++) {
+                        volleyRank.put(shooters.get(i), (i + this.volleyPhase) % shooters.size());
+                    }
                 }
             }
         }
@@ -1734,6 +1778,62 @@ public class CompanyController {
         return captain != null && this.supportCaptains.contains(captain.getUUID());
     }
 
+    // ------------------------------------------------------------------
+    // 鼓手槽
+    // ------------------------------------------------------------------
+
+    /** 绑定鼓手到连队长的鼓手槽。 */
+    public void setDrummer(DrummerEntity drummer) {
+        this.drummerId = drummer == null ? null : drummer.getUUID();
+    }
+
+    /** 当前鼓手槽里的鼓手（服务端解析）；没有或已阵亡返回 {@code null}。 */
+    public DrummerEntity getDrummer(ServerLevel level) {
+        return this.drummerId != null && level.getEntity(this.drummerId) instanceof DrummerEntity drummer && drummer.isAlive()
+                ? drummer
+                : null;
+    }
+
+    public boolean hasDrummer() {
+        return this.drummerId != null;
+    }
+
+    /**
+     * 鼓手按连队姿态发放增益：冲锋给迅捷+抗性，坚守给生命恢复+伤害吸收。
+     *
+     * <p>鼓手必须还活着且离连队长足够近；增益发给全部在编成员（不含鼓手自己）。
+     */
+    private void applyDrummerBuffs(ServerLevel level) {
+        DrummerEntity drummer = this.getDrummer(level);
+        if (drummer == null || this.roster.isEmpty()) {
+            return;
+        }
+        if (drummer.distanceToSqr(this.captain) > DRUMMER_RANGE_SQR) {
+            return;
+        }
+        MobEffect first;
+        MobEffect second;
+        switch (this.stance) {
+            case CHARGE -> {
+                first = MobEffects.MOVEMENT_SPEED;
+                second = MobEffects.DAMAGE_RESISTANCE;
+            }
+            case HOLD -> {
+                first = MobEffects.REGENERATION;
+                second = MobEffects.ABSORPTION;
+            }
+            default -> {
+                return;
+            }
+        }
+        for (UUID id : this.roster) {
+            if (level.getEntity(id) instanceof LivingEntity living && living.isAlive()) {
+                living.addEffect(new MobEffectInstance(first, DRUMMER_BUFF_DURATION, 0, false, false));
+                living.addEffect(new MobEffectInstance(second, DRUMMER_BUFF_DURATION, 0, false, false));
+            }
+        }
+    }
+
     /**
      * 呼叫炮火支援：让支援清单里还活着的炮兵队长吹号开火（强制一轮炮）。
      *
@@ -1849,6 +1949,9 @@ public class CompanyController {
             list.add(member);
         }
         tag.put("Roster", list);
+        if (this.drummerId != null) {
+            tag.putUUID("Drummer", this.drummerId);
+        }
     }
 
     public void load(CompoundTag tag) {
@@ -1885,6 +1988,7 @@ public class CompanyController {
             }
         }
         this.squads.clear();
+        this.drummerId = tag.contains("Drummer") ? tag.getUUID("Drummer") : null;
     }
 
     /** 从 {@code from} 沿偏航角 {@code yaw} 的正面方向前进 {@code distance} 格。 */

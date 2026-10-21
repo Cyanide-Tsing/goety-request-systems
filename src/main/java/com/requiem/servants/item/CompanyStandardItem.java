@@ -4,6 +4,7 @@ import com.requiem.servants.command.CompanyController;
 import com.requiem.servants.command.CompanyStance;
 import com.requiem.servants.entity.ArtilleryCaptainEntity;
 import com.requiem.servants.entity.CaptainEntity;
+import com.requiem.servants.entity.DrummerEntity;
 import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -114,6 +115,37 @@ public class CompanyStandardItem extends Item {
             company.addSupportCaptain(artilleryCaptain);
             player.displayClientMessage(Component.translatable("requiem.standard.support.added",
                     artilleryCaptain.getDisplayName()), true);
+        }
+    }
+
+    /**
+     * 用连旗把鼓手绑定到（或移出）连队长的鼓手槽。
+     *
+     * <p>鼓手不编入名册，只登记到鼓手槽；绑定后鼓手会跟随连队长，
+     * 并按连队姿态为全员敲出增益（见 {@link CompanyController#applyDrummerBuffs}）。
+     */
+    public static void toggleDrummer(ItemStack stack, DrummerEntity drummer, Player player) {
+        if (!isBound(stack)) {
+            player.displayClientMessage(Component.translatable("requiem.standard.unbound"), true);
+            return;
+        }
+        CaptainEntity companyCaptain = resolve(stack, drummer.level());
+        if (companyCaptain == null) {
+            player.displayClientMessage(Component.translatable("requiem.standard.lost"), true);
+            return;
+        }
+        CompanyController company = companyCaptain.getCompany();
+        DrummerEntity current = drummer.level() instanceof ServerLevel server ? company.getDrummer(server) : null;
+        if (current == drummer) {
+            company.setDrummer(null);
+            drummer.setCaptainUuid(null);
+            player.displayClientMessage(Component.translatable("requiem.standard.drummer.removed",
+                    drummer.getDisplayName()), true);
+        } else {
+            company.setDrummer(drummer);
+            drummer.setCaptainUuid(companyCaptain.getUUID());
+            player.displayClientMessage(Component.translatable("requiem.standard.drummer.added",
+                    drummer.getDisplayName()), true);
         }
     }
 

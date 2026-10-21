@@ -1,0 +1,16 @@
+{
+  "name": "Artillery Horn",
+  "icon": "requiem:artillery_horn",
+  "category": "goety:requiem_crafts",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:artillery_horn",
+      "text": "The Artillery Horn is bound to an Artillery Captain. Right-click air to blow it and order the squad's gunners to fire a volley; right-click the ground to set a battery position."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Right-click an artilleryman to enroll him in the squad of the captain the horn is bound to."
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import com.requiem.servants.entity.ApprenticeEntity;
 import com.requiem.servants.entity.ArtilleryCaptainEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
 import com.requiem.servants.entity.CaptainEntity;
+import com.requiem.servants.entity.DrummerEntity;
 import com.requiem.servants.entity.GardenerEntity;
 import com.requiem.servants.entity.RecruiterEntity;
 import net.minecraft.world.entity.Mob;
@@ -106,6 +107,10 @@ public final class FormationEligibility {
         }
         // 连队只管步兵：不收炮兵与炮兵队长（它们由炮兵号角单独指挥）
         if (mob instanceof ArtilleryEntity || mob instanceof ArtilleryCaptainEntity) {
+            return false;
+        }
+        // 鼓手不编入名册：由连旗绑定到连队长的鼓手槽
+        if (mob instanceof DrummerEntity) {
             return false;
         }
         // 脚本驱动的工作仆从有自己的活干，拉进战列会让它们停工

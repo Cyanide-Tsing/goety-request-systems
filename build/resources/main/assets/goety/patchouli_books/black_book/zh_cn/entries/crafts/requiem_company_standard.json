@@ -1,0 +1,16 @@
+{
+  "name": "连旗",
+  "icon": "requiem:company_standard",
+  "category": "goety:requiem_crafts",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:company_standard",
+      "text": "连旗绑定一支连队，用来指挥整个连队。右键空中切换号令，潜行 + 右键空中切换阵型，右键方块设置集结点。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "右键一名炮兵队长，可将其加入或移出连队的炮火支援清单。"
+    }
+  ]
+}

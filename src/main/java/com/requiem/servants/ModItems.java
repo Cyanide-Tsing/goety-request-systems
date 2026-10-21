@@ -6,6 +6,7 @@ import com.requiem.servants.item.AssaultOrderItem;
 import com.requiem.servants.item.CompanyStandardItem;
 import com.requiem.servants.item.DemolitionScrollItem;
 import com.requiem.servants.item.PaleSaberItem;
+import com.requiem.servants.item.SnareDrumItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -57,6 +58,10 @@ public class ModItems {
     public static final RegistryObject<Item> ARTILLERY_CAPTAIN_SPAWN_EGG = ITEMS.register("artillery_captain_spawn_egg",
             () -> new ServantSpawnEggItem(ModEntities.ARTILLERY_CAPTAIN, 0x3D2B1F, 0xD4AF37, new Item.Properties()));
 
+    // 鼓手刷怪蛋
+    public static final RegistryObject<Item> DRUMMER_SPAWN_EGG = ITEMS.register("drummer_spawn_egg",
+            () -> new ServantSpawnEggItem(ModEntities.DRUMMER, 0x6B3E2E, 0xD4AF37, new Item.Properties()));
+
     // 连队长刷怪蛋：底色沿用传令兵，副色用金色以示军官身份
     // 用 goety 的 ServantSpawnEggItem 而不是普通刷怪蛋，这样生成时会把使用者绑定为主人
     public static final RegistryObject<Item> CAPTAIN_SPAWN_EGG = ITEMS.register("captain_spawn_egg",
@@ -70,7 +75,7 @@ public class ModItems {
     public static final RegistryObject<Item> ASSAULT_ORDER = ITEMS.register("assault_order",
             () -> new AssaultOrderItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
-    // 爆破卷轴：首次阅读解锁爆破研究（掷弹兵与炮兵训练）
+    // 爆破卷轴：首次阅读解锁爆破研究（炮兵、掷弹兵与征服者训练）
     public static final RegistryObject<Item> DEMOLITION_SCROLL = ITEMS.register("demolition_scroll",
             DemolitionScrollItem::new);
 
@@ -81,6 +86,10 @@ public class ModItems {
     // 苍白军刀：炮兵/掷弹兵/炮兵队长/连队长的近战武器
     public static final RegistryObject<Item> PALE_SABER = ITEMS.register("pale_saber",
             () -> new PaleSaberItem(new Item.Properties().stacksTo(1)));
+
+    // 小军鼓：鼓手仆从的乐器
+    public static final RegistryObject<Item> SNARE_DRUM = ITEMS.register("snare_drum",
+            () -> new SnareDrumItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_MODE_TABS.register("requiem",
             () -> CreativeModeTab.builder()
@@ -97,11 +106,13 @@ public class ModItems {
                         output.accept(CONQUEROR_SPAWN_EGG.get());
                         output.accept(ARTILLERY_CAPTAIN_SPAWN_EGG.get());
                         output.accept(CAPTAIN_SPAWN_EGG.get());
+                        output.accept(DRUMMER_SPAWN_EGG.get());
                         output.accept(COMPANY_STANDARD.get());
                         output.accept(ASSAULT_ORDER.get());
                         output.accept(DEMOLITION_SCROLL.get());
                         output.accept(ARTILLERY_HORN.get());
                         output.accept(PALE_SABER.get());
+                        output.accept(SNARE_DRUM.get());
                     })
                     .build());
 

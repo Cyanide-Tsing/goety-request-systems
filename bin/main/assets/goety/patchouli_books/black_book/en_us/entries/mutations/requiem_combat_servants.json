@@ -1,0 +1,19 @@
+{
+  "name": "Combat Servants",
+  "icon": "requiem:captain_spawn_egg",
+  "category": "goety:requiem_mutations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "These illagers are your officers, trained without the Demolition Scroll."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:captain"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Company Captains command the whole company, forming up, marching, and issuing orders — and with an $(l:crafts/requiem_assault_order)Assault Order$() they will approach, scout, bombard, and storm an objective entirely on their own."
+    }
+  ]
+}

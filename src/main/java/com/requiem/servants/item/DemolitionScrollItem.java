@@ -1,11 +1,14 @@
 package com.requiem.servants.item;
 
+import com.Polarice3.Goety.Goety;
 import com.Polarice3.Goety.common.items.research.ResearchScroll;
 import com.Polarice3.Goety.common.research.Research;
 import com.Polarice3.Goety.common.research.ResearchList;
+import com.Polarice3.Goety.utils.SEHelper;
 import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -37,9 +40,16 @@ public class DemolitionScrollItem extends ResearchScroll {
         return Component.translatable("requiem.scroll.demolition.read");
     }
 
+    /** 复刻 goety 原生卷轴 tooltip：研究名金色，已阅读蓝色 / 右键阅读青色。 */
     @Override
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("requiem.scroll.demolition.desc").withStyle(ChatFormatting.GRAY));
-        tooltip.add(Component.translatable("info.goety.items.scroll").withStyle(ChatFormatting.DARK_GRAY));
+        super.appendHoverText(stack, level, tooltip, flag);
+        tooltip.add(Component.translatable("requiem.scroll.demolition.name").withStyle(ChatFormatting.GOLD));
+        Player player = Goety.PROXY.getPlayer();
+        if (player != null && SEHelper.hasResearch(player, DEMOLITION)) {
+            tooltip.add(Component.translatable("info.goety.research.learned").withStyle(ChatFormatting.BLUE));
+        } else {
+            tooltip.add(Component.translatable("info.goety.items.scroll").withStyle(ChatFormatting.AQUA));
+        }
     }
 }

@@ -1,0 +1,16 @@
+{
+  "name": "Company Standard",
+  "icon": "requiem:company_standard",
+  "category": "goety:requiem_crafts",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:company_standard",
+      "text": "The Company Standard is bound to a company, commanding it as a whole. Right-click air to change the order, sneak + right-click air to change formation, and right-click a block to set a rally point."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Right-click an Artillery Captain to add or remove him from the company's artillery support list."
+    }
+  ]
+}

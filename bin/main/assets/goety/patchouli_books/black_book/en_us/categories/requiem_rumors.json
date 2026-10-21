@@ -1,0 +1,7 @@
+{
+  "name": "Rumors & Gossip",
+  "description": "Rumors of the Red Merchant and the Demolition Scroll.",
+  "icon": "requiem:demolition_scroll",
+  "sortnum": 3,
+  "parent": "goety:requiem"
+}

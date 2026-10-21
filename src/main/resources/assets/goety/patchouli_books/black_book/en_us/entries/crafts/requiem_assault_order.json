@@ -1,0 +1,16 @@
+{
+  "name": "Assault Order",
+  "icon": "requiem:assault_order",
+  "category": "goety:requiem_crafts",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:assault_order",
+      "text": "The Assault Order is bound to a company. Right-click a block to order an assault on that point, and the captain will approach, scout, bombard, and storm it entirely on his own."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Sneak + right-click air to call off the assault; right-click air to report its status."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "突击令",
+  "icon": "requiem:assault_order",
+  "category": "goety:requiem_crafts",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:assault_order",
+      "text": "突击令绑定一支连队，右键方块即可下令突击该点。连队长会自主逼近、侦察、炮击并发起突击，全程无需你在场。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "潜行 + 右键空中取消作战；右键空中查询作战状态。"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "合成",
+  "description": "本附属的武器与指挥工具。",
+  "icon": "requiem:pale_saber",
+  "sortnum": 2,
+  "parent": "goety:requiem"
+}

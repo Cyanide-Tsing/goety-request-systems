@@ -1,0 +1,7 @@
+{
+  "name": "变异",
+  "description": "征募并训练灾厄村民仆从。",
+  "icon": "requiem:artillery_spawn_egg",
+  "sortnum": 1,
+  "parent": "goety:requiem"
+}

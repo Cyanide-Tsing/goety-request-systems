@@ -1,0 +1,12 @@
+{
+  "name": "爆破卷轴的传闻",
+  "icon": "requiem:demolition_scroll",
+  "category": "goety:requiem_rumors",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "传闻那名红商人随身携带着一本记载爆破知识的笔记——爆破卷轴。若能寻得这本卷轴并加以研读，或许就能从中整理出炮兵与掷弹兵的训练之法。"
+    }
+  ]
+}

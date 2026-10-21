@@ -1,0 +1,43 @@
+{
+  "name": "Demolition Roster",
+  "icon": "supplementaries:bomb",
+  "category": "goety:requiem_mutations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Training unlocked after reading the $(l:rumors/requiem_demolition_scroll)Demolition Scroll$(), devoted to projected firepower."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:artillery"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Artillerymen are gunners who man Supplementaries cannons. They load, aim, and fire on their own, drawing powder and shot from the ammo barrels you bind to them."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:grenadier"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Grenadiers are heavy infantry who hurl bombs, keeping their distance from approaching foes — and drawing the $(l:crafts/requiem_pale_saber)Pale Saber$() when forced into melee."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:conqueror"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Conquerors are crossbow-armed line infantry who loose fireworks as ammunition, blasting foes with dazzling bursts."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:artillery_captain"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Artillery Captains command a gun squad. Bind one with the $(l:crafts/requiem_artillery_horn)Artillery Horn$() to set a battery and blow for a volley, and the squad's gunners answer to him."
+    }
+  ]
+}
