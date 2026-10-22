@@ -1,0 +1,10 @@
+{
+  "music_disc.british_grenadiers": {
+    "sounds": [
+      {
+        "name": "requiem:british_grenadiers",
+        "stream": false
+      }
+    ]
+  }
+}

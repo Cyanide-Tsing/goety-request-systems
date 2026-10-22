@@ -3,6 +3,8 @@ package com.requiem.servants;
 import com.Polarice3.Goety.common.items.ServantSpawnEggItem;
 import com.requiem.servants.item.ArtilleryHornItem;
 import com.requiem.servants.item.AssaultOrderItem;
+import com.requiem.servants.item.BritishGrenadiersDiscItem;
+import com.requiem.servants.item.CavalryStandardItem;
 import com.requiem.servants.item.CompanyStandardItem;
 import com.requiem.servants.item.DemolitionScrollItem;
 import com.requiem.servants.item.PaleSaberItem;
@@ -62,6 +64,18 @@ public class ModItems {
     public static final RegistryObject<Item> DRUMMER_SPAWN_EGG = ITEMS.register("drummer_spawn_egg",
             () -> new ServantSpawnEggItem(ModEntities.DRUMMER, 0x6B3E2E, 0xD4AF37, new Item.Properties()));
 
+    // 轻骑兵刷怪蛋
+    public static final RegistryObject<Item> LIGHT_CAVALRY_SPAWN_EGG = ITEMS.register("light_cavalry_spawn_egg",
+            () -> new ServantSpawnEggItem(ModEntities.LIGHT_CAVALRY, 0x4A5D23, 0xD4AF37, new Item.Properties()));
+
+    // 骑兵队长刷怪蛋
+    public static final RegistryObject<Item> CAVALRY_CAPTAIN_SPAWN_EGG = ITEMS.register("cavalry_captain_spawn_egg",
+            () -> new ServantSpawnEggItem(ModEntities.CAVALRY_CAPTAIN, 0x2E1F3D, 0xD4AF37, new Item.Properties()));
+
+    // 马倌刷怪蛋
+    public static final RegistryObject<Item> GROOM_SPAWN_EGG = ITEMS.register("groom_spawn_egg",
+            () -> new ServantSpawnEggItem(ModEntities.GROOM, 0x6B5B3E, 0xD4AF37, new Item.Properties()));
+
     // 连队长刷怪蛋：底色沿用传令兵，副色用金色以示军官身份
     // 用 goety 的 ServantSpawnEggItem 而不是普通刷怪蛋，这样生成时会把使用者绑定为主人
     public static final RegistryObject<Item> CAPTAIN_SPAWN_EGG = ITEMS.register("captain_spawn_egg",
@@ -91,6 +105,14 @@ public class ModItems {
     public static final RegistryObject<Item> SNARE_DRUM = ITEMS.register("snare_drum",
             () -> new SnareDrumItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
 
+    // 音乐唱片：不列颠掷弹兵（美国军乐队），暂无获取方式
+    public static final RegistryObject<Item> BRITISH_GRENADIERS_DISC = ITEMS.register("british_grenadiers_disc",
+            () -> new BritishGrenadiersDiscItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    // 骑兵军旗：骑兵队长的指挥工具
+    public static final RegistryObject<Item> CAVALRY_STANDARD = ITEMS.register("cavalry_standard",
+            () -> new CavalryStandardItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+
     public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_MODE_TABS.register("requiem",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.requiem"))
@@ -107,12 +129,18 @@ public class ModItems {
                         output.accept(ARTILLERY_CAPTAIN_SPAWN_EGG.get());
                         output.accept(CAPTAIN_SPAWN_EGG.get());
                         output.accept(DRUMMER_SPAWN_EGG.get());
+                        output.accept(LIGHT_CAVALRY_SPAWN_EGG.get());
+                        output.accept(CAVALRY_CAPTAIN_SPAWN_EGG.get());
+                        output.accept(GROOM_SPAWN_EGG.get());
+                        output.accept(ModBlocks.HORSE_FARM_REGISTER_ITEM.get());
                         output.accept(COMPANY_STANDARD.get());
                         output.accept(ASSAULT_ORDER.get());
                         output.accept(DEMOLITION_SCROLL.get());
                         output.accept(ARTILLERY_HORN.get());
                         output.accept(PALE_SABER.get());
                         output.accept(SNARE_DRUM.get());
+                        output.accept(BRITISH_GRENADIERS_DISC.get());
+                        output.accept(CAVALRY_STANDARD.get());
                     })
                     .build());
 

@@ -4,10 +4,13 @@ import com.requiem.servants.entity.ApprenticeEntity;
 import com.requiem.servants.entity.ArtilleryCaptainEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
 import com.requiem.servants.entity.CaptainEntity;
+import com.requiem.servants.entity.CavalryCaptainEntity;
 import com.requiem.servants.entity.ConquerorEntity;
 import com.requiem.servants.entity.DrummerEntity;
 import com.requiem.servants.entity.GardenerEntity;
 import com.requiem.servants.entity.GrenadierEntity;
+import com.requiem.servants.entity.GroomEntity;
+import com.requiem.servants.entity.LightCavalryEntity;
 import com.requiem.servants.entity.RecruiterEntity;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -28,5 +31,8 @@ public class CommonSetup {
         event.put(ModEntities.ARTILLERY_CAPTAIN.get(), ArtilleryCaptainEntity.createAttributes().build());
         event.put(ModEntities.CAPTAIN.get(), CaptainEntity.createAttributes().build());
         event.put(ModEntities.DRUMMER.get(), DrummerEntity.createAttributes().build());
+        event.put(ModEntities.LIGHT_CAVALRY.get(), LightCavalryEntity.createAttributes().build());
+        event.put(ModEntities.CAVALRY_CAPTAIN.get(), CavalryCaptainEntity.createAttributes().build());
+        event.put(ModEntities.GROOM.get(), GroomEntity.createAttributes().build());
     }
 }

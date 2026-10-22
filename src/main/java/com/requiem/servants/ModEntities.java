@@ -4,10 +4,13 @@ import com.requiem.servants.entity.ApprenticeEntity;
 import com.requiem.servants.entity.ArtilleryCaptainEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
 import com.requiem.servants.entity.CaptainEntity;
+import com.requiem.servants.entity.CavalryCaptainEntity;
 import com.requiem.servants.entity.ConquerorEntity;
 import com.requiem.servants.entity.DrummerEntity;
 import com.requiem.servants.entity.GardenerEntity;
 import com.requiem.servants.entity.GrenadierEntity;
+import com.requiem.servants.entity.GroomEntity;
+import com.requiem.servants.entity.LightCavalryEntity;
 import com.requiem.servants.entity.RecruiterEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -103,6 +106,30 @@ public class ModEntities {
                     .clientTrackingRange(16)
                     .updateInterval(3)
                     .build("requiem:drummer"));
+
+    // 轻骑兵：骑马的机动单位
+    public static final RegistryObject<EntityType<LightCavalryEntity>> LIGHT_CAVALRY = ENTITY_TYPES.register("light_cavalry",
+            () -> EntityType.Builder.of(LightCavalryEntity::new, MobCategory.CREATURE)
+                    .sized(0.6f, 1.95f)
+                    .clientTrackingRange(16)
+                    .updateInterval(3)
+                    .build("requiem:light_cavalry"));
+
+    // 骑兵队长：骑兵编制的指挥军官
+    public static final RegistryObject<EntityType<CavalryCaptainEntity>> CAVALRY_CAPTAIN = ENTITY_TYPES.register("cavalry_captain",
+            () -> EntityType.Builder.of(CavalryCaptainEntity::new, MobCategory.CREATURE)
+                    .sized(0.6f, 1.95f)
+                    .clientTrackingRange(16)
+                    .updateInterval(3)
+                    .build("requiem:cavalry_captain"));
+
+    // 马倌：管理马场登记站的功能性仆从
+    public static final RegistryObject<EntityType<GroomEntity>> GROOM = ENTITY_TYPES.register("groom",
+            () -> EntityType.Builder.of(GroomEntity::new, MobCategory.CREATURE)
+                    .sized(0.6f, 1.95f)
+                    .clientTrackingRange(16)
+                    .updateInterval(3)
+                    .build("requiem:groom"));
 
     public static void register() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

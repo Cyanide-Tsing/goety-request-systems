@@ -7,8 +7,10 @@ import com.requiem.servants.entity.ApprenticeEntity;
 import com.requiem.servants.entity.ArtilleryCaptainEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
 import com.requiem.servants.entity.CaptainEntity;
+import com.requiem.servants.entity.CavalryCaptainEntity;
 import com.requiem.servants.entity.DrummerEntity;
 import com.requiem.servants.entity.GardenerEntity;
+import com.requiem.servants.entity.GroomEntity;
 import com.requiem.servants.entity.RecruiterEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
@@ -79,7 +81,8 @@ public final class FormationEligibility {
     public static boolean isScriptedWorker(Mob mob) {
         return mob instanceof ApprenticeEntity
                 || mob instanceof GardenerEntity
-                || mob instanceof RecruiterEntity;
+                || mob instanceof RecruiterEntity
+                || mob instanceof GroomEntity;
     }
 
     /**
@@ -107,6 +110,10 @@ public final class FormationEligibility {
         }
         // 连队只管步兵：不收炮兵与炮兵队长（它们由炮兵号角单独指挥）
         if (mob instanceof ArtilleryEntity || mob instanceof ArtilleryCaptainEntity) {
+            return false;
+        }
+        // 骑兵队长是骑兵编制的指挥军官，不入列
+        if (mob instanceof CavalryCaptainEntity) {
             return false;
         }
         // 鼓手不编入名册：由连旗绑定到连队长的鼓手槽

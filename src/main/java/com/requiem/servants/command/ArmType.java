@@ -6,10 +6,13 @@ import com.Polarice3.Goety.common.entities.ally.illager.SpellcasterIllagerServan
 import com.Polarice3.Goety.common.entities.ally.illager.StormCasterServant;
 import com.requiem.servants.entity.ApprenticeEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
+import com.requiem.servants.entity.CavalryCaptainEntity;
 import com.requiem.servants.entity.ConquerorEntity;
 import com.requiem.servants.entity.DrummerEntity;
 import com.requiem.servants.entity.GardenerEntity;
 import com.requiem.servants.entity.GrenadierEntity;
+import com.requiem.servants.entity.GroomEntity;
+import com.requiem.servants.entity.LightCavalryEntity;
 import com.requiem.servants.entity.RecruiterEntity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -99,11 +102,15 @@ public enum ArmType {
      * </ol>
      */
     public static ArmType classify(Mob mob) {
-        if (mob instanceof ArtilleryEntity || mob instanceof GrenadierEntity || mob instanceof ConquerorEntity) {
+        if (mob instanceof ArtilleryEntity || mob instanceof GrenadierEntity || mob instanceof ConquerorEntity
+                || mob instanceof LightCavalryEntity) {
             return RANGED;
         }
+        if (mob instanceof CavalryCaptainEntity) {
+            return MELEE;
+        }
         if (mob instanceof RecruiterEntity || mob instanceof ApprenticeEntity || mob instanceof GardenerEntity
-                || mob instanceof DrummerEntity) {
+                || mob instanceof DrummerEntity || mob instanceof GroomEntity) {
             return SUPPORT;
         }
         if (mob instanceof IMobCrafter || mob instanceof SignalerServant) {

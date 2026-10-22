@@ -14,10 +14,15 @@ public class RequiemServants {
     public RequiemServants() {
         ModEntities.register();
         ModItems.register();
+        ModSounds.register();
+        ModBlocks.register();
+        ModBlockEntities.register();
+        ModMenuTypes.register();
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             modBus.addListener(ClientSetup::registerRenderers);
             modBus.addListener(ClientSetup::registerLayerDefinitions);
+            modBus.addListener(ClientSetup::registerScreens);
         });
     }
 }

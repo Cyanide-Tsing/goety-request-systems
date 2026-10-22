@@ -1,0 +1,8 @@
+﻿{
+  "variants": {
+    "facing=north": { "model": "requiem:block/horse_farm_register" },
+    "facing=south": { "model": "requiem:block/horse_farm_register", "y": 180 },
+    "facing=west": { "model": "requiem:block/horse_farm_register", "y": 270 },
+    "facing=east": { "model": "requiem:block/horse_farm_register", "y": 90 }
+  }
+}
