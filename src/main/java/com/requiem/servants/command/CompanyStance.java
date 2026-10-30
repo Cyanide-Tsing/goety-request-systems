@@ -13,6 +13,8 @@ public enum CompanyStance {
     FORM_UP("form_up"),
     /** 坚守：守住槽位并保持朝向，只打已经贴到身上的敌人，绝不追击。 */
     HOLD("hold"),
+    /** 驻扎：停在指定驻扎地点死守，只打贴身的敌人。 */
+    GARRISON("garrison"),
     /** 前进：锚点随威胁方向推进，成员保持槽位跟着走。 */
     ADVANCE("advance"),
     /** 交战：保持阵型，但允许在一定范围内脱离槽位反击。 */
@@ -58,7 +60,7 @@ public enum CompanyStance {
 
     /** 该姿态下成员是否必须严格保持阵型朝向（而不是朝着移动方向）。 */
     public boolean requiresStrictFacing() {
-        return this == FORM_UP || this == HOLD;
+        return this == FORM_UP || this == HOLD || this == GARRISON;
     }
 
     /** 该姿态下锚点是否跟着连队长/主人连续移动。 */

@@ -135,122 +135,213 @@ Adding Libraries to Inheritance
 Reading Input: D:\PCL2 release 2.4.4\goety-request-systems\build\libs\goety-request-systems-1.0.0.jar
 Adding input to inheritance map
 Processing entries
-Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
-Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
-Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/start()V from net/minecraft/world/entity/ai/goal/Goal/start()V: start -> m_8056_
 Conflicting propagated mapping for com/requiem/servants/ai/CaptainMarchGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
-Conflicting propagated mapping for com/requiem/servants/ai/CavalryAttackGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
 Conflicting propagated mapping for com/requiem/servants/ai/CaptainMarchGoal/start()V from net/minecraft/world/entity/ai/goal/Goal/start()V: start -> m_8056_
-Conflicting propagated mapping for com/requiem/servants/ai/CavalryAttackGoal/requiresUpdateEveryTick()Z from net/minecraft/world/entity/ai/goal/Goal/requiresUpdateEveryTick()Z: requiresUpdateEveryTick -> m_183429_
-Conflicting propagated mapping for com/requiem/servants/ai/CavalryAttackGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
-Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/requiresUpdateEveryTick()Z from net/minecraft/world/entity/ai/goal/Goal/requiresUpdateEveryTick()Z: requiresUpdateEveryTick -> m_183429_
-Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/start()V from net/minecraft/world/entity/ai/goal/Goal/start()V: start -> m_8056_
-Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
+Conflicting propagated mapping for com/requiem/servants/ai/AvoidSpellEntityGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
 Conflicting propagated mapping for com/requiem/servants/ai/CaptainMarchGoal/requiresUpdateEveryTick()Z from net/minecraft/world/entity/ai/goal/Goal/requiresUpdateEveryTick()Z: requiresUpdateEveryTick -> m_183429_
-Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/requiresUpdateEveryTick()Z from net/minecraft/world/entity/ai/goal/Goal/requiresUpdateEveryTick()Z: requiresUpdateEveryTick -> m_183429_
-Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/stop()V from net/minecraft/world/entity/ai/goal/Goal/stop()V: stop -> m_8041_
-Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/canContinueToUse()Z from net/minecraft/world/entity/ai/goal/Goal/canContinueToUse()Z: canContinueToUse -> m_8045_
-Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
 Conflicting propagated mapping for com/requiem/servants/ai/CaptainMarchGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
-Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/stop()V from net/minecraft/world/entity/ai/goal/Goal/stop()V: stop -> m_8041_
+Conflicting propagated mapping for com/requiem/servants/ai/OrbitBlockedTargetGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
+Conflicting propagated mapping for com/requiem/servants/ai/AvoidSpellEntityGoal/requiresUpdateEveryTick()Z from net/minecraft/world/entity/ai/goal/Goal/requiresUpdateEveryTick()Z: requiresUpdateEveryTick -> m_183429_
+Conflicting propagated mapping for com/requiem/servants/ai/AvoidSpellEntityGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
+Conflicting propagated mapping for com/requiem/servants/ai/OrbitBlockedTargetGoal/start()V from net/minecraft/world/entity/ai/goal/Goal/start()V: start -> m_8056_
 Conflicting propagated mapping for com/requiem/servants/ai/CaptainMarchGoal/stop()V from net/minecraft/world/entity/ai/goal/Goal/stop()V: stop -> m_8041_
-Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/canContinueToUse()Z from net/minecraft/world/entity/ai/goal/Goal/canContinueToUse()Z: canContinueToUse -> m_8045_
-Conflicting propagated mapping for com/requiem/servants/ai/CaptainMarchGoal/canContinueToUse()Z from net/minecraft/world/entity/ai/goal/Goal/canContinueToUse()Z: canContinueToUse -> m_8045_
+Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
+Conflicting propagated mapping for com/requiem/servants/ai/MarchTowardsPlayerGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
+Conflicting propagated mapping for com/requiem/servants/ai/CleanseNegativeEffectsGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
+Conflicting propagated mapping for com/requiem/servants/ai/MarchTowardsPlayerGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
+Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/start()V from net/minecraft/world/entity/ai/goal/Goal/start()V: start -> m_8056_
+Conflicting propagated mapping for com/requiem/servants/ai/CleanseNegativeEffectsGoal/requiresUpdateEveryTick()Z from net/minecraft/world/entity/ai/goal/Goal/requiresUpdateEveryTick()Z: requiresUpdateEveryTick -> m_183429_
 Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterMenu/clickMenuButton(Lnet/minecraft/world/entity/player/Player;I)Z from net/minecraft/world/inventory/AbstractContainerMenu/clickMenuButton(Lnet/minecraft/world/entity/player/Player;I)Z: clickMenuButton -> m_6366_
+Conflicting propagated mapping for com/requiem/servants/ai/CaptainMarchGoal/canContinueToUse()Z from net/minecraft/world/entity/ai/goal/Goal/canContinueToUse()Z: canContinueToUse -> m_8045_
+Conflicting propagated mapping for com/requiem/servants/ai/OrbitBlockedTargetGoal/requiresUpdateEveryTick()Z from net/minecraft/world/entity/ai/goal/Goal/requiresUpdateEveryTick()Z: requiresUpdateEveryTick -> m_183429_
+Conflicting propagated mapping for com/requiem/servants/ai/AvoidSpellEntityGoal/canContinueToUse()Z from net/minecraft/world/entity/ai/goal/Goal/canContinueToUse()Z: canContinueToUse -> m_8045_
+Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
+Conflicting propagated mapping for com/requiem/servants/ai/CavalryAttackGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
+Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/start()V from net/minecraft/world/entity/ai/goal/Goal/start()V: start -> m_8056_
+Conflicting propagated mapping for com/requiem/servants/ai/OrbitBlockedTargetGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
+Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/requiresUpdateEveryTick()Z from net/minecraft/world/entity/ai/goal/Goal/requiresUpdateEveryTick()Z: requiresUpdateEveryTick -> m_183429_
+Conflicting propagated mapping for com/requiem/servants/ai/OrbitBlockedTargetGoal/stop()V from net/minecraft/world/entity/ai/goal/Goal/stop()V: stop -> m_8041_
+Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
 Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterMenu/stillValid(Lnet/minecraft/world/entity/player/Player;)Z from net/minecraft/world/inventory/AbstractContainerMenu/stillValid(Lnet/minecraft/world/entity/player/Player;)Z: stillValid -> m_6875_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkMenu/clickMenuButton(Lnet/minecraft/world/entity/player/Player;I)Z from net/minecraft/world/inventory/AbstractContainerMenu/clickMenuButton(Lnet/minecraft/world/entity/player/Player;I)Z: clickMenuButton -> m_6366_
+Conflicting propagated mapping for com/requiem/servants/ai/CleanseNegativeEffectsGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
+Conflicting propagated mapping for com/requiem/servants/ai/MarchTowardsPlayerGoal/stop()V from net/minecraft/world/entity/ai/goal/Goal/stop()V: stop -> m_8041_
+Conflicting propagated mapping for com/requiem/servants/ai/CleanseNegativeEffectsGoal/canContinueToUse()Z from net/minecraft/world/entity/ai/goal/Goal/canContinueToUse()Z: canContinueToUse -> m_8045_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkMenu/stillValid(Lnet/minecraft/world/entity/player/Player;)Z from net/minecraft/world/inventory/AbstractContainerMenu/stillValid(Lnet/minecraft/world/entity/player/Player;)Z: stillValid -> m_6875_
 Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterMenu/quickMoveStack(Lnet/minecraft/world/entity/player/Player;I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/inventory/AbstractContainerMenu/quickMoveStack(Lnet/minecraft/world/entity/player/Player;I)Lnet/minecraft/world/item/ItemStack;: quickMoveStack -> m_7648_
-Conflicting propagated mapping for com/requiem/servants/client/render/LightCavalryRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
-Conflicting propagated mapping for com/requiem/servants/client/render/RecruiterRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
-Conflicting propagated mapping for com/requiem/servants/client/render/ArtilleryCaptainRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
-Conflicting propagated mapping for com/requiem/servants/client/render/CavalryCaptainRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
-Conflicting propagated mapping for com/requiem/servants/client/render/GrenadierRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
-Conflicting propagated mapping for com/requiem/servants/client/render/DrummerRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/stop()V from net/minecraft/world/entity/ai/goal/Goal/stop()V: stop -> m_8041_
+Conflicting propagated mapping for com/requiem/servants/ai/OrbitBlockedTargetGoal/canContinueToUse()Z from net/minecraft/world/entity/ai/goal/Goal/canContinueToUse()Z: canContinueToUse -> m_8045_
+Conflicting propagated mapping for com/requiem/servants/ai/CaptainRetreatGoal/canContinueToUse()Z from net/minecraft/world/entity/ai/goal/Goal/canContinueToUse()Z: canContinueToUse -> m_8045_
+Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/requiresUpdateEveryTick()Z from net/minecraft/world/entity/ai/goal/Goal/requiresUpdateEveryTick()Z: requiresUpdateEveryTick -> m_183429_
+Conflicting propagated mapping for com/requiem/servants/ai/CavalryAttackGoal/requiresUpdateEveryTick()Z from net/minecraft/world/entity/ai/goal/Goal/requiresUpdateEveryTick()Z: requiresUpdateEveryTick -> m_183429_
+Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkMenu/quickMoveStack(Lnet/minecraft/world/entity/player/Player;I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/inventory/AbstractContainerMenu/quickMoveStack(Lnet/minecraft/world/entity/player/Player;I)Lnet/minecraft/world/item/ItemStack;: quickMoveStack -> m_7648_
+Conflicting propagated mapping for com/requiem/servants/ai/MarchTowardsPlayerGoal/canContinueToUse()Z from net/minecraft/world/entity/ai/goal/Goal/canContinueToUse()Z: canContinueToUse -> m_8045_
+Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/stop()V from net/minecraft/world/entity/ai/goal/Goal/stop()V: stop -> m_8041_
+Conflicting propagated mapping for com/requiem/servants/ai/CavalryAttackGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
+Conflicting propagated mapping for com/requiem/servants/ai/FormationSlotGoal/canContinueToUse()Z from net/minecraft/world/entity/ai/goal/Goal/canContinueToUse()Z: canContinueToUse -> m_8045_
+Conflicting propagated mapping for com/requiem/servants/client/render/HorseFarmRegisterRenderer/render(Lnet/minecraft/world/level/block/entity/BlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V from net/minecraft/client/renderer/blockentity/BlockEntityRenderer/render(Lnet/minecraft/world/level/block/entity/BlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V: render -> m_6922_
+Conflicting propagated mapping for com/requiem/servants/client/render/DemandWorkRenderer/render(Lnet/minecraft/world/level/block/entity/BlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V from net/minecraft/client/renderer/blockentity/BlockEntityRenderer/render(Lnet/minecraft/world/level/block/entity/BlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V: render -> m_6922_
 Conflicting propagated mapping for com/requiem/servants/client/render/ConquerorRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
-Conflicting propagated mapping for com/requiem/servants/client/render/GardenerRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
-Conflicting propagated mapping for com/requiem/servants/client/render/CaptainRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/GroomRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/ArtilleryCaptainRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/BoticarioHostileRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
 Conflicting propagated mapping for com/requiem/servants/client/render/ApprenticeRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
 Conflicting propagated mapping for com/requiem/servants/client/render/ArtilleryRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
-Conflicting propagated mapping for com/requiem/servants/client/render/GroomRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
-Conflicting propagated mapping for com/requiem/servants/client/render/model/ConquerorModel/setupAnim(Lnet/minecraft/world/entity/Entity;FFFFF)V from net/minecraft/client/model/HumanoidModel/setupAnim(Lnet/minecraft/world/entity/Entity;FFFFF)V: setupAnim -> m_6973_
-Conflicting propagated mapping for com/requiem/servants/client/render/model/ConquerorModel/setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V from net/minecraft/client/model/HumanoidModel/setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V: setupAnim -> m_6973_
+Conflicting propagated mapping for com/requiem/servants/client/render/GardenerRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/GrenadierRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/DrummerRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/CaptainRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/FletcherRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/CavalryCaptainRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/BoticarioRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/block/WorkingBlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/level/block/entity/BlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V: load -> m_142466_
+Conflicting propagated mapping for com/requiem/servants/block/WorkingBlockEntity/saveAdditional(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/level/block/entity/BlockEntity/saveAdditional(Lnet/minecraft/nbt/CompoundTag;)V: saveAdditional -> m_183515_
+Conflicting propagated mapping for com/requiem/servants/block/WorkingBlockEntity/getContainerSize()I from net/minecraft/world/Container/getContainerSize()I: getContainerSize -> m_6643_
+Conflicting propagated mapping for com/requiem/servants/block/WorkingBlockEntity/setItem(ILnet/minecraft/world/item/ItemStack;)V from net/minecraft/world/Container/setItem(ILnet/minecraft/world/item/ItemStack;)V: setItem -> m_6836_
+Conflicting propagated mapping for com/requiem/servants/block/WorkingBlockEntity/removeItem(II)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/removeItem(II)Lnet/minecraft/world/item/ItemStack;: removeItem -> m_7407_
+Conflicting propagated mapping for com/requiem/servants/block/WorkingBlockEntity/getItem(I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/getItem(I)Lnet/minecraft/world/item/ItemStack;: getItem -> m_8020_
+Conflicting propagated mapping for com/requiem/servants/block/WorkingBlockEntity/clearContent()V from net/minecraft/world/Clearable/clearContent()V: clearContent -> m_6211_
+Conflicting propagated mapping for com/requiem/servants/block/WorkingBlockEntity/isEmpty()Z from net/minecraft/world/Container/isEmpty()Z: isEmpty -> m_7983_
+Conflicting propagated mapping for com/requiem/servants/block/WorkingBlockEntity/removeItemNoUpdate(I)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/Container/removeItemNoUpdate(I)Lnet/minecraft/world/item/ItemStack;: removeItemNoUpdate -> m_8016_
+Conflicting propagated mapping for com/requiem/servants/block/WorkingBlockEntity/stillValid(Lnet/minecraft/world/entity/player/Player;)Z from net/minecraft/world/Container/stillValid(Lnet/minecraft/world/entity/player/Player;)Z: stillValid -> m_6542_
 Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlockEntity/getUpdateTag()Lnet/minecraft/nbt/CompoundTag; from net/minecraft/world/level/block/entity/BlockEntity/getUpdateTag()Lnet/minecraft/nbt/CompoundTag;: getUpdateTag -> m_5995_
-Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/level/block/entity/BlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V: load -> m_142466_
-Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlockEntity/saveAdditional(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/level/block/entity/BlockEntity/saveAdditional(Lnet/minecraft/nbt/CompoundTag;)V: saveAdditional -> m_183515_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkBlockEntity/getUpdateTag()Lnet/minecraft/nbt/CompoundTag; from net/minecraft/world/level/block/entity/BlockEntity/getUpdateTag()Lnet/minecraft/nbt/CompoundTag;: getUpdateTag -> m_5995_
+Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V from com/requiem/servants/block/WorkingBlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V: load -> m_142466_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkBlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V from com/requiem/servants/block/WorkingBlockEntity/load(Lnet/minecraft/nbt/CompoundTag;)V: load -> m_142466_
 Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlockEntity/getUpdatePacket()Lnet/minecraft/network/protocol/Packet; from net/minecraft/world/level/block/entity/BlockEntity/getUpdatePacket()Lnet/minecraft/network/protocol/Packet;: getUpdatePacket -> m_58483_
-Conflicting propagated mapping for com/requiem/servants/client/screen/HorseFarmRegisterScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V: render -> m_88315_
-Conflicting propagated mapping for com/requiem/servants/client/screen/HorseFarmRegisterScreen/init()V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/init()V: init -> m_7856_
-Conflicting propagated mapping for com/requiem/servants/client/screen/HorseFarmRegisterScreen/renderLabels(Lnet/minecraft/client/gui/GuiGraphics;II)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderLabels(Lnet/minecraft/client/gui/GuiGraphics;II)V: renderLabels -> m_280003_
-Conflicting propagated mapping for com/requiem/servants/client/screen/HorseFarmRegisterScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V: renderBg -> m_7286_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkBlockEntity/getUpdatePacket()Lnet/minecraft/network/protocol/Packet; from net/minecraft/world/level/block/entity/BlockEntity/getUpdatePacket()Lnet/minecraft/network/protocol/Packet;: getUpdatePacket -> m_58483_
+Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlockEntity/saveAdditional(Lnet/minecraft/nbt/CompoundTag;)V from com/requiem/servants/block/WorkingBlockEntity/saveAdditional(Lnet/minecraft/nbt/CompoundTag;)V: saveAdditional -> m_183515_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkBlockEntity/saveAdditional(Lnet/minecraft/nbt/CompoundTag;)V from com/requiem/servants/block/WorkingBlockEntity/saveAdditional(Lnet/minecraft/nbt/CompoundTag;)V: saveAdditional -> m_183515_
 Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlock/getStateForPlacement(Lnet/minecraft/world/item/context/BlockPlaceContext;)Lnet/minecraft/world/level/block/state/BlockState; from net/minecraft/world/level/block/Block/getStateForPlacement(Lnet/minecraft/world/item/context/BlockPlaceContext;)Lnet/minecraft/world/level/block/state/BlockState;: getStateForPlacement -> m_5573_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkBlock/getStateForPlacement(Lnet/minecraft/world/item/context/BlockPlaceContext;)Lnet/minecraft/world/level/block/state/BlockState; from net/minecraft/world/level/block/Block/getStateForPlacement(Lnet/minecraft/world/item/context/BlockPlaceContext;)Lnet/minecraft/world/level/block/state/BlockState;: getStateForPlacement -> m_5573_
 Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity; from net/minecraft/world/level/block/EntityBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity;: newBlockEntity -> m_142194_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity; from net/minecraft/world/level/block/EntityBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity;: newBlockEntity -> m_142194_
 Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlock/getRenderShape(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/RenderShape; from net/minecraft/world/level/block/BaseEntityBlock/getRenderShape(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/RenderShape;: getRenderShape -> m_7514_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkBlock/getRenderShape(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/RenderShape; from net/minecraft/world/level/block/BaseEntityBlock/getRenderShape(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/RenderShape;: getRenderShape -> m_7514_
 Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlock/getMenuProvider(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/MenuProvider; from net/minecraft/world/level/block/BaseEntityBlock/getMenuProvider(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/MenuProvider;: getMenuProvider -> m_7246_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkBlock/getMenuProvider(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/MenuProvider; from net/minecraft/world/level/block/BaseEntityBlock/getMenuProvider(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/MenuProvider;: getMenuProvider -> m_7246_
+Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlock/getShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape; from net/minecraft/world/level/block/state/BlockBehaviour/getShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;: getShape -> m_5940_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkBlock/createBlockStateDefinition(Lnet/minecraft/world/level/block/state/StateDefinition$Builder;)V from net/minecraft/world/level/block/Block/createBlockStateDefinition(Lnet/minecraft/world/level/block/state/StateDefinition$Builder;)V: createBlockStateDefinition -> m_7926_
 Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlock/createBlockStateDefinition(Lnet/minecraft/world/level/block/state/StateDefinition$Builder;)V from net/minecraft/world/level/block/Block/createBlockStateDefinition(Lnet/minecraft/world/level/block/state/StateDefinition$Builder;)V: createBlockStateDefinition -> m_7926_
+Conflicting propagated mapping for com/requiem/servants/block/DemandWorkBlock/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/level/block/state/BlockBehaviour/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult;: use -> m_6227_
 Conflicting propagated mapping for com/requiem/servants/block/HorseFarmRegisterBlock/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/level/block/state/BlockBehaviour/use(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult;: use -> m_6227_
-Conflicting propagated mapping for com/requiem/servants/entity/GardenerEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
-Conflicting propagated mapping for com/requiem/servants/entity/GroomEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
-Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
-Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
-Conflicting propagated mapping for com/requiem/servants/entity/GrenadierEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
+Conflicting propagated mapping for net/minecraft/world/entity/LivingEntity/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V from net/minecraft/world/entity/player/Player/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V: lambda$addAdditionalSaveData$3 -> m_219754_
+Conflicting propagated mapping for com/requiem/servants/entity/BoticarioHostileEntity/getCastingSoundEvent()Lnet/minecraft/sounds/SoundEvent; from net/minecraft/world/entity/monster/SpellcasterIllager/getCastingSoundEvent()Lnet/minecraft/sounds/SoundEvent;: getCastingSoundEvent -> m_7894_
+Conflicting propagated mapping for com/requiem/servants/entity/BoticarioHostileEntity/applyRaidBuffs(IZ)V from net/minecraft/world/entity/raid/Raider/applyRaidBuffs(IZ)V: applyRaidBuffs -> m_7895_
+Conflicting propagated mapping for com/requiem/servants/entity/BoticarioHostileEntity/getCelebrateSound()Lnet/minecraft/sounds/SoundEvent; from net/minecraft/world/entity/raid/Raider/getCelebrateSound()Lnet/minecraft/sounds/SoundEvent;: getCelebrateSound -> m_7930_
+Conflicting propagated mapping for com/requiem/servants/entity/BoticarioHostileEntity/registerGoals()V from net/minecraft/world/entity/monster/AbstractIllager/registerGoals()V: registerGoals -> m_8099_
 Conflicting propagated mapping for com/requiem/servants/entity/LightCavalryEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
-Conflicting propagated mapping for com/requiem/servants/entity/CavalryCaptainEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
-Conflicting propagated mapping for com/requiem/servants/entity/DrummerEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
-Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/readAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/entity/Mob/readAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V: readAdditionalSaveData -> m_7378_
 Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryCaptainEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
+Conflicting propagated mapping for com/requiem/servants/entity/WorkServantEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
+Conflicting propagated mapping for com/requiem/servants/client/render/model/BoticarioHostileModel/setupAnim(Lnet/minecraft/world/entity/Entity;FFFFF)V from net/minecraft/client/model/EntityModel/setupAnim(Lnet/minecraft/world/entity/Entity;FFFFF)V: setupAnim -> m_6973_
+Conflicting propagated mapping for com/requiem/servants/entity/BoticarioEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
+Conflicting propagated mapping for com/requiem/servants/entity/WorkServantEntity/readAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/entity/Mob/readAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V: readAdditionalSaveData -> m_7378_
+Conflicting propagated mapping for com/requiem/servants/entity/GrenadierEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
+Conflicting propagated mapping for com/requiem/servants/entity/CavalryCaptainEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
+Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
+Conflicting propagated mapping for com/requiem/servants/entity/DrummerEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
+Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
+Conflicting propagated mapping for com/requiem/servants/entity/LightCavalryEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
+Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryCaptainEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
+Conflicting propagated mapping for com/requiem/servants/entity/WorkServantEntity/die(Lnet/minecraft/world/damagesource/DamageSource;)V from net/minecraft/world/entity/LivingEntity/die(Lnet/minecraft/world/damagesource/DamageSource;)V: die -> m_6667_
+Conflicting propagated mapping for com/requiem/servants/entity/WorkServantEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
+Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/readAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/entity/Mob/readAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V: readAdditionalSaveData -> m_7378_
+Conflicting propagated mapping for com/requiem/servants/entity/BoticarioEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
+Conflicting propagated mapping for com/requiem/servants/entity/CavalryCaptainEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
 Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/die(Lnet/minecraft/world/damagesource/DamageSource;)V from net/minecraft/world/entity/LivingEntity/die(Lnet/minecraft/world/damagesource/DamageSource;)V: die -> m_6667_
-Conflicting propagated mapping for com/requiem/servants/entity/GroomEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
 Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
 Conflicting propagated mapping for com/requiem/servants/entity/GrenadierEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
-Conflicting propagated mapping for com/requiem/servants/entity/GardenerEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
-Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
-Conflicting propagated mapping for com/requiem/servants/entity/LightCavalryEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
-Conflicting propagated mapping for com/requiem/servants/entity/ConquerorEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
 Conflicting propagated mapping for com/requiem/servants/entity/DrummerEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
-Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryCaptainEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
-Conflicting propagated mapping for com/requiem/servants/entity/ApprenticeEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
-Conflicting propagated mapping for com/requiem/servants/entity/CavalryCaptainEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
-Conflicting propagated mapping for com/requiem/servants/entity/ConquerorEntity/getProjectile(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/entity/LivingEntity/getProjectile(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/ItemStack;: getProjectile -> m_6298_
-Conflicting propagated mapping for com/requiem/servants/entity/RecruiterEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
+Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
+Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryCaptainEntity/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/entity/Mob/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;: mobInteract -> m_6071_
+Conflicting propagated mapping for com/requiem/servants/entity/WorkServantEntity/addAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/entity/Mob/addAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V: addAdditionalSaveData -> m_7380_
 Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/entity/Mob/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;: mobInteract -> m_6071_
+Conflicting propagated mapping for com/requiem/servants/entity/LightCavalryEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
 Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/defineSynchedData()V from net/minecraft/world/entity/Mob/defineSynchedData()V: defineSynchedData -> m_8097_
 Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/addAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/entity/Mob/addAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V: addAdditionalSaveData -> m_7380_
-Conflicting propagated mapping for com/requiem/servants/entity/GrenadierEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
-Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
-Conflicting propagated mapping for com/requiem/servants/entity/LightCavalryEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
-Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryCaptainEntity/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/entity/Mob/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;: mobInteract -> m_6071_
 Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryCaptainEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
-Conflicting propagated mapping for com/requiem/servants/entity/ConquerorEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
-Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
-Conflicting propagated mapping for com/requiem/servants/entity/DrummerEntity/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/entity/Mob/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;: mobInteract -> m_6071_
-Conflicting propagated mapping for com/requiem/servants/entity/ApprenticeEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
-Conflicting propagated mapping for com/requiem/servants/entity/DrummerEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
+Conflicting propagated mapping for com/requiem/servants/entity/CavalryCaptainEntity/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/entity/Mob/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;: mobInteract -> m_6071_
+Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
 Conflicting propagated mapping for com/requiem/servants/entity/CavalryCaptainEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
-Conflicting propagated mapping for com/requiem/servants/entity/RecruiterEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
-Conflicting propagated mapping for com/requiem/servants/entity/GrenadierEntity/registerGoals()V from net/minecraft/world/entity/Mob/registerGoals()V: registerGoals -> m_8099_
+Conflicting propagated mapping for com/requiem/servants/entity/GrenadierEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
+Conflicting propagated mapping for com/requiem/servants/entity/DrummerEntity/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/entity/Mob/mobInteract(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;: mobInteract -> m_6071_
+Conflicting propagated mapping for com/requiem/servants/entity/ArtilleryEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
+Conflicting propagated mapping for com/requiem/servants/entity/DrummerEntity/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V from net/minecraft/world/entity/Mob/populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V: populateDefaultEquipmentSlots -> m_213945_
 Conflicting propagated mapping for com/requiem/servants/entity/CaptainEntity/registerGoals()V from net/minecraft/world/entity/Mob/registerGoals()V: registerGoals -> m_8099_
+Conflicting propagated mapping for com/requiem/servants/entity/WorkServantEntity/registerGoals()V from net/minecraft/world/entity/Mob/registerGoals()V: registerGoals -> m_8099_
+Conflicting propagated mapping for com/requiem/servants/entity/ConquerorEntity/level()Lnet/minecraft/world/level/EntityGetter; from net/minecraft/world/entity/OwnableEntity/level()Lnet/minecraft/world/level/EntityGetter;: level -> m_9236_
 Conflicting propagated mapping for com/requiem/servants/entity/LightCavalryEntity/registerGoals()V from net/minecraft/world/entity/Mob/registerGoals()V: registerGoals -> m_8099_
-Conflicting propagated mapping for net/minecraft/world/entity/LivingEntity/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V from net/minecraft/world/entity/player/Player/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V: lambda$addAdditionalSaveData$3 -> m_219754_
-Conflicting propagated mapping for com/requiem/servants/item/ArtilleryHornItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/requiem/servants/item/AssaultOrderItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/requiem/servants/item/ArtilleryHornItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
-Conflicting propagated mapping for com/requiem/servants/item/AssaultOrderItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
+Conflicting propagated mapping for com/requiem/servants/entity/GrenadierEntity/registerGoals()V from net/minecraft/world/entity/Mob/registerGoals()V: registerGoals -> m_8099_
+Conflicting propagated mapping for com/requiem/servants/entity/ConquerorEntity/getProjectile(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/entity/LivingEntity/getProjectile(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/ItemStack;: getProjectile -> m_6298_
+Conflicting propagated mapping for com/requiem/servants/entity/BoticarioEntity/registerGoals()V from net/minecraft/world/entity/Mob/registerGoals()V: registerGoals -> m_8099_
+Conflicting propagated mapping for com/requiem/servants/entity/ConquerorEntity/tick()V from net/minecraft/world/entity/Mob/tick()V: tick -> m_8119_
+Conflicting propagated mapping for com/requiem/servants/client/render/SnareDrumLayer/render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/Entity;FFFFFF)V from net/minecraft/client/renderer/entity/layers/RenderLayer/render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/Entity;FFFFFF)V: render -> m_6494_
+Conflicting propagated mapping for com/requiem/servants/client/render/RequiemProjectileRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/RequiemAcidBallRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/LightCavalryRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/RequiemAcidBallRenderer/render(Lnet/minecraft/world/entity/Entity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V from net/minecraft/client/renderer/entity/EntityRenderer/render(Lnet/minecraft/world/entity/Entity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V: render -> m_7392_
+Conflicting propagated mapping for com/requiem/servants/client/render/RequiemProjectileRenderer/render(Lnet/minecraft/world/entity/Entity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V from net/minecraft/client/renderer/entity/EntityRenderer/render(Lnet/minecraft/world/entity/Entity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V: render -> m_7392_
+Conflicting propagated mapping for com/requiem/servants/client/render/RecruiterRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation; from net/minecraft/client/renderer/entity/EntityRenderer/getTextureLocation(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/resources/ResourceLocation;: getTextureLocation -> m_5478_
+Conflicting propagated mapping for com/requiem/servants/client/render/RequiemAcidBallRenderer/getBlockLightLevel(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/BlockPos;)I from net/minecraft/client/renderer/entity/EntityRenderer/getBlockLightLevel(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/BlockPos;)I: getBlockLightLevel -> m_6086_
+Conflicting propagated mapping for com/requiem/servants/client/render/model/ConquerorModel/setupAnim(Lnet/minecraft/world/entity/Entity;FFFFF)V from net/minecraft/client/model/HumanoidModel/setupAnim(Lnet/minecraft/world/entity/Entity;FFFFF)V: setupAnim -> m_6973_
+Conflicting propagated mapping for com/requiem/servants/item/AppointmentItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
+Conflicting propagated mapping for com/requiem/servants/client/render/model/ConquerorModel/setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V from net/minecraft/client/model/HumanoidModel/setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V: setupAnim -> m_6973_
+Conflicting propagated mapping for com/requiem/servants/client/screen/DemandWorkScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V: render -> m_88315_
+Conflicting propagated mapping for com/requiem/servants/client/screen/DemandWorkScreen/init()V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/init()V: init -> m_7856_
+Conflicting propagated mapping for com/requiem/servants/client/screen/HorseFarmRegisterScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V: render -> m_88315_
+Conflicting propagated mapping for com/requiem/servants/client/screen/DemandWorkScreen/renderLabels(Lnet/minecraft/client/gui/GuiGraphics;II)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderLabels(Lnet/minecraft/client/gui/GuiGraphics;II)V: renderLabels -> m_280003_
+Conflicting propagated mapping for com/requiem/servants/client/screen/HorseFarmRegisterScreen/init()V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/init()V: init -> m_7856_
+Conflicting propagated mapping for com/requiem/servants/client/screen/HorseFarmRegisterScreen/renderLabels(Lnet/minecraft/client/gui/GuiGraphics;II)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderLabels(Lnet/minecraft/client/gui/GuiGraphics;II)V: renderLabels -> m_280003_
+Conflicting propagated mapping for com/requiem/servants/client/screen/DemandWorkScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V: renderBg -> m_7286_
+Conflicting propagated mapping for com/requiem/servants/client/screen/HorseFarmRegisterScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V from net/minecraft/client/gui/screens/inventory/AbstractContainerScreen/renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V: renderBg -> m_7286_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemAcidBall/onHit(Lnet/minecraft/world/phys/HitResult;)V from net/minecraft/world/entity/projectile/Projectile/onHit(Lnet/minecraft/world/phys/HitResult;)V: onHit -> m_6532_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemAcidBall/getTrailParticle()Lnet/minecraft/core/particles/ParticleOptions; from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/getTrailParticle()Lnet/minecraft/core/particles/ParticleOptions;: getTrailParticle -> m_5967_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemAcidBall/isPickable()Z from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/isPickable()Z: isPickable -> m_6087_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemAcidBall/tick()V from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/tick()V: tick -> m_8119_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemAcidBall/shouldBurn()Z from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/shouldBurn()Z: shouldBurn -> m_5931_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemAcidBall/getInertia()F from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/getInertia()F: getInertia -> m_6884_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemBolt/onHit(Lnet/minecraft/world/phys/HitResult;)V from net/minecraft/world/entity/projectile/Projectile/onHit(Lnet/minecraft/world/phys/HitResult;)V: onHit -> m_6532_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemBolt/readAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/readAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V: readAdditionalSaveData -> m_7378_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemSnareWeb/onHit(Lnet/minecraft/world/phys/HitResult;)V from net/minecraft/world/entity/projectile/Projectile/onHit(Lnet/minecraft/world/phys/HitResult;)V: onHit -> m_6532_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemBolt/getTrailParticle()Lnet/minecraft/core/particles/ParticleOptions; from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/getTrailParticle()Lnet/minecraft/core/particles/ParticleOptions;: getTrailParticle -> m_5967_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemSnareWeb/getTrailParticle()Lnet/minecraft/core/particles/ParticleOptions; from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/getTrailParticle()Lnet/minecraft/core/particles/ParticleOptions;: getTrailParticle -> m_5967_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemBolt/isPickable()Z from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/isPickable()Z: isPickable -> m_6087_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemBolt/tick()V from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/tick()V: tick -> m_8119_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemSnareWeb/isPickable()Z from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/isPickable()Z: isPickable -> m_6087_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemBolt/shouldBurn()Z from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/shouldBurn()Z: shouldBurn -> m_5931_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemSnareWeb/tick()V from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/tick()V: tick -> m_8119_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemSnareWeb/shouldBurn()Z from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/shouldBurn()Z: shouldBurn -> m_5931_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemBolt/defineSynchedData()V from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/defineSynchedData()V: defineSynchedData -> m_8097_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemSnareWeb/getInertia()F from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/getInertia()F: getInertia -> m_6884_
+Conflicting propagated mapping for com/requiem/servants/entity/projectile/RequiemBolt/addAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V from net/minecraft/world/entity/projectile/AbstractHurtingProjectile/addAdditionalSaveData(Lnet/minecraft/nbt/CompoundTag;)V: addAdditionalSaveData -> m_7380_
+Conflicting propagated mapping for com/requiem/servants/entity/WorkServantEntity$PickUpGoal/canUse()Z from net/minecraft/world/entity/ai/goal/Goal/canUse()Z: canUse -> m_8036_
+Conflicting propagated mapping for com/requiem/servants/entity/WorkServantEntity$PickUpGoal/tick()V from net/minecraft/world/entity/ai/goal/Goal/tick()V: tick -> m_8037_
+Conflicting propagated mapping for com/requiem/servants/entity/WorkServantEntity$PickUpGoal/stop()V from net/minecraft/world/entity/ai/goal/Goal/stop()V: stop -> m_8041_
+Conflicting propagated mapping for com/requiem/servants/entity/WorkServantEntity$PickUpGoal/canContinueToUse()Z from net/minecraft/world/entity/ai/goal/Goal/canContinueToUse()Z: canContinueToUse -> m_8045_
 Conflicting propagated mapping for com/requiem/servants/item/CavalryStandardItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
-Conflicting propagated mapping for com/requiem/servants/item/ArtilleryHornItem/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/item/Item/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;: useOn -> m_6225_
 Conflicting propagated mapping for com/requiem/servants/item/CavalryStandardItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
-Conflicting propagated mapping for com/requiem/servants/item/AssaultOrderItem/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/item/Item/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;: useOn -> m_6225_
-Conflicting propagated mapping for com/requiem/servants/item/AssaultOrderItem/isFoil(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/Item/isFoil(Lnet/minecraft/world/item/ItemStack;)Z: isFoil -> m_5812_
-Conflicting propagated mapping for com/requiem/servants/item/AssaultOrderItem/interactLivingEntity(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/item/Item/interactLivingEntity(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;: interactLivingEntity -> m_6880_
+Conflicting propagated mapping for com/requiem/servants/item/ArtilleryHornItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
+Conflicting propagated mapping for com/requiem/servants/item/CavalryStandardItem/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/item/Item/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;: useOn -> m_6225_
+Conflicting propagated mapping for com/requiem/servants/item/ArtilleryHornItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
+Conflicting propagated mapping for com/requiem/servants/item/ArtilleryHornItem/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/item/Item/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;: useOn -> m_6225_
 Conflicting propagated mapping for com/requiem/servants/item/CompanyStandardItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
 Conflicting propagated mapping for com/requiem/servants/item/CompanyStandardItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
 Conflicting propagated mapping for com/requiem/servants/item/CompanyStandardItem/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/item/Item/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;: useOn -> m_6225_
 Conflicting propagated mapping for com/requiem/servants/item/CompanyStandardItem/isFoil(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/Item/isFoil(Lnet/minecraft/world/item/ItemStack;)Z: isFoil -> m_5812_
+Conflicting propagated mapping for com/requiem/servants/item/AssaultOrderItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
+Conflicting propagated mapping for com/requiem/servants/item/AssaultOrderItem/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder; from net/minecraft/world/item/Item/use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;: use -> m_7203_
+Conflicting propagated mapping for com/requiem/servants/item/AssaultOrderItem/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/item/Item/useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;: useOn -> m_6225_
+Conflicting propagated mapping for com/requiem/servants/item/AssaultOrderItem/isFoil(Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/Item/isFoil(Lnet/minecraft/world/item/ItemStack;)Z: isFoil -> m_5812_
+Conflicting propagated mapping for com/requiem/servants/item/AssaultOrderItem/interactLivingEntity(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult; from net/minecraft/world/item/Item/interactLivingEntity(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;: interactLivingEntity -> m_6880_
+Conflicting propagated mapping for com/requiem/servants/item/DemolitionScrollItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
 Conflicting propagated mapping for com/requiem/servants/item/PaleSaberItem$1/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
 Conflicting propagated mapping for com/requiem/servants/item/PaleSaberItem$1/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
 Conflicting propagated mapping for com/requiem/servants/item/PaleSaberItem$1/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
 Conflicting propagated mapping for com/requiem/servants/item/PaleSaberItem$1/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
 Conflicting propagated mapping for com/requiem/servants/item/PaleSaberItem$1/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
 Conflicting propagated mapping for com/requiem/servants/item/PaleSaberItem$1/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
-Conflicting propagated mapping for com/requiem/servants/item/DemolitionScrollItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
+Conflicting propagated mapping for com/requiem/servants/mixin/FletchingTableBlockMixin/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity; from net/minecraft/world/level/block/EntityBlock/newBlockEntity(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity;: newBlockEntity -> m_142194_
 Conflicting propagated mapping for net/minecraftforge/network/IContainerFactory/create(ILnet/minecraft/world/entity/player/Inventory;)Lnet/minecraft/world/inventory/AbstractContainerMenu; from net/minecraft/world/inventory/MenuType$MenuSupplier/create(ILnet/minecraft/world/entity/player/Inventory;)Lnet/minecraft/world/inventory/AbstractContainerMenu;: create -> m_39994_
 Conflicting propagated mapping for net/minecraftforge/common/ForgeSpawnEggItem/getType(Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/world/entity/EntityType; from net/minecraft/world/item/SpawnEggItem/getType(Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/world/entity/EntityType;: getType -> m_43228_
 Adding extras
@@ -267,6 +358,7 @@ Writing Output: D:\PCL2 release 2.4.4\goety-request-systems\build\reobfJar\outpu
   assets/goety/patchouli_books/black_book/en_us/categories/
   assets/goety/patchouli_books/black_book/en_us/categories/requiem.json
   assets/goety/patchouli_books/black_book/en_us/categories/requiem_crafts.json
+  assets/goety/patchouli_books/black_book/en_us/categories/requiem_focuses.json
   assets/goety/patchouli_books/black_book/en_us/categories/requiem_mutations.json
   assets/goety/patchouli_books/black_book/en_us/categories/requiem_rumors.json
   assets/goety/patchouli_books/black_book/en_us/entries/
@@ -274,7 +366,16 @@ Writing Output: D:\PCL2 release 2.4.4\goety-request-systems\build\reobfJar\outpu
   assets/goety/patchouli_books/black_book/en_us/entries/crafts/requiem_artillery_horn.json
   assets/goety/patchouli_books/black_book/en_us/entries/crafts/requiem_assault_order.json
   assets/goety/patchouli_books/black_book/en_us/entries/crafts/requiem_company_standard.json
+  assets/goety/patchouli_books/black_book/en_us/entries/crafts/requiem_ominous_pyre.json
   assets/goety/patchouli_books/black_book/en_us/entries/crafts/requiem_pale_saber.json
+  assets/goety/patchouli_books/black_book/en_us/entries/focuses/
+  assets/goety/patchouli_books/black_book/en_us/entries/focuses/acid_ball_focus.json
+  assets/goety/patchouli_books/black_book/en_us/entries/focuses/chain_lightning_focus.json
+  assets/goety/patchouli_books/black_book/en_us/entries/focuses/current_throw_focus.json
+  assets/goety/patchouli_books/black_book/en_us/entries/focuses/healing_aura_focus.json
+  assets/goety/patchouli_books/black_book/en_us/entries/focuses/high_speed_arrow_focus.json
+  assets/goety/patchouli_books/black_book/en_us/entries/focuses/snareling_web_focus.json
+  assets/goety/patchouli_books/black_book/en_us/entries/focuses/void_missile_focus.json
   assets/goety/patchouli_books/black_book/en_us/entries/mutations/
   assets/goety/patchouli_books/black_book/en_us/entries/mutations/requiem_combat_servants.json
   assets/goety/patchouli_books/black_book/en_us/entries/mutations/requiem_demolition_servants.json
@@ -285,6 +386,7 @@ Writing Output: D:\PCL2 release 2.4.4\goety-request-systems\build\reobfJar\outpu
   assets/goety/patchouli_books/black_book/zh_cn/categories/
   assets/goety/patchouli_books/black_book/zh_cn/categories/requiem.json
   assets/goety/patchouli_books/black_book/zh_cn/categories/requiem_crafts.json
+  assets/goety/patchouli_books/black_book/zh_cn/categories/requiem_focuses.json
   assets/goety/patchouli_books/black_book/zh_cn/categories/requiem_mutations.json
   assets/goety/patchouli_books/black_book/zh_cn/categories/requiem_rumors.json
   assets/goety/patchouli_books/black_book/zh_cn/entries/
@@ -292,7 +394,16 @@ Writing Output: D:\PCL2 release 2.4.4\goety-request-systems\build\reobfJar\outpu
   assets/goety/patchouli_books/black_book/zh_cn/entries/crafts/requiem_artillery_horn.json
   assets/goety/patchouli_books/black_book/zh_cn/entries/crafts/requiem_assault_order.json
   assets/goety/patchouli_books/black_book/zh_cn/entries/crafts/requiem_company_standard.json
+  assets/goety/patchouli_books/black_book/zh_cn/entries/crafts/requiem_ominous_pyre.json
   assets/goety/patchouli_books/black_book/zh_cn/entries/crafts/requiem_pale_saber.json
+  assets/goety/patchouli_books/black_book/zh_cn/entries/focuses/
+  assets/goety/patchouli_books/black_book/zh_cn/entries/focuses/acid_ball_focus.json
+  assets/goety/patchouli_books/black_book/zh_cn/entries/focuses/chain_lightning_focus.json
+  assets/goety/patchouli_books/black_book/zh_cn/entries/focuses/current_throw_focus.json
+  assets/goety/patchouli_books/black_book/zh_cn/entries/focuses/healing_aura_focus.json
+  assets/goety/patchouli_books/black_book/zh_cn/entries/focuses/high_speed_arrow_focus.json
+  assets/goety/patchouli_books/black_book/zh_cn/entries/focuses/snareling_web_focus.json
+  assets/goety/patchouli_books/black_book/zh_cn/entries/focuses/void_missile_focus.json
   assets/goety/patchouli_books/black_book/zh_cn/entries/mutations/
   assets/goety/patchouli_books/black_book/zh_cn/entries/mutations/requiem_combat_servants.json
   assets/goety/patchouli_books/black_book/zh_cn/entries/mutations/requiem_demolition_servants.json
@@ -301,47 +412,106 @@ Writing Output: D:\PCL2 release 2.4.4\goety-request-systems\build\reobfJar\outpu
   assets/goety/patchouli_books/black_book/zh_cn/entries/rumors/requiem_demolition_scroll.json
   assets/requiem/
   assets/requiem/blockstates/
+  assets/requiem/blockstates/gardening_table.json
   assets/requiem/blockstates/horse_farm_register.json
+  assets/requiem/blockstates/processing_table.json
   assets/requiem/lang/
   assets/requiem/lang/en_us.json
   assets/requiem/lang/zh_cn.json
   assets/requiem/models/
   assets/requiem/models/block/
+  assets/requiem/models/block/gardening_table.json
   assets/requiem/models/block/horse_farm_register.json
+  assets/requiem/models/block/processing_table.json
   assets/requiem/models/item/
+  assets/requiem/models/item/acid_ball_focus.json
+  assets/requiem/models/item/appointment.json
+  assets/requiem/models/item/appointment_filled.json
   assets/requiem/models/item/apprentice_spawn_egg.json
   assets/requiem/models/item/artillery_captain_spawn_egg.json
   assets/requiem/models/item/artillery_horn.json
   assets/requiem/models/item/artillery_hostile_spawn_egg.json
   assets/requiem/models/item/artillery_spawn_egg.json
   assets/requiem/models/item/assault_order.json
+  assets/requiem/models/item/boticario_hostile_spawn_egg.json
+  assets/requiem/models/item/boticario_spawn_egg.json
   assets/requiem/models/item/british_grenadiers_disc.json
   assets/requiem/models/item/captain_spawn_egg.json
   assets/requiem/models/item/cavalry_captain_spawn_egg.json
   assets/requiem/models/item/cavalry_standard.json
+  assets/requiem/models/item/chain_lightning_focus.json
   assets/requiem/models/item/company_standard.json
   assets/requiem/models/item/conqueror_spawn_egg.json
+  assets/requiem/models/item/current_throw_focus.json
   assets/requiem/models/item/demolition_scroll.json
   assets/requiem/models/item/drummer_spawn_egg.json
+  assets/requiem/models/item/fletcher_spawn_egg.json
   assets/requiem/models/item/gardener_spawn_egg.json
+  assets/requiem/models/item/gardening_table.json
   assets/requiem/models/item/grenadier_hostile_spawn_egg.json
   assets/requiem/models/item/grenadier_spawn_egg.json
+  assets/requiem/models/item/groom_spawn_egg.json
+  assets/requiem/models/item/healing_aura_focus.json
+  assets/requiem/models/item/high_speed_arrow_focus.json
   assets/requiem/models/item/horse_farm_register.json
   assets/requiem/models/item/light_cavalry_spawn_egg.json
+  assets/requiem/models/item/notepad.json
   assets/requiem/models/item/pale_saber.json
+  assets/requiem/models/item/processing_table.json
   assets/requiem/models/item/recruiter_spawn_egg.json
+  assets/requiem/models/item/recruitment_order.json
   assets/requiem/models/item/snare_drum.json
+  assets/requiem/models/item/snareling_web_focus.json
+  assets/requiem/models/item/strike_map.json
+  assets/requiem/models/item/void_missile_focus.json
   assets/requiem/sounds.json
   assets/requiem/sounds/
   assets/requiem/sounds/british_grenadiers.ogg
   assets/requiem/textures/
   assets/requiem/textures/block/
+  assets/requiem/textures/block/default_register.png
+  assets/requiem/textures/block/gardening_table.png
   assets/requiem/textures/block/horse_farm_register.png
+  assets/requiem/textures/block/processing_table.png
+  assets/requiem/textures/entity/
+  assets/requiem/textures/entity/apprentice.png
+  assets/requiem/textures/entity/artillery.png
+  assets/requiem/textures/entity/artillery_captain.png
+  assets/requiem/textures/entity/boticario.png
+  assets/requiem/textures/entity/boticario_hostile.png
+  assets/requiem/textures/entity/captain.png
+  assets/requiem/textures/entity/cavalry_captain.png
+  assets/requiem/textures/entity/conqueror.png
+  assets/requiem/textures/entity/drummer.png
+  assets/requiem/textures/entity/fletcher.png
+  assets/requiem/textures/entity/gardener.png
+  assets/requiem/textures/entity/grenadier.png
+  assets/requiem/textures/entity/groom.png
+  assets/requiem/textures/entity/light_cavalry.png
+  assets/requiem/textures/entity/projectiles/
+  assets/requiem/textures/entity/projectiles/acid_ball.png
+  assets/requiem/textures/entity/recruiter.png
+  assets/requiem/textures/gui/
+  assets/requiem/textures/gui/common_block_gui.png
+  assets/requiem/textures/gui/request_common_gui.png
   assets/requiem/textures/item/
+  assets/requiem/textures/item/appointment_empty.png
+  assets/requiem/textures/item/appointment_filled.png
   assets/requiem/textures/item/cavalry_standard.png
   assets/requiem/textures/item/company_standard.png
   assets/requiem/textures/item/demolition_scroll.png
+  assets/requiem/textures/item/focus/
+  assets/requiem/textures/item/focus/acid_ball_spell.png
+  assets/requiem/textures/item/focus/chain_lightning_spell.png
+  assets/requiem/textures/item/focus/current_throw_spell.png
+  assets/requiem/textures/item/focus/healing_aura_spell.png
+  assets/requiem/textures/item/focus/high_speed_arrow_spell.png
+  assets/requiem/textures/item/focus/snareling_web_spell.png
+  assets/requiem/textures/item/focus/void_missile_spell.png
+  assets/requiem/textures/item/notepad.png
   assets/requiem/textures/item/pale_saber.png
+  assets/requiem/textures/item/recruitment_order.png
+  assets/requiem/textures/item/snare_drum.png
   com/
   com/requiem/
   com/requiem/servants/
@@ -355,14 +525,22 @@ Writing Output: D:\PCL2 release 2.4.4\goety-request-systems\build\reobfJar\outpu
   com/requiem/servants/ModSounds.class
   com/requiem/servants/RequiemServants.class
   com/requiem/servants/ai/
+  com/requiem/servants/ai/AvoidSpellEntityGoal.class
   com/requiem/servants/ai/CaptainMarchGoal.class
   com/requiem/servants/ai/CaptainRetreatGoal.class
   com/requiem/servants/ai/CavalryAttackGoal.class
+  com/requiem/servants/ai/CleanseNegativeEffectsGoal.class
   com/requiem/servants/ai/FormationSlotGoal.class
+  com/requiem/servants/ai/MarchTowardsPlayerGoal.class
+  com/requiem/servants/ai/OrbitBlockedTargetGoal.class
   com/requiem/servants/block/
+  com/requiem/servants/block/DemandWorkBlock.class
+  com/requiem/servants/block/DemandWorkBlockEntity.class
+  com/requiem/servants/block/DemandWorkMenu.class
   com/requiem/servants/block/HorseFarmRegisterBlock.class
   com/requiem/servants/block/HorseFarmRegisterBlockEntity.class
   com/requiem/servants/block/HorseFarmRegisterMenu.class
+  com/requiem/servants/block/WorkingBlockEntity.class
   com/requiem/servants/client/
   com/requiem/servants/client/ClientSetup.class
   com/requiem/servants/client/ModModelLayers.class
@@ -370,18 +548,28 @@ Writing Output: D:\PCL2 release 2.4.4\goety-request-systems\build\reobfJar\outpu
   com/requiem/servants/client/render/ApprenticeRenderer.class
   com/requiem/servants/client/render/ArtilleryCaptainRenderer.class
   com/requiem/servants/client/render/ArtilleryRenderer.class
+  com/requiem/servants/client/render/BoticarioHostileRenderer.class
+  com/requiem/servants/client/render/BoticarioRenderer.class
   com/requiem/servants/client/render/CaptainRenderer.class
   com/requiem/servants/client/render/CavalryCaptainRenderer.class
   com/requiem/servants/client/render/ConquerorRenderer.class
+  com/requiem/servants/client/render/DemandWorkRenderer.class
   com/requiem/servants/client/render/DrummerRenderer.class
+  com/requiem/servants/client/render/FletcherRenderer.class
   com/requiem/servants/client/render/GardenerRenderer.class
   com/requiem/servants/client/render/GrenadierRenderer.class
   com/requiem/servants/client/render/GroomRenderer.class
+  com/requiem/servants/client/render/HorseFarmRegisterRenderer.class
   com/requiem/servants/client/render/LightCavalryRenderer.class
   com/requiem/servants/client/render/RecruiterRenderer.class
+  com/requiem/servants/client/render/RequiemAcidBallRenderer.class
+  com/requiem/servants/client/render/RequiemProjectileRenderer.class
+  com/requiem/servants/client/render/SnareDrumLayer.class
   com/requiem/servants/client/render/model/
+  com/requiem/servants/client/render/model/BoticarioHostileModel.class
   com/requiem/servants/client/render/model/ConquerorModel.class
   com/requiem/servants/client/screen/
+  com/requiem/servants/client/screen/DemandWorkScreen.class
   com/requiem/servants/client/screen/HorseFarmRegisterScreen.class
   com/requiem/servants/command/
   com/requiem/servants/command/ArmType$1.class
@@ -408,26 +596,109 @@ Writing Output: D:\PCL2 release 2.4.4\goety-request-systems\build\reobfJar\outpu
   com/requiem/servants/entity/ApprenticeEntity.class
   com/requiem/servants/entity/ArtilleryCaptainEntity.class
   com/requiem/servants/entity/ArtilleryEntity.class
+  com/requiem/servants/entity/BoticarioEntity.class
+  com/requiem/servants/entity/BoticarioHostileEntity.class
   com/requiem/servants/entity/CaptainEntity.class
   com/requiem/servants/entity/CavalryCaptainEntity.class
   com/requiem/servants/entity/ConquerorEntity.class
   com/requiem/servants/entity/DrummerEntity.class
+  com/requiem/servants/entity/FletcherEntity.class
   com/requiem/servants/entity/GardenerEntity.class
   com/requiem/servants/entity/GrenadierEntity.class
   com/requiem/servants/entity/GroomEntity.class
   com/requiem/servants/entity/LightCavalryEntity.class
   com/requiem/servants/entity/RecruiterEntity.class
   com/requiem/servants/entity/ServantRotation.class
+  com/requiem/servants/entity/WorkServantEntity$PickUpGoal.class
+  com/requiem/servants/entity/WorkServantEntity.class
+  com/requiem/servants/entity/projectile/
+  com/requiem/servants/entity/projectile/RequiemAcidBall.class
+  com/requiem/servants/entity/projectile/RequiemBolt.class
+  com/requiem/servants/entity/projectile/RequiemSnareWeb.class
+  com/requiem/servants/event/
+  com/requiem/servants/event/RequiemCommands.class
+  com/requiem/servants/event/UndeadMarchManager$1.class
+  com/requiem/servants/event/UndeadMarchManager$ActiveMarch.class
+  com/requiem/servants/event/UndeadMarchManager$ModItems.class
+  com/requiem/servants/event/UndeadMarchManager$Variant.class
+  com/requiem/servants/event/UndeadMarchManager.class
   com/requiem/servants/item/
+  com/requiem/servants/item/AcidBallFocus.class
+  com/requiem/servants/item/AppointmentItem.class
   com/requiem/servants/item/ArtilleryHornItem.class
   com/requiem/servants/item/AssaultOrderItem.class
   com/requiem/servants/item/BritishGrenadiersDiscItem.class
   com/requiem/servants/item/CavalryStandardItem.class
-  com/requiem/servants/item/CompanyBinding.class
+  com/requiem/servants/item/ChainLightningFocus.class
   com/requiem/servants/item/CompanyStandardItem$1.class
   com/requiem/servants/item/CompanyStandardItem.class
+  com/requiem/servants/item/CurrentThrowFocus.class
   com/requiem/servants/item/DemolitionScrollItem.class
+  com/requiem/servants/item/HealingAuraFocus.class
+  com/requiem/servants/item/HighSpeedArrowFocus.class
+  com/requiem/servants/item/NotepadItem$BlockConsumer.class
+  com/requiem/servants/item/NotepadItem$FurnaceResult.class
+  com/requiem/servants/item/NotepadItem$StorageResult.class
+  com/requiem/servants/item/NotepadItem.class
   com/requiem/servants/item/PaleSaberItem$1.class
   com/requiem/servants/item/PaleSaberItem.class
   com/requiem/servants/item/SnareDrumItem.class
+  com/requiem/servants/item/SnarelingWebFocus.class
+  com/requiem/servants/item/VoidMissileFocus.class
+  com/requiem/servants/logic/
+  com/requiem/servants/logic/ServantAI$1.class
+  com/requiem/servants/logic/ServantAI$GardenKind.class
+  com/requiem/servants/logic/ServantAI$GardenTarget.class
+  com/requiem/servants/logic/ServantAI$Torch.class
+  com/requiem/servants/logic/ServantAI.class
+  com/requiem/servants/logic/ServantDemand.class
+  com/requiem/servants/logic/ServantInteractHandler.class
+  com/requiem/servants/logic/ServantLogic.class
+  com/requiem/servants/logic/ServantMiscHandler.class
+  com/requiem/servants/logic/ServantSpawnHandler.class
+  com/requiem/servants/logic/ServantTickHandler.class
+  com/requiem/servants/magic/
+  com/requiem/servants/magic/spells/
+  com/requiem/servants/magic/spells/AcidBallSpell.class
+  com/requiem/servants/magic/spells/ChainLightningSpell.class
+  com/requiem/servants/magic/spells/CurrentThrowSpell.class
+  com/requiem/servants/magic/spells/HealingAuraSpell.class
+  com/requiem/servants/magic/spells/HighSpeedArrowSpell.class
+  com/requiem/servants/magic/spells/SnarelingWebSpell.class
+  com/requiem/servants/magic/spells/VoidMissileSpell.class
+  com/requiem/servants/mixin/
+  com/requiem/servants/mixin/AbstractArrowMixin.class
+  com/requiem/servants/mixin/DoorInteractGoalMixin.class
+  com/requiem/servants/mixin/FletchingTableBlockMixin.class
+  com/requiem/servants/mixin/MobRegisterGoalsMixin.class
+  com/requiem/servants/mixin/NodeEvaluatorMixin.class
+  com/requiem/servants/mixin/NodeMixin.class
+  com/requiem/servants/mixin/OpenDoorGoalMixin.class
+  com/requiem/servants/mixin/RaidMixin.class
+  com/requiem/servants/mixin/RaiderCelebrationMixin.class
+  com/requiem/servants/mixin/SensingMixin.class
+  com/requiem/servants/mixin/VindicatorChefServantMixin.class
+  com/requiem/servants/mixin/WalkNodeEvaluatorMixin.class
+  com/requiem/servants/train/
+  com/requiem/servants/train/RequiemIllagerType.class
+  data/
+  data/goety/
+  data/goety/tags/
+  data/goety/tags/blocks/
+  data/goety/tags/blocks/prisoner_mineable.json
+  data/quark/
+  data/quark/loot_tables/
+  data/quark/loot_tables/blocks/
+  data/quark/loot_tables/blocks/sturdy_stone.json
+  data/requiem/
+  data/requiem/recipes/
+  data/requiem/recipes/acid_ball_focus.json
+  data/requiem/recipes/chain_lightning_focus.json
+  data/requiem/recipes/current_throw_focus.json
+  data/requiem/recipes/healing_aura_focus.json
+  data/requiem/recipes/high_speed_arrow_focus.json
+  data/requiem/recipes/snareling_web_focus.json
+  data/requiem/recipes/void_missile_focus.json
   pack.mcmeta
+  requiem.mixins.json
+  requiem.refmap.json

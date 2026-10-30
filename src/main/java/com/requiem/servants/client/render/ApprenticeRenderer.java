@@ -9,9 +9,8 @@ import net.minecraft.client.renderer.entity.layers.CrossedArmsItemLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class ApprenticeRenderer extends MobRenderer<ApprenticeEntity, IllagerServantModel<ApprenticeEntity>> {
-    // 暂时复用 goety 的新刌民贴图；后续可换成 requiem:textures/entity/apprentice.png
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation("goety", "textures/entity/servants/illager/neollager.png");
+            new ResourceLocation("requiem", "textures/entity/apprentice.png");
 
     public ApprenticeRenderer(EntityRendererProvider.Context ctx) {
         super(ctx, new IllagerServantModel<>(ctx.bakeLayer(ModModelLayer.ILLAGER_SERVANT)), 0.5f);

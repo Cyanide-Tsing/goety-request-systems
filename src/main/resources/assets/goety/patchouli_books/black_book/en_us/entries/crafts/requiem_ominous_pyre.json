@@ -1,0 +1,63 @@
+{
+  "name": "Ominous Pyre",
+  "icon": "goety:ominous_pyre",
+  "category": "goety:requiem_crafts",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "You might be able to train your Neollagers into more classes through the Ominous Pyre. Depending on the blocks around it, much like Dark Altars, a loyal Neollager will train into a specific subtype; each pyre can only train up to 8 at a time."
+    },
+    {
+      "type": "goety:ritual",
+      "recipe": "goety:ominous_pyre"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Apprentice",
+      "text": "Requirements: $(li)Neollager $(li)4 Furnaces or Blast Furnaces $(li)2 Crafting Tables $(li)6 Barrels"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Gardener",
+      "text": "Requirements: $(li)Neollager $(li)4 Planters $(li)2 Brewing Stands $(li)4 Urns $(li)2 Composters"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Recruiter",
+      "text": "Requirements: $(li)Neollager $(li)6 Beds $(li)2 Lecterns $(li)2 Banners $(li)2 Barrels"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Groom",
+      "text": "Requirements: $(li)Neollager $(li)12 Hay Bales $(li)12 Wooden Fences $(li)1 Horse Farm Register $(li)2 Barrels"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Fletcher",
+      "text": "Requirements: $(li)Neollager $(li)3 Fletching Tables $(li)6 Barrels $(li)2 Feather Blocks $(li)2 Flint Blocks $(li)2 Targets"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Artillery",
+      "text": "Requirements: $(li)Neollager $(li)2 Cannons $(li)16 Cannonballs $(li)12 Blackboards $(li)16 Iron Blocks $(li)8 Barrels $(li)32 Bricks $(li)32 Planks $(li)1 Pedestal holding a Bomb $(li)1 Pedestal holding a Fire Charge"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Grenadier",
+      "text": "Requirements: $(li)Neollager $(li)24 TNT $(li)8 Spring Launchers $(li)16 Barrels $(li)32 Bricks $(li)32 Planks $(li)2 Pedestals holding Bombs"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Conqueror",
+      "text": "Requirements: $(li)Neollager $(li)8 Anvils $(li)8 Smithing Tables $(li)4 Banners $(li)32 Wooden Fences $(li)2 Targets $(li)2 Redstone Lamps $(li)32 Bricks $(li)32 Planks $(li)1 Pedestal holding a Firework Rocket"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Apothecary",
+      "text": "Requirements: $(li)Neollager $(li)8 Brewing Stands $(li)32 Bookshelves $(li)8 Cauldrons $(li)1 Pedestal holding a Golden Apple"
+    }
+  ],
+  "extra_recipe_mappings": {
+    "goety:ominous_pyre": 1
+  }
+}

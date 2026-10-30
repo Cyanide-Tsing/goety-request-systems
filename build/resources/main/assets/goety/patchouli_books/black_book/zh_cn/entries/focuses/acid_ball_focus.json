@@ -1,0 +1,17 @@
+{
+  "name": "酸液球聚晶",
+  "icon": "requiem:acid_ball_focus",
+  "category": "goety:requiem_focuses",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:acid_ball_focus",
+      "text": "显然一根毒刺远远不能放倒你的敌人。那么一个装满神经毒素的囊泡呢？使用荒野魔杖施法，囊泡中还会含有额外酸液，击碎敌人的防御。"
+    },
+    {
+      "type": "goety:ritual",
+      "recipe": "requiem:acid_ball_focus"
+    }
+  ],
+  "extra_recipe_mappings": {"requiem:acid_ball_focus": 0}
+}

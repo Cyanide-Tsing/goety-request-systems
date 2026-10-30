@@ -9,9 +9,8 @@ import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class ArtilleryCaptainRenderer extends MobRenderer<ArtilleryCaptainEntity, IllagerServantModel<ArtilleryCaptainEntity>> {
-    // 暂时复用 goety 的传令兵仆从贴图；后续可换成 requiem:textures/entity/artillery_captain.png
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation("goety", "textures/entity/servants/illager/signaler.png");
+            new ResourceLocation("requiem", "textures/entity/artillery_captain.png");
 
     public ArtilleryCaptainRenderer(EntityRendererProvider.Context ctx) {
         super(ctx, new IllagerServantModel<>(ctx.bakeLayer(ModModelLayer.ILLAGER_SERVANT)), 0.5f);

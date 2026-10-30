@@ -4,6 +4,7 @@ import com.Polarice3.Goety.common.entities.ally.illager.AbstractIllagerServant.I
 import com.Polarice3.Goety.common.entities.ally.illager.VindicatorServant;
 import com.requiem.servants.ModItems;
 import com.requiem.servants.ai.CavalryAttackGoal;
+import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -60,12 +61,41 @@ public class LightCavalryEntity extends VindicatorServant {
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(0, new CavalryAttackGoal(this));
+        // 优先索敌传教士/恶妒者/唤魔者，其次普通敌对怪物
         this.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, LivingEntity.class, true,
+                this::isPriorityTarget));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, LivingEntity.class, true,
                 this::isCavalryTarget));
     }
 
     private boolean isCavalryTarget(LivingEntity target) {
         return target != null && target.isAlive() && target instanceof Enemy;
+    }
+
+    /** 优先远程攻击的敌方：传教士、恶妒者、唤魔者。 */
+    private boolean isPriorityTarget(LivingEntity target) {
+        if (target == null || !target.isAlive()) {
+            return false;
+        }
+        String path = EntityType.getKey(target.getType()).getPath();
+        return path.contains("minister") || path.contains("envioker") || path.equals("evoker");
+    }
+
+    /** 玩家用敕令/骑兵军旗把轻骑兵编入骑兵队长麾下时，goety 会调用 setCommandPosEntity(队长)。
+     *  这里额外持久化队长 UUID，供轻骑兵 AI 识别自己的骑兵队长并读取冲锋/收拢号令。 */
+    @Override
+    public void setCommandPosEntity(LivingEntity entity) {
+        super.setCommandPosEntity(entity);
+        if (entity != null) {
+            this.getPersistentData().putString("cavalryCaptainUuid", entity.getStringUUID());
+        } else {
+            this.getPersistentData().remove("cavalryCaptainUuid");
+        }
+    }
+
+    /** 持久化的骑兵队长 UUID（存于 ForgeData 侧）。 */
+    public String getCavalryCaptainUuid() {
+        return this.getPersistentData().getString("cavalryCaptainUuid");
     }
 
     @Override
@@ -81,10 +111,28 @@ public class LightCavalryEntity extends VindicatorServant {
     }
 
     private void tickCavalry() {
+        this.tickGarrison();
         if (this.isPassenger()) {
             this.tickMounted();
         } else {
             this.tickDismounted();
+        }
+    }
+
+    /** 骑兵队长下达驻扎时，驻守驻扎地点；解除驻扎后恢复跟随。 */
+    private void tickGarrison() {
+        if (!(this.getLeader() instanceof CavalryCaptainEntity captain)) {
+            return;
+        }
+        if (captain.isGarrisoning()) {
+            BlockPos garrison = captain.getGarrison();
+            if (garrison != null && !garrison.equals(this.getBoundPos())) {
+                this.setBoundPos(garrison);
+                this.setWandering(false);
+                this.setStaying(false);
+            }
+        } else if (this.getBoundPos() != null) {
+            this.setFollowing();
         }
     }
 

@@ -1,0 +1,17 @@
+{
+  "name": "Healing Aura Focus",
+  "icon": "requiem:healing_aura_focus",
+  "category": "goety:requiem_focuses",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:healing_aura_focus",
+      "text": "A Magic focus with a 2-second cast. Unfold a healing aura that mends the wounds of players, servants, and entities recorded in the Goodwill Grimoire within 8 blocks for a flat 8 health, multiplied by Potency level."
+    },
+    {
+      "type": "goety:ritual",
+      "recipe": "requiem:healing_aura_focus"
+    }
+  ],
+  "extra_recipe_mappings": {"requiem:healing_aura_focus": 0}
+}

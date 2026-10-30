@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "goety:empty_focus"
+    },
+    {
+      "tag": "forge:tools/bows"
+    },
+    {
+      "tag": "forge:feathers"
+    },
+    {
+      "item": "minecraft:arrow"
+    }
+  ],
+  "result": {
+    "item": "requiem:high_speed_arrow_focus"
+  }
+}

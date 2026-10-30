@@ -1,0 +1,17 @@
+{
+  "name": "治愈光环聚晶",
+  "icon": "requiem:healing_aura_focus",
+  "category": "goety:requiem_focuses",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:healing_aura_focus",
+      "text": "治疗聚晶的进阶版本。基础聚晶总能治愈你和你的仆从8点血量，提升强效等级以恢复更多血量！"
+    },
+    {
+      "type": "goety:ritual",
+      "recipe": "requiem:healing_aura_focus"
+    }
+  ],
+  "extra_recipe_mappings": {"requiem:healing_aura_focus": 0}
+}

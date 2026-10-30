@@ -1,0 +1,39 @@
+{
+  "type": "goety:ritual",
+  "ritual_type": "goety:craft",
+  "activation_item": {
+    "item": "goety:soul_heal_focus"
+  },
+  "craftType": "magic",
+  "soulCost": 1,
+  "duration": 10,
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/lapis"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "tag": "forge:storage_blocks/lapis"
+    },
+    {
+      "item": "minecraft:glistering_melon_slice"
+    },
+    {
+      "tag": "forge:storage_blocks/lapis"
+    },
+    {
+      "item": "goety:cursed_ingot"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "goety:cursed_ingot"
+    }
+  ],
+  "result": {
+    "item": "requiem:healing_aura_focus"
+  }
+}

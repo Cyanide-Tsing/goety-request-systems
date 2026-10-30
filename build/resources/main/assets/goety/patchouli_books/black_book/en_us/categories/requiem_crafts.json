@@ -1,7 +1,7 @@
 {
   "name": "Crafts",
   "description": "Weapons and command tools of this addon.",
-  "icon": "requiem:pale_saber",
-  "sortnum": 2,
+  "icon": "goety:focus_bag",
+  "sortnum": 5,
   "parent": "goety:requiem"
 }

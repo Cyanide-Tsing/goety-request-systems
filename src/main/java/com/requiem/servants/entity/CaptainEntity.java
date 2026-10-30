@@ -10,7 +10,6 @@ import com.requiem.servants.command.CompanyStance;
 import com.requiem.servants.command.FormationData;
 import com.requiem.servants.command.FormationType;
 import com.requiem.servants.item.AssaultOrderItem;
-import com.requiem.servants.item.CompanyBinding;
 import com.requiem.servants.item.CompanyStandardItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -48,6 +47,8 @@ public class CaptainEntity extends VindicatorServant {
             SynchedEntityData.defineId(CaptainEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> DATA_MEMBERS =
             SynchedEntityData.defineId(CaptainEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> DATA_AUTO_RECRUIT =
+            SynchedEntityData.defineId(CaptainEntity.class, EntityDataSerializers.BOOLEAN);
 
     private final CompanyController company = new CompanyController(this);
 
@@ -72,12 +73,19 @@ public class CaptainEntity extends VindicatorServant {
         this.entityData.define(DATA_FORMATION, FormationType.LINE.ordinal());
         this.entityData.define(DATA_STANCE, CompanyStance.FORM_UP.ordinal());
         this.entityData.define(DATA_MEMBERS, 0);
+        this.entityData.define(DATA_AUTO_RECRUIT, false);
     }
 
     /** 持旗姿势：双手分开，便于渲染手持物品。 */
     @Override
     public IllagerServantArmPose getArmPose() {
         return IllagerServantArmPose.NEUTRAL;
+    }
+
+    /** 连队长也是小队长，可被命令/敕令聚晶指派部属（需扛旗才 isLeader）。 */
+    @Override
+    public boolean canBeLeader() {
+        return true;
     }
 
     /** 连队长生成即持苍白军刀作为近战武器，覆盖卫道士默认的斧头。 */
@@ -127,6 +135,22 @@ public class CaptainEntity extends VindicatorServant {
 
     public CompanyController getCompany() {
         return this.company;
+    }
+
+    /** 是否自动征兵。默认手动（false），用征兵令切换。 */
+    public boolean isAutoRecruit() {
+        return this.entityData.get(DATA_AUTO_RECRUIT);
+    }
+
+    public void setAutoRecruit(boolean autoRecruit) {
+        this.entityData.set(DATA_AUTO_RECRUIT, autoRecruit);
+    }
+
+    /** 切换征兵模式，返回切换后的"是否自动"。 */
+    public boolean toggleAutoRecruit() {
+        boolean next = !this.isAutoRecruit();
+        this.entityData.set(DATA_AUTO_RECRUIT, next);
+        return next;
     }
 
     @Override
@@ -190,10 +214,22 @@ public class CaptainEntity extends VindicatorServant {
         }
         if (stack.getItem() instanceof AssaultOrderItem) {
             if (!this.level().isClientSide()) {
-                CompanyBinding.bind(stack, this);
+                AssaultOrderItem.bind(stack, this);
                 player.displayClientMessage(Component.translatable("requiem.order.bound",
                         this.company.getSquadCount(), this.company.getMemberCount()), true);
             }
+            return InteractionResult.sidedSuccess(this.level().isClientSide());
+        }
+        if (stack.getItem() == ModItems.RECRUITMENT_ORDER.get()) {
+            if (!this.level().isClientSide()) {
+                boolean auto = this.toggleAutoRecruit();
+                player.displayClientMessage(Component.translatable(
+                        auto ? "requiem.captain.recruit.auto" : "requiem.captain.recruit.manual"), true);
+            }
+            return InteractionResult.sidedSuccess(this.level().isClientSide());
+        }
+        // 空手右键：goety 会下掉队长旗，这里拦截，连队长必须一直扛旗才能当小队长
+        if (stack.isEmpty()) {
             return InteractionResult.sidedSuccess(this.level().isClientSide());
         }
         return super.mobInteract(player, hand);
@@ -211,6 +247,7 @@ public class CaptainEntity extends VindicatorServant {
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
+        tag.putBoolean("AutoRecruit", this.isAutoRecruit());
         CompoundTag companyTag = new CompoundTag();
         this.company.save(companyTag);
         tag.put("Company", companyTag);
@@ -219,6 +256,9 @@ public class CaptainEntity extends VindicatorServant {
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
+        if (tag.contains("AutoRecruit")) {
+            this.setAutoRecruit(tag.getBoolean("AutoRecruit"));
+        }
         if (tag.contains("Company")) {
             this.company.load(tag.getCompound("Company"));
         }

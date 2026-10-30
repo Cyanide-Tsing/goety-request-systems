@@ -1,0 +1,17 @@
+{
+  "name": "High-Speed Arrow Focus",
+  "icon": "requiem:high_speed_arrow_focus",
+  "category": "goety:requiem_focuses",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:high_speed_arrow_focus",
+      "text": "A Wind focus that looses a magic arrow at twice the speed of a normal shot. Potency lends it piercing power, one more target for each level, while Velocity sends it flying even faster."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "requiem:high_speed_arrow_focus"
+    }
+  ],
+  "extra_recipe_mappings": {"requiem:high_speed_arrow_focus": 0}
+}

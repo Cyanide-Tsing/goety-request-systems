@@ -1,0 +1,7 @@
+{
+  "name": "聚晶",
+  "description": "聚晶可嵌入不同的魔杖中以施放法术。",
+  "icon": "goety:dark_wand",
+  "sortnum": 2,
+  "parent": "goety:requiem"
+}

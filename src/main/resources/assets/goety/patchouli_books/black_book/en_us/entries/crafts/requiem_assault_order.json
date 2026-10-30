@@ -6,11 +6,11 @@
     {
       "type": "patchouli:spotlight",
       "item": "requiem:assault_order",
-      "text": "The Assault Order is bound to a company. Right-click a block to order an assault on that point, and the captain will approach, scout, bombard, and storm it entirely on his own."
+      "text": "The Assault Order is a command that will not be denied. Bind it to a company, right-click a point, and the captain will approach, scout, bombard, and storm that ground on his own — no need for you to be there."
     },
     {
       "type": "patchouli:text",
-      "text": "Sneak + right-click air to call off the assault; right-click air to report its status."
+      "text": "Sneak and right-click air to abort the operation; right-click air to query its current status."
     }
   ]
 }

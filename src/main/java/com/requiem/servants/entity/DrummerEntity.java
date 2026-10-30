@@ -2,12 +2,12 @@ package com.requiem.servants.entity;
 
 import com.Polarice3.Goety.common.entities.ally.illager.AbstractIllagerServant.IllagerServantArmPose;
 import com.Polarice3.Goety.common.entities.ally.illager.VindicatorServant;
+import com.Polarice3.Goety.common.entities.ally.illager.raider.RaiderServant;
 import com.requiem.servants.ModItems;
 import com.requiem.servants.item.CompanyStandardItem;
 import java.util.UUID;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
@@ -15,12 +15,10 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistries;
 
 /**
  * 鼓手仆从：持小军鼓，跟随连队长，为整个连队敲出节奏与增益。
@@ -30,13 +28,10 @@ import net.minecraftforge.registries.ForgeRegistries;
  * {@link com.requiem.servants.command.CompanyController} 根据连队姿态发放。
  */
 public class DrummerEntity extends VindicatorServant {
-    private static final ResourceLocation SNARE_SOUND = new ResourceLocation("minecraft", "block.note_block.snare");
     /** 小军鼓敲击间隔（刻），约 120 BPM 的行军节奏。 */
     private static final int DRUM_INTERVAL = 10;
     /** 鼓手跟随连队长的检查间隔（刻）。 */
     private static final int FOLLOW_INTERVAL = 20;
-    /** 鼓手与连队长超过这个距离就靠过去（格，平方值）。 */
-    private static final double FOLLOW_DISTANCE_SQ = 16.0D;
 
     private int drumTick;
     private int followTick;
@@ -113,18 +108,19 @@ public class DrummerEntity extends VindicatorServant {
         if (captainId == null || !(this.level() instanceof ServerLevel server)) {
             return;
         }
-        if (server.getEntity(captainId) instanceof LivingEntity captain && captain.isAlive()) {
-            if (this.distanceToSqr(captain) > FOLLOW_DISTANCE_SQ) {
-                this.getNavigation().moveTo(captain, 1.0D);
+        // 把连队长设成 goety 的“小队队长”，让 FollowOwnerGoal 直接跟它，
+        // 而不是在“跟随连队长”和“跟随主人”之间来回切。
+        if (server.getEntity(captainId) instanceof RaiderServant captain && captain.isAlive()) {
+            if (this.getLeader() != captain) {
+                this.setLeader(captain);
             }
+        } else {
+            this.setLeader(null);
         }
     }
 
     private void playSnare() {
-        SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(SNARE_SOUND);
-        if (sound != null) {
-            this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
-                    sound, SoundSource.NEUTRAL, 0.7F, 1.0F);
-        }
+        this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
+                SoundEvents.NOTE_BLOCK_SNARE.value(), SoundSource.NEUTRAL, 0.7F, 1.0F);
     }
 }

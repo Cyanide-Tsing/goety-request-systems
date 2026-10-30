@@ -1,7 +1,7 @@
 {
   "name": "Mutations",
   "description": "Recruit and train illager servants.",
-  "icon": "requiem:artillery_spawn_egg",
-  "sortnum": 1,
+  "icon": "minecraft:red_mushroom",
+  "sortnum": 4,
   "parent": "goety:requiem"
 }

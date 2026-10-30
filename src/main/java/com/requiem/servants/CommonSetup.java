@@ -1,20 +1,26 @@
 package com.requiem.servants;
 
+import com.Polarice3.Goety.api.entities.ally.illager.IllagerType;
 import com.requiem.servants.entity.ApprenticeEntity;
 import com.requiem.servants.entity.ArtilleryCaptainEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
+import com.requiem.servants.entity.BoticarioEntity;
+import com.requiem.servants.entity.BoticarioHostileEntity;
 import com.requiem.servants.entity.CaptainEntity;
 import com.requiem.servants.entity.CavalryCaptainEntity;
 import com.requiem.servants.entity.ConquerorEntity;
 import com.requiem.servants.entity.DrummerEntity;
+import com.requiem.servants.entity.FletcherEntity;
 import com.requiem.servants.entity.GardenerEntity;
 import com.requiem.servants.entity.GrenadierEntity;
 import com.requiem.servants.entity.GroomEntity;
 import com.requiem.servants.entity.LightCavalryEntity;
 import com.requiem.servants.entity.RecruiterEntity;
+import com.requiem.servants.train.RequiemIllagerType;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 
 @Mod.EventBusSubscriber(modid = RequiemServants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CommonSetup {
@@ -34,5 +40,13 @@ public class CommonSetup {
         event.put(ModEntities.LIGHT_CAVALRY.get(), LightCavalryEntity.createAttributes().build());
         event.put(ModEntities.CAVALRY_CAPTAIN.get(), CavalryCaptainEntity.createAttributes().build());
         event.put(ModEntities.GROOM.get(), GroomEntity.createAttributes().build());
+        event.put(ModEntities.FLETCHER.get(), FletcherEntity.createAttributes().build());
+        event.put(ModEntities.BOTICARIO.get(), BoticarioEntity.createAttributes().build());
+        event.put(ModEntities.BOTICARIO_HOSTILE.get(), BoticarioHostileEntity.createAttributes().build());
+    }
+
+    @SubscribeEvent
+    public static void onLoadComplete(FMLLoadCompleteEvent event) {
+        event.enqueueWork(() -> IllagerType.create("REQUIEM", new RequiemIllagerType()));
     }
 }

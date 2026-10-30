@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Training unlocked after reading the $(l:rumors/requiem_demolition_scroll)Demolition Scroll$(), devoted to projected firepower."
+      "text": "Training unlocked after reading the $(l:rumors/requiem_demolition_scroll)Demolition Scroll$(), devoted to projected firepower. They do not close to melee — they rain gunpowder and steel down upon the enemy."
     },
     {
       "type": "patchouli:entity",

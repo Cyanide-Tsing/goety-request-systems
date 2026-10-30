@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "这些灾厄村民是你麾下的军官，训练无需爆破卷轴。"
+      "text": "这些灾厄村民是你麾下的军官与精锐。他们无需研读$(l:rumors/requiem_demolition_scroll)爆破卷轴$()，生来便以战争为业——只要你一声令下，他们就会为你列阵、行军、冲锋陷阵。"
     },
     {
       "type": "patchouli:entity",
@@ -13,7 +13,39 @@
     },
     {
       "type": "patchouli:text",
-      "text": "连队长指挥整个连队，能列阵、行军、下达号令，并凭借$(l:crafts/requiem_assault_order)突击令$()自主逼近、侦察、炮击并发起突击，全程无需你在场。"
+      "text": "连队长是整支连队的灵魂。他能将散落的灾厄村民编成阵列，让他们行军、转向、列阵如一人。手持$(l:crafts/requiem_assault_order)突击令$()时，他更会自主逼近、侦察、炮击，直至把目标踏平——全程无需你亲临战场。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:drummer"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "鼓手敲响小军鼓，为连队注入节奏。战鼓一响，士兵的脚步便踏得整整齐齐，敌人的胆气也随之动摇。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:cavalry_captain"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "骑兵队长是一支骑兵小队的小队长，扛着旗帜冲锋在前。用骑兵军旗右键绑定他，即可下令冲锋或收拢；轻骑兵也可用魔杖编入其麾下。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:light_cavalry"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "轻骑兵是骑马的机动单位，冲锋时贴身砍杀，收拢时骑马行进间张弓射箭，来去如风。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:boticario"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "药剂师是随军的医师，能清除己方仆从身上的负面效果，也可编入连队随军行动。"
     }
   ]
 }

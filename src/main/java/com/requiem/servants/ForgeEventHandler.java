@@ -3,10 +3,13 @@ package com.requiem.servants;
 import com.requiem.servants.ai.FormationSlotGoal;
 import com.requiem.servants.command.FormationEligibility;
 import com.requiem.servants.entity.ServantRotation;
+import com.requiem.servants.item.AppointmentItem;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.WrappedGoal;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -36,6 +39,29 @@ public final class ForgeEventHandler {
         if (event.getEntity() instanceof Mob mob && FormationEligibility.canHoldFormation(mob)) {
             attachFormationGoal(mob);
         }
+    }
+
+    /**
+     * 委任状绑定仆从。
+     *
+     * <p>不走 {@code Item.interactLivingEntity}，因为 goety 仆从的 {@code mobInteract}
+     * 会在它之前消费交互（创造模式下尤其如此），导致只有生存模式能绑定。
+     * 这里改在 {@code PlayerInteractEvent.EntityInteract}（早于 {@code mobInteract} 触发）里处理。
+     */
+    @SubscribeEvent
+    public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
+        if (event.getLevel().isClientSide()) {
+            return;
+        }
+        ItemStack held = event.getItemStack();
+        if (held.isEmpty() || held.getItem() != ModItems.APPOINTMENT.get()) {
+            return;
+        }
+        if (!(event.getTarget() instanceof Mob mob) || !AppointmentItem.isValidTarget(mob)) {
+            return;
+        }
+        AppointmentItem.bindTo(held, mob, event.getEntity());
+        event.setCanceled(true);
     }
 
     /** 幂等：同一个实体实例重复加入世界时不会插第二个目标。 */

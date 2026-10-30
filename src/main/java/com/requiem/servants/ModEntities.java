@@ -3,17 +3,24 @@ package com.requiem.servants;
 import com.requiem.servants.entity.ApprenticeEntity;
 import com.requiem.servants.entity.ArtilleryCaptainEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
+import com.requiem.servants.entity.BoticarioEntity;
+import com.requiem.servants.entity.BoticarioHostileEntity;
 import com.requiem.servants.entity.CaptainEntity;
 import com.requiem.servants.entity.CavalryCaptainEntity;
 import com.requiem.servants.entity.ConquerorEntity;
 import com.requiem.servants.entity.DrummerEntity;
+import com.requiem.servants.entity.FletcherEntity;
 import com.requiem.servants.entity.GardenerEntity;
 import com.requiem.servants.entity.GrenadierEntity;
 import com.requiem.servants.entity.GroomEntity;
 import com.requiem.servants.entity.LightCavalryEntity;
 import com.requiem.servants.entity.RecruiterEntity;
+import com.requiem.servants.entity.projectile.RequiemAcidBall;
+import com.requiem.servants.entity.projectile.RequiemBolt;
+import com.requiem.servants.entity.projectile.RequiemSnareWeb;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -130,6 +137,54 @@ public class ModEntities {
                     .clientTrackingRange(16)
                     .updateInterval(3)
                     .build("requiem:groom"));
+
+    // 制箭师：管理制箭台的功能性仆从
+    public static final RegistryObject<EntityType<FletcherEntity>> FLETCHER = ENTITY_TYPES.register("fletcher",
+            () -> EntityType.Builder.of(FletcherEntity::new, MobCategory.CREATURE)
+                    .sized(0.6f, 1.95f)
+                    .clientTrackingRange(16)
+                    .updateInterval(3)
+                    .build("requiem:fletcher"));
+
+    // 药剂师仆从：清除己方仆从负面效果的支援单位，可编入连队
+    public static final RegistryObject<EntityType<BoticarioEntity>> BOTICARIO = ENTITY_TYPES.register("boticario",
+            () -> EntityType.Builder.of(BoticarioEntity::new, MobCategory.CREATURE)
+                    .sized(0.6f, 1.95f)
+                    .clientTrackingRange(16)
+                    .updateInterval(3)
+                    .build("requiem:boticario"));
+
+    // 敌对药剂师：清除己方灾厄村民负面效果，袭击中出现
+    public static final RegistryObject<EntityType<BoticarioHostileEntity>> BOTICARIO_HOSTILE = ENTITY_TYPES.register("boticario_hostile",
+            () -> EntityType.Builder.of(BoticarioHostileEntity::new, MobCategory.MONSTER)
+                    .sized(0.6f, 1.95f)
+                    .clientTrackingRange(16)
+                    .updateInterval(3)
+                    .build("requiem:boticario_hostile"));
+
+    // 电流投掷/虚空飞弹共用飞弹
+    public static final RegistryObject<EntityType<RequiemBolt>> REQUIEM_BOLT = ENTITY_TYPES.register("requiem_bolt",
+            () -> EntityType.Builder.of((EntityType<RequiemBolt> type, Level level) -> new RequiemBolt(type, level), MobCategory.MISC)
+                    .sized(0.25f, 0.25f)
+                    .clientTrackingRange(4)
+                    .updateInterval(1)
+                    .build("requiem:requiem_bolt"));
+
+    // 酸液球
+    public static final RegistryObject<EntityType<RequiemAcidBall>> REQUIEM_ACID_BALL = ENTITY_TYPES.register("requiem_acid_ball",
+            () -> EntityType.Builder.of((EntityType<RequiemAcidBall> type, Level level) -> new RequiemAcidBall(type, level), MobCategory.MISC)
+                    .sized(0.25f, 0.25f)
+                    .clientTrackingRange(4)
+                    .updateInterval(1)
+                    .build("requiem:requiem_acid_ball"));
+
+    // 凝滞粘液网
+    public static final RegistryObject<EntityType<RequiemSnareWeb>> REQUIEM_SNARE_WEB = ENTITY_TYPES.register("requiem_snare_web",
+            () -> EntityType.Builder.of((EntityType<RequiemSnareWeb> type, Level level) -> new RequiemSnareWeb(type, level), MobCategory.MISC)
+                    .sized(0.25f, 0.25f)
+                    .clientTrackingRange(4)
+                    .updateInterval(1)
+                    .build("requiem:requiem_snare_web"));
 
     public static void register() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

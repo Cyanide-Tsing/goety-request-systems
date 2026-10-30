@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class LightCavalryRenderer extends MobRenderer<LightCavalryEntity, IllagerServantModel<LightCavalryEntity>> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation("goety", "textures/entity/servants/illager/vindicator.png");
+            new ResourceLocation("requiem", "textures/entity/light_cavalry.png");
 
     public LightCavalryRenderer(EntityRendererProvider.Context ctx) {
         super(ctx, new IllagerServantModel<>(ctx.bakeLayer(ModModelLayer.ILLAGER_SERVANT)), 0.5f);

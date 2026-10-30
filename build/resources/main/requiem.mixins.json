@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "package": "com.requiem.servants.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "requiem.refmap.json",
+  "minVersion": "0.8",
+  "mixins": [
+    "FletchingTableBlockMixin",
+    "VindicatorChefServantMixin",
+    "DoorInteractGoalMixin",
+    "OpenDoorGoalMixin",
+    "WalkNodeEvaluatorMixin",
+    "MobRegisterGoalsMixin",
+    "NodeEvaluatorMixin",
+    "SensingMixin",
+    "NodeMixin",
+    "RaiderCelebrationMixin",
+    "RaidMixin",
+    "AbstractArrowMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

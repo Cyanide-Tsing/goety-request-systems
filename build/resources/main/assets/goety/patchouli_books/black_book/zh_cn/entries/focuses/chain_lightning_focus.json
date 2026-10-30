@@ -1,0 +1,17 @@
+{
+  "name": "闪电链聚晶",
+  "icon": "requiem:chain_lightning_focus",
+  "category": "goety:requiem_focuses",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:chain_lightning_focus",
+      "text": "没有什么比看着闪电在你的敌人们身上弹跳更解压了！这个聚晶正是为此设计。额外的强效或是使用风暴魔杖施法会提升闪电链的伤害与在敌人身上弹跳的次数，讨厌的猎杀群再也不是问题。"
+    },
+    {
+      "type": "goety:ritual",
+      "recipe": "requiem:chain_lightning_focus"
+    }
+  ],
+  "extra_recipe_mappings": {"requiem:chain_lightning_focus": 0}
+}

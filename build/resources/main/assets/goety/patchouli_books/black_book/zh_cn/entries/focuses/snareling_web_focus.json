@@ -1,0 +1,17 @@
+{
+  "name": "凝滞聚晶",
+  "icon": "requiem:snareling_web_focus",
+  "category": "goety:requiem_focuses",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:snareling_web_focus",
+      "text": "虚空聚晶，发射出一张迷惑灵的粘液网。任何不幸踏入其中的敌人都会被牢牢缠住、动弹不得。持久的附魔能延长网的存在时间，半径则能让网铺得更大。"
+    },
+    {
+      "type": "goety:ritual",
+      "recipe": "requiem:snareling_web_focus"
+    }
+  ],
+  "extra_recipe_mappings": {"requiem:snareling_web_focus": 0}
+}

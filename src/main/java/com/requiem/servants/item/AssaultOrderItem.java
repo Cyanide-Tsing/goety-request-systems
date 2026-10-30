@@ -8,6 +8,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -33,8 +34,36 @@ import net.minecraft.world.level.Level;
  * （见 {@link AssaultPhase}），全程不需要玩家跟着。
  */
 public class AssaultOrderItem extends Item {
+    private static final String TAG_CAPTAIN = "Captain";
+    private static final String TAG_CAPTAIN_NAME = "CaptainName";
+
     public AssaultOrderItem(Properties properties) {
         super(properties);
+    }
+
+    public static void bind(ItemStack stack, CaptainEntity captain) {
+        CompoundTag tag = stack.getOrCreateTag();
+        tag.putUUID(TAG_CAPTAIN, captain.getUUID());
+        tag.putString(TAG_CAPTAIN_NAME, captain.getDisplayName().getString());
+    }
+
+    public static boolean isBound(ItemStack stack) {
+        CompoundTag tag = stack.getTag();
+        return tag != null && tag.hasUUID(TAG_CAPTAIN);
+    }
+
+    /** 只能在服务端解析出实体。 */
+    public static CaptainEntity resolve(ItemStack stack, Level level) {
+        if (!(level instanceof ServerLevel server)) {
+            return null;
+        }
+        CompoundTag tag = stack.getTag();
+        if (tag == null || !tag.hasUUID(TAG_CAPTAIN)) {
+            return null;
+        }
+        return server.getEntity(tag.getUUID(TAG_CAPTAIN)) instanceof CaptainEntity captain && captain.isAlive()
+                ? captain
+                : null;
     }
 
     @Override
@@ -45,7 +74,7 @@ public class AssaultOrderItem extends Item {
             return InteractionResult.PASS;
         }
         if (!player.level().isClientSide()) {
-            CompanyBinding.bind(stack, captain);
+            bind(stack, captain);
             player.displayClientMessage(Component.translatable("requiem.order.bound",
                     captain.getCompany().getSquadCount(), captain.getCompany().getMemberCount()), true);
         }
@@ -55,7 +84,7 @@ public class AssaultOrderItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (!CompanyBinding.isBound(stack)) {
+        if (!isBound(stack)) {
             if (!level.isClientSide()) {
                 player.displayClientMessage(Component.translatable("requiem.order.unbound"), true);
             }
@@ -65,7 +94,7 @@ public class AssaultOrderItem extends Item {
             return InteractionResultHolder.sidedSuccess(stack, true);
         }
 
-        CaptainEntity captain = CompanyBinding.resolve(stack, level);
+        CaptainEntity captain = resolve(stack, level);
         if (captain == null) {
             player.displayClientMessage(Component.translatable("requiem.order.lost"), true);
             return InteractionResultHolder.fail(stack);
@@ -90,7 +119,7 @@ public class AssaultOrderItem extends Item {
     public InteractionResult useOn(UseOnContext context) {
         ItemStack stack = context.getItemInHand();
         Player player = context.getPlayer();
-        if (player == null || !CompanyBinding.isBound(stack)) {
+        if (player == null || !isBound(stack)) {
             return InteractionResult.PASS;
         }
         Level level = context.getLevel();
@@ -98,13 +127,13 @@ public class AssaultOrderItem extends Item {
             return InteractionResult.SUCCESS;
         }
 
-        CaptainEntity captain = CompanyBinding.resolve(stack, level);
+        CaptainEntity captain = resolve(stack, level);
         if (captain == null) {
             player.displayClientMessage(Component.translatable("requiem.order.lost"), true);
             return InteractionResult.FAIL;
         }
         BlockPos objective = context.getClickedPos();
-        captain.getCompany().beginAssault(objective);
+        captain.getCompany().beginAssault(objective, player);
         player.displayClientMessage(Component.translatable("requiem.order.issued",
                 objective.getX(), objective.getY(), objective.getZ()), true);
         return InteractionResult.SUCCESS;
@@ -113,9 +142,9 @@ public class AssaultOrderItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         CompoundTag tag = stack.getTag();
-        if (tag != null && tag.contains(CompanyBinding.TAG_CAPTAIN_NAME)) {
+        if (tag != null && tag.contains(TAG_CAPTAIN_NAME)) {
             tooltip.add(Component.translatable("requiem.order.tooltip.bound",
-                    tag.getString(CompanyBinding.TAG_CAPTAIN_NAME)).withStyle(ChatFormatting.GOLD));
+                    tag.getString(TAG_CAPTAIN_NAME)).withStyle(ChatFormatting.GOLD));
         } else {
             tooltip.add(Component.translatable("requiem.order.tooltip.unbound").withStyle(ChatFormatting.GRAY));
         }
@@ -128,6 +157,6 @@ public class AssaultOrderItem extends Item {
 
     @Override
     public boolean isFoil(ItemStack stack) {
-        return CompanyBinding.isBound(stack);
+        return isBound(stack);
     }
 }

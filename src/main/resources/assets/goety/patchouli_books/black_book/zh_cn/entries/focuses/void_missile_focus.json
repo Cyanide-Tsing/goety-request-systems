@@ -1,0 +1,17 @@
+{
+  "name": "虚空飞弹聚晶",
+  "icon": "requiem:void_missile_focus",
+  "category": "goety:requiem_focuses",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:void_missile_focus",
+      "text": "基础的飞弹法术，拥有禁止末影人自由传送的能力，对于狩猎末影人的虚空法师们相当有用。适当的附魔将大大有益于与末影人的战斗。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "requiem:void_missile_focus"
+    }
+  ],
+  "extra_recipe_mappings": {"requiem:void_missile_focus": 0}
+}

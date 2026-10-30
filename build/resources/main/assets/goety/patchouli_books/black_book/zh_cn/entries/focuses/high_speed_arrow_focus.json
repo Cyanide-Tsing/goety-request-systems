@@ -1,0 +1,17 @@
+{
+  "name": "高速箭聚晶",
+  "icon": "requiem:high_speed_arrow_focus",
+  "category": "goety:requiem_focuses",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:high_speed_arrow_focus",
+      "text": "烈风聚晶，射出一支以两倍速度离弦的魔法箭矢。强效赋予它穿透之力，每级都能多贯穿一个敌人；高速则让箭飞得更快。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "requiem:high_speed_arrow_focus"
+    }
+  ],
+  "extra_recipe_mappings": {"requiem:high_speed_arrow_focus": 0}
+}

@@ -1,14 +1,23 @@
 package com.requiem.servants;
 
 import com.Polarice3.Goety.common.items.ServantSpawnEggItem;
+import com.requiem.servants.item.AppointmentItem;
 import com.requiem.servants.item.ArtilleryHornItem;
 import com.requiem.servants.item.AssaultOrderItem;
+import com.requiem.servants.item.AcidBallFocus;
 import com.requiem.servants.item.BritishGrenadiersDiscItem;
 import com.requiem.servants.item.CavalryStandardItem;
+import com.requiem.servants.item.ChainLightningFocus;
 import com.requiem.servants.item.CompanyStandardItem;
+import com.requiem.servants.item.CurrentThrowFocus;
 import com.requiem.servants.item.DemolitionScrollItem;
+import com.requiem.servants.item.HealingAuraFocus;
+import com.requiem.servants.item.HighSpeedArrowFocus;
+import com.requiem.servants.item.NotepadItem;
 import com.requiem.servants.item.PaleSaberItem;
 import com.requiem.servants.item.SnareDrumItem;
+import com.requiem.servants.item.SnarelingWebFocus;
+import com.requiem.servants.item.VoidMissileFocus;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -76,6 +85,18 @@ public class ModItems {
     public static final RegistryObject<Item> GROOM_SPAWN_EGG = ITEMS.register("groom_spawn_egg",
             () -> new ServantSpawnEggItem(ModEntities.GROOM, 0x6B5B3E, 0xD4AF37, new Item.Properties()));
 
+    // 制箭师刷怪蛋
+    public static final RegistryObject<Item> FLETCHER_SPAWN_EGG = ITEMS.register("fletcher_spawn_egg",
+            () -> new ServantSpawnEggItem(ModEntities.FLETCHER, 0x7A5C3E, 0x9DB8D2, new Item.Properties()));
+
+    // 药剂师仆从刷怪蛋
+    public static final RegistryObject<Item> BOTICARIO_SPAWN_EGG = ITEMS.register("boticario_spawn_egg",
+            () -> new ServantSpawnEggItem(ModEntities.BOTICARIO, 0x2F6B4F, 0xD4AF37, new Item.Properties()));
+
+    // 敌对药剂师刷怪蛋
+    public static final RegistryObject<Item> BOTICARIO_HOSTILE_SPAWN_EGG = ITEMS.register("boticario_hostile_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.BOTICARIO_HOSTILE, 0x2F6B4F, 0x8B0000, new Item.Properties()));
+
     // 连队长刷怪蛋：底色沿用传令兵，副色用金色以示军官身份
     // 用 goety 的 ServantSpawnEggItem 而不是普通刷怪蛋，这样生成时会把使用者绑定为主人
     public static final RegistryObject<Item> CAPTAIN_SPAWN_EGG = ITEMS.register("captain_spawn_egg",
@@ -113,6 +134,50 @@ public class ModItems {
     public static final RegistryObject<Item> CAVALRY_STANDARD = ITEMS.register("cavalry_standard",
             () -> new CavalryStandardItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
 
+    // 委任状：右键绑定无工作仆从，放入工作方块槽位完成分配
+    public static final RegistryObject<Item> APPOINTMENT = ITEMS.register("appointment",
+            () -> new AppointmentItem(new Item.Properties().stacksTo(1)));
+
+    // 征兵令：右键连队长切换自动/手动征兵
+    public static final RegistryObject<Item> RECRUITMENT_ORDER = ITEMS.register("recruitment_order",
+            () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+
+    // 记事本：记录存储/烧炼/火炬方块位置的通用工具
+    public static final RegistryObject<Item> NOTEPAD = ITEMS.register("notepad",
+            () -> new NotepadItem(new Item.Properties().stacksTo(1)));
+
+    // 炮射地图：记录炮击坐标，右键方块/空气标记，右键炮兵/炮兵队长下达打击坐标
+    public static final RegistryObject<Item> STRIKE_MAP = ITEMS.register("strike_map",
+            () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+
+    // 闪电链聚晶：风暴类瞬发，以选定目标为中心弹跳闪电链
+    public static final RegistryObject<Item> CHAIN_LIGHTNING_FOCUS = ITEMS.register("chain_lightning_focus",
+            ChainLightningFocus::new);
+
+    // 治愈光环聚晶：魔法类吟唱，治疗周围友方
+    public static final RegistryObject<Item> HEALING_AURA_FOCUS = ITEMS.register("healing_aura_focus",
+            HealingAuraFocus::new);
+
+    // 电流投掷聚晶：风暴类瞬发，投射一簇微型电流
+    public static final RegistryObject<Item> CURRENT_THROW_FOCUS = ITEMS.register("current_throw_focus",
+            CurrentThrowFocus::new);
+
+    // 酸液球聚晶：荒野类瞬发，投射酸液球并生成酸液池
+    public static final RegistryObject<Item> ACID_BALL_FOCUS = ITEMS.register("acid_ball_focus",
+            AcidBallFocus::new);
+
+    // 虚空飞弹聚晶：虚空类瞬发，投射高速飞弹
+    public static final RegistryObject<Item> VOID_MISSILE_FOCUS = ITEMS.register("void_missile_focus",
+            VoidMissileFocus::new);
+
+    // 凝滞聚晶：虚空类瞬发，发射迷惑灵粘液网
+    public static final RegistryObject<Item> SNARELING_WEB_FOCUS = ITEMS.register("snareling_web_focus",
+            SnarelingWebFocus::new);
+
+    // 高速箭聚晶：烈风类瞬发，发射高速魔法箭矢
+    public static final RegistryObject<Item> HIGH_SPEED_ARROW_FOCUS = ITEMS.register("high_speed_arrow_focus",
+            HighSpeedArrowFocus::new);
+
     public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_MODE_TABS.register("requiem",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.requiem"))
@@ -132,7 +197,12 @@ public class ModItems {
                         output.accept(LIGHT_CAVALRY_SPAWN_EGG.get());
                         output.accept(CAVALRY_CAPTAIN_SPAWN_EGG.get());
                         output.accept(GROOM_SPAWN_EGG.get());
+                        output.accept(FLETCHER_SPAWN_EGG.get());
+                        output.accept(BOTICARIO_SPAWN_EGG.get());
+                        output.accept(BOTICARIO_HOSTILE_SPAWN_EGG.get());
                         output.accept(ModBlocks.HORSE_FARM_REGISTER_ITEM.get());
+                        output.accept(ModBlocks.PROCESSING_TABLE_ITEM.get());
+                        output.accept(ModBlocks.GARDENING_TABLE_ITEM.get());
                         output.accept(COMPANY_STANDARD.get());
                         output.accept(ASSAULT_ORDER.get());
                         output.accept(DEMOLITION_SCROLL.get());
@@ -141,6 +211,17 @@ public class ModItems {
                         output.accept(SNARE_DRUM.get());
                         output.accept(BRITISH_GRENADIERS_DISC.get());
                         output.accept(CAVALRY_STANDARD.get());
+                        output.accept(APPOINTMENT.get());
+                        output.accept(RECRUITMENT_ORDER.get());
+                        output.accept(NOTEPAD.get());
+                        output.accept(STRIKE_MAP.get());
+                        output.accept(CHAIN_LIGHTNING_FOCUS.get());
+                        output.accept(HEALING_AURA_FOCUS.get());
+                        output.accept(CURRENT_THROW_FOCUS.get());
+                        output.accept(ACID_BALL_FOCUS.get());
+                        output.accept(VOID_MISSILE_FOCUS.get());
+                        output.accept(SNARELING_WEB_FOCUS.get());
+                        output.accept(HIGH_SPEED_ARROW_FOCUS.get());
                     })
                     .build());
 

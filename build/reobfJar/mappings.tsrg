@@ -9654,6 +9654,22 @@ com/mojang/realmsclient/util/task/WorldCreationTask com/mojang/realmsclient/util
 		3 p_90471_ p_90471_
 	run ()V run
 com/mojang/realmsclient/util/task/package-info com/mojang/realmsclient/util/task/package-info
+com/requiem/servants/mixin/DoorInteractGoalMixin com/requiem/servants/mixin/DoorInteractGoalMixin
+	doorPos f_25190_
+	hasDoor f_25191_
+	mob f_25189_
+com/requiem/servants/mixin/MobRegisterGoalsMixin com/requiem/servants/mixin/MobRegisterGoalsMixin
+	goalSelector f_21345_
+com/requiem/servants/mixin/NodeEvaluatorMixin com/requiem/servants/mixin/NodeEvaluatorMixin
+	mob f_77313_
+com/requiem/servants/mixin/NodeMixin com/requiem/servants/mixin/NodeMixin
+	x f_77271_
+	y f_77272_
+	z f_77273_
+com/requiem/servants/mixin/OpenDoorGoalMixin com/requiem/servants/mixin/OpenDoorGoalMixin
+	forgetTime f_25676_
+com/requiem/servants/mixin/SensingMixin com/requiem/servants/mixin/SensingMixin
+	mob f_26784_
 net/minecraft/BlockUtil net/minecraft/BlockUtil
 	<init> ()V <init>
 	getLargestRectangleAround (Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction$Axis;ILnet/minecraft/core/Direction$Axis;ILjava/util/function/Predicate;)Lnet/minecraft/BlockUtil$FoundRectangle; m_124334_

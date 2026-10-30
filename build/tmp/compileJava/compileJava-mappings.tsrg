@@ -1,0 +1,10 @@
+com/requiem/servants/mixin/DoorInteractGoalMixin mob f_25189_
+com/requiem/servants/mixin/DoorInteractGoalMixin doorPos f_25190_
+com/requiem/servants/mixin/DoorInteractGoalMixin hasDoor f_25191_
+com/requiem/servants/mixin/MobRegisterGoalsMixin goalSelector f_21345_
+com/requiem/servants/mixin/NodeEvaluatorMixin mob f_77313_
+com/requiem/servants/mixin/NodeMixin x f_77271_
+com/requiem/servants/mixin/NodeMixin y f_77272_
+com/requiem/servants/mixin/NodeMixin z f_77273_
+com/requiem/servants/mixin/OpenDoorGoalMixin forgetTime f_25676_
+com/requiem/servants/mixin/SensingMixin mob f_26784_

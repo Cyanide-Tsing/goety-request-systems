@@ -3,6 +3,7 @@ package com.requiem.servants.item;
 import com.requiem.servants.entity.CavalryCaptainEntity;
 import java.util.List;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -13,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
 /**
@@ -77,6 +79,38 @@ public class CavalryStandardItem extends Item {
         return InteractionResultHolder.sidedSuccess(stack, false);
     }
 
+    // ------------------------------------------------------------------
+    // 对方块右键：指定 / 解除骑兵驻扎地点
+    // ------------------------------------------------------------------
+
+    @Override
+    public InteractionResult useOn(UseOnContext context) {
+        ItemStack stack = context.getItemInHand();
+        Player player = context.getPlayer();
+        if (player == null || !isBound(stack)) {
+            return InteractionResult.PASS;
+        }
+        Level level = context.getLevel();
+        if (level.isClientSide()) {
+            return InteractionResult.SUCCESS;
+        }
+        CavalryCaptainEntity captain = resolve(stack, level);
+        if (captain == null) {
+            player.displayClientMessage(Component.translatable("requiem.cavalry_standard.lost"), true);
+            return InteractionResult.FAIL;
+        }
+        if (player.isShiftKeyDown()) {
+            captain.clearGarrison();
+            player.displayClientMessage(Component.translatable("requiem.cavalry_standard.garrison_clear"), true);
+        } else {
+            BlockPos pos = context.getClickedPos().above();
+            captain.setGarrison(pos);
+            player.displayClientMessage(Component.translatable("requiem.cavalry_standard.garrison",
+                    pos.getX(), pos.getY(), pos.getZ()), true);
+        }
+        return InteractionResult.SUCCESS;
+    }
+
     @Override
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         CompoundTag tag = stack.getTag();
@@ -88,5 +122,6 @@ public class CavalryStandardItem extends Item {
         }
         tooltip.add(Component.translatable("requiem.cavalry_standard.tooltip.bind").withStyle(ChatFormatting.DARK_GRAY));
         tooltip.add(Component.translatable("requiem.cavalry_standard.tooltip.order").withStyle(ChatFormatting.DARK_GRAY));
+        tooltip.add(Component.translatable("requiem.cavalry_standard.tooltip.garrison").withStyle(ChatFormatting.DARK_GRAY));
     }
 }

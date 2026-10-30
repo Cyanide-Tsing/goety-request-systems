@@ -1,0 +1,63 @@
+{
+  "name": "不祥火炬",
+  "icon": "goety:ominous_pyre",
+  "category": "goety:requiem_crafts",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "通过不祥火炬，你能把忠诚的新刌民训练成更多兵种。依据火炬周围摆放的方块（类似黑暗祭坛），新刌民会被训练成特定的灾厄村民亚种，每个火炬最多同时训练 8 名。"
+    },
+    {
+      "type": "goety:ritual",
+      "recipe": "goety:ominous_pyre"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "学徒",
+      "text": "需求：$(li)新刌民 $(li)4 个熔炉或高炉 $(li)2 个工作台 $(li)6 个木桶"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "园丁",
+      "text": "需求：$(li)新刌民 $(li)4 个种植盆 $(li)2 个酿造台 $(li)4 个瓮 $(li)2 个堆肥桶"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "征兵官",
+      "text": "需求：$(li)新刌民 $(li)6 张床 $(li)2 个讲台 $(li)2 面旗帜 $(li)2 个木桶"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "马倌",
+      "text": "需求：$(li)新刌民 $(li)12 个干草块 $(li)12 个木质栅栏 $(li)1 个马场登记站 $(li)2 个木桶"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "制箭师",
+      "text": "需求：$(li)新刌民 $(li)3 个制箭台 $(li)6 个木桶 $(li)2 个羽毛块 $(li)2 个燧石块 $(li)2 个标靶"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "炮兵",
+      "text": "需求：$(li)新刌民 $(li)2 门加农炮 $(li)16 枚炮弹 $(li)12 块黑板 $(li)16 个铁块 $(li)8 个木桶 $(li)32 个红砖块 $(li)32 个木板 $(li)1 个展示台，其上放置炸弹 $(li)1 个展示台，其上放置火焰弹"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "掷弹兵",
+      "text": "需求：$(li)新刌民 $(li)24 个 TNT $(li)8 个弹射台 $(li)16 个木桶 $(li)32 个红砖块 $(li)32 个木板 $(li)2 个展示台，其上放置炸弹"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "征服者",
+      "text": "需求：$(li)新刌民 $(li)8 个铁砧 $(li)8 个锻造台 $(li)4 面旗帜 $(li)32 个木质栅栏 $(li)2 个标靶 $(li)2 个红石灯 $(li)32 个红砖块 $(li)32 个木板 $(li)1 个展示台，其上放置烟花火箭"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "药剂师",
+      "text": "需求：$(li)新刌民 $(li)8 个酿造台 $(li)32 个书架 $(li)8 个炼药锅 $(li)1 个展示台，其上放置金苹果"
+    }
+  ],
+  "extra_recipe_mappings": {
+    "goety:ominous_pyre": 1
+  }
+}

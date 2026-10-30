@@ -1,5 +1,7 @@
 package com.requiem.servants;
 
+import com.requiem.servants.block.DemandWorkBlockEntity;
+import com.requiem.servants.block.DemandWorkMenu;
 import com.requiem.servants.block.HorseFarmRegisterBlockEntity;
 import com.requiem.servants.block.HorseFarmRegisterMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -20,6 +22,14 @@ public class ModMenuTypes {
                         var pos = data.readBlockPos();
                         var be = inv.player.level().getBlockEntity(pos);
                         return new HorseFarmRegisterMenu(id, inv, (HorseFarmRegisterBlockEntity) be);
+                    }));
+
+    public static final RegistryObject<MenuType<DemandWorkMenu>> DEMAND_WORK =
+            MENU_TYPES.register("demand_work",
+                    () -> IForgeMenuType.create((id, inv, data) -> {
+                        var pos = data.readBlockPos();
+                        var be = inv.player.level().getBlockEntity(pos);
+                        return new DemandWorkMenu(id, inv, (DemandWorkBlockEntity) be);
                     }));
 
     public static void register() {

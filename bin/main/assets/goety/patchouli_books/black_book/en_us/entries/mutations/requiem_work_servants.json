@@ -5,23 +5,37 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "These illagers do not take to the field themselves, but keep your camp running with all manner of chores."
+      "text": "These illagers do not fight; they run your camp and keep everything in order. Put an Appointment bound to a servant into a work block's appointment slot to assign that servant. In demand work blocks like the Processing Table or Gardening Table, place the finished item in the demand slot and the servant will gather materials and produce it for you."
     },
     {
       "type": "patchouli:entity",
       "entity": "requiem:apprentice"
     },
     {
+      "type": "patchouli:spotlight",
+      "item": "requiem:processing_table",
+      "title": "Processing Table",
+      "text": "The Apprentice's station. Put the item you want made in the demand slot, and the Apprentice will craft or smelt it on his own."
+    },
+    {
       "type": "patchouli:text",
-      "text": "Apprentices are the basic laborers of the roster. They tend your furnaces and handle the tedious smelting and crafting that keeps camp running."
+      "title": "Apprentice's Duties",
+      "text": "Apprentices run furnaces, blast furnaces, and smokers to smelt ores; use the crafting table to compress and break down mineral blocks, sandpaper, golden apples, netherite, and pale steel; enchant tools at an enchanting table; infuse cursed ingots, magic emeralds, and empty foci at a cursed infuser; pulverize stone down to sand; compost; and harvest nether wart, snap fungus, planters, sugar cane, gourds, and amethyst."
     },
     {
       "type": "patchouli:entity",
       "entity": "requiem:gardener"
     },
     {
+      "type": "patchouli:spotlight",
+      "item": "requiem:gardening_table",
+      "title": "Gardening Table",
+      "text": "The Gardener's station. Place crops or brewing ingredients in the demand slot, and the Gardener will prioritize planting and brewing."
+    },
+    {
       "type": "patchouli:text",
-      "text": "Gardeners tend the crops and garden, and brew potions for you."
+      "title": "Gardener's Duties",
+      "text": "Gardeners tend fields, harvesting wheat, carrots, potatoes, and beetroot, and manage planters, sugar cane, and gourds. They fill water bottles and brew Healing, Night Vision, Fire Resistance, Weakness, Swiftness, Regeneration, and Leaping potions, and craft brewing ingredients like glistering melon and golden carrots at a crafting table."
     },
     {
       "type": "patchouli:entity",
@@ -29,7 +43,38 @@
     },
     {
       "type": "patchouli:text",
-      "text": "Recruiters keep the roster and muster new recruits into your ranks."
+      "title": "Recruiter's Duties",
+      "text": "Recruiters send untrained Neollagers to Ominous Pyres to be trained: record pyre positions by right-clicking them with a Torch List, then right-click the recruiter with it and he will assign Neollagers by their magic aptitude. See $(l:crafts/requiem_ominous_pyre)Ominous Pyre$() for the servants they can train."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:groom"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:horse_farm_register",
+      "title": "Horse Farm Register",
+      "text": "The Groom's station, with its own breeding toggle. Supply wheat and carrots and he will breed horses automatically."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Groom's Duties",
+      "text": "Grooms breed horses with wheat and carrots, feed foals to speed their growth, tame nearby wild horses, and boost newborn horses' health, speed, and jump strength."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:fletcher"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:fletching_table",
+      "title": "Fletching Table",
+      "text": "The Fletcher's station. Put arrows, spectral arrows, bows, or crossbows in the demand slot, and the Fletcher will mass-produce them from flint, sticks, and feathers."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Fletcher's Duties",
+      "text": "Fletchers craft arrows, spectral arrows, bows, and crossbows. They also raise chickens — requesting seeds, breeding the flock, culling excess adults, and storing feathers and chicken."
     }
   ]
 }

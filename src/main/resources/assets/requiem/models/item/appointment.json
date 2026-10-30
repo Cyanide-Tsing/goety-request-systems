@@ -1,0 +1,12 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "requiem:item/appointment_empty"
+  },
+  "overrides": [
+    {
+      "predicate": { "requiem:bound": 1.0 },
+      "model": "requiem:item/appointment_filled"
+    }
+  ]
+}

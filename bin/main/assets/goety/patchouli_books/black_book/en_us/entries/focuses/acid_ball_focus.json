@@ -1,0 +1,17 @@
+{
+  "name": "Acid Ball Focus",
+  "icon": "requiem:acid_ball_focus",
+  "category": "goety:requiem_focuses",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:acid_ball_focus",
+      "text": "A Wild focus, instant. Hurl an acid ball that deals 4 damage and poisons on impact, then melts into a pool of acid that lingers for 10 seconds. Each Potency level adds 2 damage; the Wild Staff upgrades the poison and adds 3 damage, and Wild Robes turn the poison into Venom."
+    },
+    {
+      "type": "goety:ritual",
+      "recipe": "requiem:acid_ball_focus"
+    }
+  ],
+  "extra_recipe_mappings": {"requiem:acid_ball_focus": 0}
+}

@@ -6,10 +6,12 @@ buildscript {
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
@@ -21,7 +23,6 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
     mappings channel: 'official', version: '1.20.1'
-
     runs {
         client {
             workingDirectory project.file('run')
@@ -55,8 +56,15 @@ repositories {
     flatDir { dirs 'libs' }
 }
 
+mixin {
+    add sourceSets.main, 'requiem.refmap.json'
+    config 'requiem.mixins.json'
+}
+
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
+
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     // Goety：二选一
     // 方式 A：本地 libs（推荐，离线可用）。把 goety-2.5.57.3 的 deobf/dev jar 丢进 libs/ 目录

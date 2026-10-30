@@ -1,0 +1,82 @@
+{
+  "mappings": {
+    "com/requiem/servants/mixin/AbstractArrowMixin": {
+      "canHitEntity": "Lnet/minecraft/world/entity/projectile/AbstractArrow;m_5603_(Lnet/minecraft/world/entity/Entity;)Z"
+    },
+    "com/requiem/servants/mixin/WalkNodeEvaluatorMixin": {
+      "getBlockPathTypeRaw": "Lnet/minecraft/world/level/pathfinder/WalkNodeEvaluator;m_77643_(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/pathfinder/BlockPathTypes;"
+    },
+    "com/requiem/servants/mixin/FletchingTableBlockMixin": {
+      "use": "Lnet/minecraft/world/level/block/FletchingTableBlock;m_6227_(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult;"
+    },
+    "com/requiem/servants/mixin/NodeEvaluatorMixin": {
+      "canOpenDoors": "Lnet/minecraft/world/level/pathfinder/NodeEvaluator;m_77360_()Z",
+      "canPassDoors": "Lnet/minecraft/world/level/pathfinder/NodeEvaluator;m_77357_()Z"
+    },
+    "com/requiem/servants/mixin/RaiderCelebrationMixin": {
+      "Lnet/minecraft/world/entity/raid/Raider;getCelebrateSound()Lnet/minecraft/sounds/SoundEvent;": "Lnet/minecraft/world/entity/raid/Raider;m_7930_()Lnet/minecraft/sounds/SoundEvent;",
+      "tick": "Lnet/minecraft/world/entity/raid/Raider$RaiderCelebration;m_8037_()V"
+    },
+    "com/requiem/servants/mixin/MobRegisterGoalsMixin": {
+      "registerGoals": "Lnet/minecraft/world/entity/Mob;m_8099_()V"
+    },
+    "com/requiem/servants/mixin/DoorInteractGoalMixin": {
+      "setOpen": "Lnet/minecraft/world/entity/ai/goal/DoorInteractGoal;m_25195_(Z)V",
+      "Lnet/minecraft/world/level/block/DoorBlock;isWoodenDoor(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Z": "Lnet/minecraft/world/level/block/DoorBlock;m_52745_(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Z",
+      "canUse": "Lnet/minecraft/world/entity/ai/goal/DoorInteractGoal;m_8036_()Z"
+    },
+    "com/requiem/servants/mixin/OpenDoorGoalMixin": {
+      "start": "Lnet/minecraft/world/entity/ai/goal/OpenDoorGoal;m_8056_()V"
+    },
+    "com/requiem/servants/mixin/RaidMixin": {
+      "spawnGroup": "Lnet/minecraft/world/entity/raid/Raid;m_37755_(Lnet/minecraft/core/BlockPos;)V"
+    },
+    "com/requiem/servants/mixin/SensingMixin": {
+      "hasLineOfSight": "Lnet/minecraft/world/entity/ai/sensing/Sensing;m_148306_(Lnet/minecraft/world/entity/Entity;)Z"
+    },
+    "com/requiem/servants/mixin/NodeMixin": {
+      "distanceTo": "Lnet/minecraft/world/level/pathfinder/Node;m_77293_(Lnet/minecraft/world/level/pathfinder/Node;)F"
+    }
+  },
+  "data": {
+    "searge": {
+      "com/requiem/servants/mixin/AbstractArrowMixin": {
+        "canHitEntity": "Lnet/minecraft/world/entity/projectile/AbstractArrow;m_5603_(Lnet/minecraft/world/entity/Entity;)Z"
+      },
+      "com/requiem/servants/mixin/WalkNodeEvaluatorMixin": {
+        "getBlockPathTypeRaw": "Lnet/minecraft/world/level/pathfinder/WalkNodeEvaluator;m_77643_(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/pathfinder/BlockPathTypes;"
+      },
+      "com/requiem/servants/mixin/FletchingTableBlockMixin": {
+        "use": "Lnet/minecraft/world/level/block/FletchingTableBlock;m_6227_(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult;"
+      },
+      "com/requiem/servants/mixin/NodeEvaluatorMixin": {
+        "canOpenDoors": "Lnet/minecraft/world/level/pathfinder/NodeEvaluator;m_77360_()Z",
+        "canPassDoors": "Lnet/minecraft/world/level/pathfinder/NodeEvaluator;m_77357_()Z"
+      },
+      "com/requiem/servants/mixin/RaiderCelebrationMixin": {
+        "Lnet/minecraft/world/entity/raid/Raider;getCelebrateSound()Lnet/minecraft/sounds/SoundEvent;": "Lnet/minecraft/world/entity/raid/Raider;m_7930_()Lnet/minecraft/sounds/SoundEvent;",
+        "tick": "Lnet/minecraft/world/entity/raid/Raider$RaiderCelebration;m_8037_()V"
+      },
+      "com/requiem/servants/mixin/MobRegisterGoalsMixin": {
+        "registerGoals": "Lnet/minecraft/world/entity/Mob;m_8099_()V"
+      },
+      "com/requiem/servants/mixin/DoorInteractGoalMixin": {
+        "setOpen": "Lnet/minecraft/world/entity/ai/goal/DoorInteractGoal;m_25195_(Z)V",
+        "Lnet/minecraft/world/level/block/DoorBlock;isWoodenDoor(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Z": "Lnet/minecraft/world/level/block/DoorBlock;m_52745_(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Z",
+        "canUse": "Lnet/minecraft/world/entity/ai/goal/DoorInteractGoal;m_8036_()Z"
+      },
+      "com/requiem/servants/mixin/OpenDoorGoalMixin": {
+        "start": "Lnet/minecraft/world/entity/ai/goal/OpenDoorGoal;m_8056_()V"
+      },
+      "com/requiem/servants/mixin/RaidMixin": {
+        "spawnGroup": "Lnet/minecraft/world/entity/raid/Raid;m_37755_(Lnet/minecraft/core/BlockPos;)V"
+      },
+      "com/requiem/servants/mixin/SensingMixin": {
+        "hasLineOfSight": "Lnet/minecraft/world/entity/ai/sensing/Sensing;m_148306_(Lnet/minecraft/world/entity/Entity;)Z"
+      },
+      "com/requiem/servants/mixin/NodeMixin": {
+        "distanceTo": "Lnet/minecraft/world/level/pathfinder/Node;m_77293_(Lnet/minecraft/world/level/pathfinder/Node;)F"
+      }
+    }
+  }
+}

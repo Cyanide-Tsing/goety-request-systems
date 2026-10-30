@@ -2,8 +2,10 @@ package com.requiem.servants.command;
 
 import com.Polarice3.Goety.api.entities.IOwned;
 import com.Polarice3.Goety.api.entities.ally.IServant;
+import com.Polarice3.Goety.common.entities.ally.illager.raider.RaiderServant;
 import com.requiem.servants.ModEntities;
 import com.requiem.servants.entity.ArtilleryCaptainEntity;
+import com.requiem.servants.entity.CavalryCaptainEntity;
 import com.requiem.servants.entity.ArtilleryEntity;
 import com.requiem.servants.entity.CaptainEntity;
 import com.requiem.servants.entity.DrummerEntity;
@@ -150,6 +152,10 @@ public class CompanyController {
     private static final double DRUMMER_RANGE_SQR = DRUMMER_RANGE * DRUMMER_RANGE;
     /** 鼓手增益的持续时间（刻），略长于发放间隔，保证不失效。 */
     private static final int DRUMMER_BUFF_DURATION = 60;
+    /** 警戒哨半径：驻扎时哨兵布置在环形阵外围这个距离。 */
+    private static final double GARRISON_SENTRY_RADIUS = 14.0D;
+    /** 警戒哨最多布置几个。 */
+    private static final int GARRISON_SENTRY_COUNT = 8;
     /**
      * 炮击弹着点周围这个范围内有自己人就不开火。
      *
@@ -169,6 +175,9 @@ public class CompanyController {
     private final CaptainEntity captain;
     private final List<UUID> roster = new ArrayList<>();
     private final List<Squad> squads = new ArrayList<>();
+
+    /** 下达突击命令的玩家，用于在仆从主人解析不到时仍能汇报作战进展。 */
+    private Player commander;
 
     private FormationType formation = FormationType.LINE;
     private CompanyStance stance = CompanyStance.FORM_UP;
@@ -216,6 +225,8 @@ public class CompanyController {
     private final Set<BlockPos> knownCannons = new LinkedHashSet<>();
     /** 支援清单里的炮兵队长 UUID（由连旗加入，炮火支援时吹号开火）。 */
     private final List<UUID> supportCaptains = new ArrayList<>();
+    /** 骑兵掩护清单里的骑兵队长 UUID（由连旗加入，突击时命令骑兵冲锋掩护）。 */
+    private final List<UUID> cavalryCaptains = new ArrayList<>();
     /** 鼓手槽：被连旗绑定的鼓手仆从 UUID，为连队提供节奏增益。 */
     private UUID drummerId;
     /** 鼓手发放增益的节流计时。 */
@@ -331,6 +342,12 @@ public class CompanyController {
         for (Mob candidate : level.getEntitiesOfClass(Mob.class, box, this::canRecruit)) {
             if (this.roster.size() >= capacity) {
                 break;
+            }
+            // 手动模式：只收被命令/敕令聚晶指派为小队长部属（getLeader() == 连队长）的，
+            // 这样手动兵员与自动兵员走同一套 FormationData/FormationSlotGoal 列队逻辑。
+            if (!this.captain.isAutoRecruit()
+                    && !(candidate instanceof RaiderServant raider && raider.getLeader() == this.captain)) {
+                continue;
             }
             FormationData.enlist(candidate, this.captain.getUUID());
             this.roster.add(candidate.getUUID());
@@ -551,6 +568,10 @@ public class CompanyController {
         if (next == AssaultPhase.ASSAULT) {
             // 突击开始时记下总人数，伤亡过半就判失败
             this.assaultHeadcount = this.roster.size();
+            // 突击开始：命令骑兵冲锋掩护
+            if (this.captain.level() instanceof ServerLevel level) {
+                this.requestCavalryCover(level);
+            }
         }
         if (next != AssaultPhase.SCOUT) {
             this.breachTarget = null;
@@ -674,10 +695,11 @@ public class CompanyController {
         this.announce(Component.translatable("requiem.assault.failed"));
     }
 
-    /** 把作战进展汇报给主人。 */
+    /** 把作战进展汇报给主人（解析不到主人时退回下达命令的玩家）。 */
     private void announce(Component message) {
-        if (this.captain.getTrueOwner() instanceof Player player) {
-            player.displayClientMessage(message, false);
+        Player target = this.captain.getTrueOwner() instanceof Player owner ? owner : this.commander;
+        if (target != null) {
+            target.displayClientMessage(message, false);
         }
     }
 
@@ -857,7 +879,10 @@ public class CompanyController {
         }
         LivingEntity threat = this.findThreat(level, reference);
 
-        if (this.autoFormation) {
+        if (this.stance == CompanyStance.GARRISON) {
+            // 驻扎：固定环形防御阵，四面朝外
+            this.applyFormation(FormationType.CIRCLE);
+        } else if (this.autoFormation) {
             this.autoSelectFormation(level, reference, threat);
         }
 
@@ -1248,6 +1273,37 @@ public class CompanyController {
             this.issueSlots(mobile, subPlan.get(0), squadIndex,
                     order.anchor, order.facing, order.mission.stance(this.stance),
                     false, arm.isRanged(), expire);
+        }
+
+        // 驻扎：在外围布置警戒哨
+        if (this.stance == CompanyStance.GARRISON) {
+            this.garrisonSentries(level);
+        }
+    }
+
+    /** 驻扎时在外围布置警戒哨，面朝外警戒。 */
+    private void garrisonSentries(ServerLevel level) {
+        if (this.anchor == null) {
+            return;
+        }
+        List<Mob> sentries = new ArrayList<>();
+        for (Squad squad : this.squads) {
+            for (UUID id : squad.members()) {
+                if (level.getEntity(id) instanceof Mob mob && !ArtilleryEmplacement.hasCannon(mob)) {
+                    sentries.add(mob);
+                }
+            }
+        }
+        int count = Math.min(sentries.size(), GARRISON_SENTRY_COUNT);
+        long expire = level.getGameTime() + SLOT_LEASE_TICKS;
+        for (int i = 0; i < count; i++) {
+            double angle = 2.0 * Math.PI * i / count;
+            double x = this.anchor.x + Math.cos(angle) * GARRISON_SENTRY_RADIUS;
+            double z = this.anchor.z + Math.sin(angle) * GARRISON_SENTRY_RADIUS;
+            Vec3 sentryPos = new Vec3(x, this.anchor.y, z);
+            float yaw = FormationLayout.yawTowards(this.anchor, sentryPos);
+            FormationData.order(sentries.get(i), -1, i, sentryPos, yaw,
+                    CompanyStance.HOLD, FormationType.CIRCLE, false, false, expire);
         }
     }
 
@@ -1779,6 +1835,47 @@ public class CompanyController {
     }
 
     // ------------------------------------------------------------------
+    // 骑兵掩护清单
+    // ------------------------------------------------------------------
+
+    /** 把骑兵队长加入骑兵掩护清单。 */
+    public boolean addCavalryCaptain(CavalryCaptainEntity captain) {
+        if (captain == null || this.cavalryCaptains.contains(captain.getUUID())) {
+            return false;
+        }
+        this.cavalryCaptains.add(captain.getUUID());
+        return true;
+    }
+
+    /** 把骑兵队长移出骑兵掩护清单。 */
+    public boolean removeCavalryCaptain(CavalryCaptainEntity captain) {
+        return captain != null && this.cavalryCaptains.remove(captain.getUUID());
+    }
+
+    public boolean hasCavalryCaptain(CavalryCaptainEntity captain) {
+        return captain != null && this.cavalryCaptains.contains(captain.getUUID());
+    }
+
+    /** 命令骑兵掩护：让支援清单里还活着的骑兵队长下令冲锋（覆盖到突击结束再收拢）。 */
+    public void requestCavalryCover(ServerLevel level) {
+        this.cavalryCaptains.removeIf(id -> !(level.getEntity(id) instanceof CavalryCaptainEntity));
+        for (UUID id : this.cavalryCaptains) {
+            if (level.getEntity(id) instanceof CavalryCaptainEntity captain && captain.isAlive()) {
+                captain.setChargeOrder(true);
+            }
+        }
+    }
+
+    /** 突击结束：让骑兵队长收回冲锋号令，转回收拢。 */
+    private void clearCavalryCover(ServerLevel level) {
+        for (UUID id : this.cavalryCaptains) {
+            if (level.getEntity(id) instanceof CavalryCaptainEntity captain && captain.isAlive()) {
+                captain.setChargeOrder(false);
+            }
+        }
+    }
+
+    // ------------------------------------------------------------------
     // 鼓手槽
     // ------------------------------------------------------------------
 
@@ -1853,7 +1950,10 @@ public class CompanyController {
     // ------------------------------------------------------------------
 
     /** 下达突击命令：连队自行逼近、侦察、炮击、突击、占领。 */
-    public void beginAssault(BlockPos objective) {
+    public void beginAssault(BlockPos objective, Player commander) {
+        this.commander = commander;
+        // 离开待命/驻守状态，进入跟随，让连队长能被行军目标驱动前进
+        this.captain.setFollowing();
         this.objective = objective;
         this.phase = AssaultPhase.APPROACH;
         this.phaseTicks = 0;
@@ -1886,6 +1986,10 @@ public class CompanyController {
         this.assaultHeadcount = 0;
         this.breachTarget = null;
         this.clearSupportCaptainStrikes();
+        // 突击结束：骑兵收回冲锋号令，转回收拢
+        if (this.captain.level() instanceof ServerLevel level) {
+            this.clearCavalryCover(level);
+        }
         this.pinnedAnchor = null;
         this.anchor = null;
         this.captain.setCommandPost(null);

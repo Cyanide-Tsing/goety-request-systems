@@ -6,9 +6,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -19,7 +18,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistries;
 
 /**
  * 炮兵号角：绑定炮兵队长、建立炮兵小队，并亲自号令炮兵开火。
@@ -35,7 +33,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ArtilleryHornItem extends Item {
     private static final String TAG_CAPTAIN = "Captain";
     private static final String TAG_CAPTAIN_NAME = "CaptainName";
-    private static final ResourceLocation HORN_SOUND = new ResourceLocation("minecraft", "event.raid.horn");
 
     public ArtilleryHornItem(Properties properties) {
         super(properties);
@@ -107,8 +104,9 @@ public class ArtilleryHornItem extends Item {
             player.displayClientMessage(Component.translatable("requiem.horn.lost"), true);
             return InteractionResult.FAIL;
         }
-        // 号角右键地面：阵地由 KubeJS 写入（persistentData），这里只负责播放号音与提示
+        // 号角右键地面：设定炮兵阵地
         BlockPos pos = context.getClickedPos();
+        captain.setBattery(pos);
         playHornSound(level, player);
         player.displayClientMessage(Component.translatable("requiem.horn.battery",
                 pos.getX(), pos.getY(), pos.getZ()), true);
@@ -116,11 +114,8 @@ public class ArtilleryHornItem extends Item {
     }
 
     private static void playHornSound(Level level, Player player) {
-        SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(HORN_SOUND);
-        if (sound != null) {
-            level.playSound(null, player.getX(), player.getY(), player.getZ(),
-                    sound, SoundSource.PLAYERS, 1.0F, 1.2F);
-        }
+        level.playSound(null, player.getX(), player.getY(), player.getZ(),
+                SoundEvents.RAID_HORN.value(), SoundSource.PLAYERS, 1.0F, 1.2F);
     }
 
     @Override

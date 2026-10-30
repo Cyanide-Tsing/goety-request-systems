@@ -92,7 +92,7 @@ public class ArtilleryCaptainEntity extends VindicatorServant {
         }
         AABB box = this.getBoundingBox().inflate(48.0D);
         for (ArtilleryEntity artillery : level.getEntitiesOfClass(ArtilleryEntity.class, box,
-                e -> !e.getArtilleryCaptainUuid().isEmpty() && e.getCommandPosEntity() == null)) {
+                e -> !e.getArtilleryCaptainUuid().isEmpty() && e.getLeader() == null)) {
             artillery.setCommandPosEntity(this);
         }
     }

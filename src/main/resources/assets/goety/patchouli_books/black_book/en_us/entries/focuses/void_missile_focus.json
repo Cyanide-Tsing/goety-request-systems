@@ -1,0 +1,17 @@
+{
+  "name": "Void Missile Focus",
+  "icon": "requiem:void_missile_focus",
+  "category": "goety:requiem_focuses",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:void_missile_focus",
+      "text": "A Void focus, instant. Fire a high-speed missile that scorns gravity, dealing 5 damage and inflicting Ender Ground on impact; against a target below 30% health the damage rises to 7. Each Potency level adds 2 damage; the Void Staff also inflicts Void Touched."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "requiem:void_missile_focus"
+    }
+  ],
+  "extra_recipe_mappings": {"requiem:void_missile_focus": 0}
+}

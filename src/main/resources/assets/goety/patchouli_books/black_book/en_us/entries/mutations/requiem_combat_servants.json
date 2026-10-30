@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "These illagers are your officers, trained without the Demolition Scroll."
+      "text": "These illagers are your officers and elite, born to war and trained without the $(l:rumors/requiem_demolition_scroll)Demolition Scroll$(). At a single word they will form up, march, and charge for you."
     },
     {
       "type": "patchouli:entity",
@@ -13,7 +13,39 @@
     },
     {
       "type": "patchouli:text",
-      "text": "Company Captains command the whole company, forming up, marching, and issuing orders — and with an $(l:crafts/requiem_assault_order)Assault Order$() they will approach, scout, bombard, and storm an objective entirely on their own."
+      "text": "The Company Captain is the soul of the whole company. He draws scattered illagers into formation and makes them march, turn, and wheel as one. With an $(l:crafts/requiem_assault_order)Assault Order$() in hand he will approach, scout, bombard, and storm an objective on his own — no need for you to set foot on the field."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:drummer"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The Drummer beats the snare drum, driving a rhythm into the company. Where the drum sounds, boots fall in step and enemy nerve frays."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:cavalry_captain"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The Cavalry Captain leads a cavalry squad, banner held high. Bind him with the Cavalry Standard to order a charge or rally; light cavalry can also be bound to him with a wand."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:light_cavalry"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Light Cavalry are mounted skirmishers who cut down foes in a charge and loose arrows on the move when rallied — swift as the wind."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:boticario"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The Apothecary is a field medic who purges negative effects from allied servants, and can be attached to the company on campaign."
     }
   ]
 }

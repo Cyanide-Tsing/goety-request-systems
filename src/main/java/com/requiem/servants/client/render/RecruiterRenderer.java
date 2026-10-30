@@ -9,9 +9,8 @@ import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class RecruiterRenderer extends MobRenderer<RecruiterEntity, IllagerServantModel<RecruiterEntity>> {
-    // 暂时使用 goety 的传令兵仆从贴图（双手分开模型）；后续可换成 requiem:textures/entity/recruiter.png
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation("goety", "textures/entity/servants/illager/signaler.png");
+            new ResourceLocation("requiem", "textures/entity/recruiter.png");
 
     public RecruiterRenderer(EntityRendererProvider.Context ctx) {
         super(ctx, new IllagerServantModel<>(ctx.bakeLayer(ModModelLayer.ILLAGER_SERVANT)), 0.5f);

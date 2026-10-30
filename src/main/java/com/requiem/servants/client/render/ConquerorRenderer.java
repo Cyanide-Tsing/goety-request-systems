@@ -9,9 +9,8 @@ import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class ConquerorRenderer extends MobRenderer<ConquerorEntity, ConquerorModel> {
-    // 复用 goety 征服者（Conquillager）的贴图
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation("goety", "textures/entity/illagers/conquillager.png");
+            new ResourceLocation("requiem", "textures/entity/conqueror.png");
 
     public ConquerorRenderer(EntityRendererProvider.Context ctx) {
         super(ctx, new ConquerorModel(ctx.bakeLayer(ModModelLayers.CONQUEROR)), 0.5f);

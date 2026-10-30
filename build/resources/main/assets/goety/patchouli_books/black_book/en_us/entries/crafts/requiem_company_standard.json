@@ -6,11 +6,11 @@
     {
       "type": "patchouli:spotlight",
       "item": "requiem:company_standard",
-      "text": "The Company Standard is bound to a company, commanding it as a whole. Right-click air to change the order, sneak + right-click air to change formation, and right-click a block to set a rally point."
+      "text": "The Company Standard is the scepter of a whole company. Bind it to a company and you may command the army from afar: right-click air to switch orders, sneak and right-click air to switch formations, and right-click a block to set the rally point."
     },
     {
       "type": "patchouli:text",
-      "text": "Right-click an Artillery Captain to add or remove him from the company's artillery support list."
+      "text": "Right-click an Artillery or Cavalry Captain to add or remove them from the company's fire-support and cavalry-cover rosters."
     }
   ]
 }

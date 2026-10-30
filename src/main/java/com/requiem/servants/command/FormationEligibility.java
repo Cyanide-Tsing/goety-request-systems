@@ -9,6 +9,7 @@ import com.requiem.servants.entity.ArtilleryEntity;
 import com.requiem.servants.entity.CaptainEntity;
 import com.requiem.servants.entity.CavalryCaptainEntity;
 import com.requiem.servants.entity.DrummerEntity;
+import com.requiem.servants.entity.FletcherEntity;
 import com.requiem.servants.entity.GardenerEntity;
 import com.requiem.servants.entity.GroomEntity;
 import com.requiem.servants.entity.RecruiterEntity;
@@ -82,7 +83,8 @@ public final class FormationEligibility {
         return mob instanceof ApprenticeEntity
                 || mob instanceof GardenerEntity
                 || mob instanceof RecruiterEntity
-                || mob instanceof GroomEntity;
+                || mob instanceof GroomEntity
+                || mob instanceof FletcherEntity;
     }
 
     /**

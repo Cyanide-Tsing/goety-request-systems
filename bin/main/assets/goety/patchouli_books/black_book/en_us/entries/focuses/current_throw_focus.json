@@ -1,0 +1,17 @@
+{
+  "name": "Current Throw Focus",
+  "icon": "requiem:current_throw_focus",
+  "category": "goety:requiem_focuses",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:current_throw_focus",
+      "text": "A Storm focus, instant. Hurl a clump of electric current wrought from raw particles, dealing 4 damage and knockback on impact. Each Potency level adds 2 damage; the Storm Staff also inflicts Spasms."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "requiem:current_throw_focus"
+    }
+  ],
+  "extra_recipe_mappings": {"requiem:current_throw_focus": 0}
+}

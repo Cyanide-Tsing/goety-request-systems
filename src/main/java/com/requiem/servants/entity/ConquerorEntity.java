@@ -31,10 +31,12 @@ public class ConquerorEntity extends PillagerServant {
         return IllagerServantArmPose.NEUTRAL;
     }
 
-    /** 弩的弹药：烟花火箭（飞行时长 2，全色）。 */
+    /** 弩的弹药：6 烟火之星、飞行时长 2 的烟花火箭（全色）。 */
     @Override
     public ItemStack getProjectile(ItemStack crossbowStack) {
-        return MobUtil.createFirework(2, DyeColor.values());
+        ItemStack firework = MobUtil.createFirework(6, DyeColor.values());
+        firework.getOrCreateTagElement("Fireworks").putByte("Flight", (byte) 2);
+        return firework;
     }
 
     @Override

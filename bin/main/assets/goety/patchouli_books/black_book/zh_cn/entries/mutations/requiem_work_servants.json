@@ -5,23 +5,37 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "这些灾厄村民不直接上阵杀敌，而是维持你营地的运转，替你处理各种杂务。"
+      "text": "这些灾厄村民不上阵杀敌，而是替你操持营地的运转。把绑定仆从的委任状放进工作方块的委任槽，即可让对应仆从接管该方块；在加工台、园艺台等需求型方块的需求槽里放入成品，仆从便会自行筹备原料、按配方制作并交付。"
     },
     {
       "type": "patchouli:entity",
       "entity": "requiem:apprentice"
     },
     {
+      "type": "patchouli:spotlight",
+      "item": "requiem:processing_table",
+      "title": "加工台",
+      "text": "学徒的驻所。把想要制作的成品放进需求槽，学徒便会按配方自行合成或冶炼。"
+    },
+    {
       "type": "patchouli:text",
-      "text": "学徒是编制中的基础劳工。他们会替你操作熔炉，完成繁琐的冶炼与合成，让营地运转起来。"
+      "title": "学徒的职责",
+      "text": "学徒掌管熔炉、高炉与烟熏炉，冶炼矿石成锭；在工作台合成与拆解矿物块、砂纸、金苹果、下界合金与苍白钢等；用附魔台为工具附魔；在诅咒注入器中注入诅咒锭、魔法绿宝石与空聚晶；用瓦解聚晶把石头逐级粉碎成沙；在堆肥桶堆肥；并收割下界疣、砰砰菌、种植盆、甘蔗、瓜果与紫水晶。"
     },
     {
       "type": "patchouli:entity",
       "entity": "requiem:gardener"
     },
     {
+      "type": "patchouli:spotlight",
+      "item": "requiem:gardening_table",
+      "title": "园艺台",
+      "text": "园丁的驻所。需求槽中可放入作物或炼药原料，园丁会优先种植与酿造。"
+    },
+    {
       "type": "patchouli:text",
-      "text": "园丁照料作物与花园，并替你完成药水酿造等杂务。"
+      "title": "园丁的职责",
+      "text": "园丁照料农田，收割小麦、胡萝卜、马铃薯与甜菜根，也管理种植盆、甘蔗与瓜果；他用酿造台装水瓶，酿造治疗、夜视、抗火、虚弱、迅捷、再生与跳跃等药水；还会在工作台合成闪耀西瓜、金胡萝卜等炼药原料。"
     },
     {
       "type": "patchouli:entity",
@@ -29,7 +43,38 @@
     },
     {
       "type": "patchouli:text",
-      "text": "征兵官负责登记名册与征募，维系你麾下的编制。"
+      "title": "征兵官的职责",
+      "text": "征兵官负责把未训练的新刌民送到不祥火炬接受训练：手持火炬列表依次右键不祥火炬记录位置，再右键征兵官，他就会按魔法资质把新刌民分配到对应的火炬。训练出的具体仆从见$(l:crafts/requiem_ominous_pyre)不祥火炬$()。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:groom"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "requiem:horse_farm_register",
+      "title": "马场登记站",
+      "text": "马倌的驻所，自带繁殖开关。需求小麦与胡萝卜即可自动繁殖马匹。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "马倌的职责",
+      "text": "马倌用小麦与胡萝卜繁殖马匹、喂养幼马加速成长，驯化附近无主的马，并给新生马匹提升生命、速度与跳跃。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "requiem:fletcher"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:fletching_table",
+      "title": "制箭台",
+      "text": "制箭师的驻所。需求槽放入箭、光灵箭、弓或弩，制箭师便会用燧石、木棍、羽毛等原料批量制作。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "制箭师的职责",
+      "text": "制箭师在制箭台制作箭矢、光灵箭、弓与弩；他还会养鸡——需求种子、繁殖鸡群、宰杀多余的成年鸡，收取羽毛与鸡肉存入仓库。"
     }
   ]
 }

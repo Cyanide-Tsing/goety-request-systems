@@ -4,13 +4,12 @@ import com.requiem.servants.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 /**
- * 马场登记站的方块实体：存储马匹繁殖开关。
+ * 马场登记站的方块实体：继承 {@link WorkingBlockEntity}，额外存储马匹繁殖开关。
  */
-public class HorseFarmRegisterBlockEntity extends BlockEntity {
+public class HorseFarmRegisterBlockEntity extends WorkingBlockEntity {
     private static final String KEY_BREEDING = "Breeding";
 
     private boolean breeding = true;
@@ -47,9 +46,7 @@ public class HorseFarmRegisterBlockEntity extends BlockEntity {
 
     @Override
     public CompoundTag getUpdateTag() {
-        CompoundTag tag = super.getUpdateTag();
-        tag.putBoolean(KEY_BREEDING, this.breeding);
-        return tag;
+        return this.saveWithoutMetadata();
     }
 
     @Override

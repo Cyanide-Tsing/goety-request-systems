@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "__comment": "Requiem: adds Quark Sturdy Stone so Prisoners can mine it for cobblestone",
+  "values": [
+    "quark:sturdy_stone"
+  ]
+}

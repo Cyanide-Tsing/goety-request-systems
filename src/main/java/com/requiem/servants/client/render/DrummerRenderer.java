@@ -5,16 +5,15 @@ import com.Polarice3.Goety.client.render.model.IllagerServantModel;
 import com.requiem.servants.entity.DrummerEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class DrummerRenderer extends MobRenderer<DrummerEntity, IllagerServantModel<DrummerEntity>> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation("goety", "textures/entity/servants/illager/vindicator.png");
+            new ResourceLocation("requiem", "textures/entity/drummer.png");
 
     public DrummerRenderer(EntityRendererProvider.Context ctx) {
         super(ctx, new IllagerServantModel<>(ctx.bakeLayer(ModModelLayer.ILLAGER_SERVANT)), 0.5f);
-        this.addLayer(new ItemInHandLayer<>(this, ctx.getItemInHandRenderer()));
+        this.addLayer(new SnareDrumLayer(this, ctx.getItemRenderer()));
     }
 
     @Override

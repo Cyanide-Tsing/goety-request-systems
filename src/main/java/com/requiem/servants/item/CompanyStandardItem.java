@@ -4,15 +4,15 @@ import com.requiem.servants.command.CompanyController;
 import com.requiem.servants.command.CompanyStance;
 import com.requiem.servants.entity.ArtilleryCaptainEntity;
 import com.requiem.servants.entity.CaptainEntity;
+import com.requiem.servants.entity.CavalryCaptainEntity;
 import com.requiem.servants.entity.DrummerEntity;
 import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -24,7 +24,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.registries.ForgeRegistries;
 
 /**
  * 连旗：玩家用来对某个连队下令的工具。
@@ -44,11 +43,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class CompanyStandardItem extends Item {
     private static final String TAG_CAPTAIN = "Captain";
     private static final String TAG_CAPTAIN_NAME = "CaptainName";
+    private static final String TAG_SQUADS = "Squads";
+    private static final String TAG_MEMBERS = "Members";
 
     /** 手动指定姿态后的锁定时长（30 秒）。 */
     private static final int STANCE_LOCK_TICKS = 600;
-
-    private static final ResourceLocation ORDER_SOUND = new ResourceLocation("minecraft", "event.raid.horn");
 
     public CompanyStandardItem(Properties properties) {
         super(properties);
@@ -64,6 +63,8 @@ public class CompanyStandardItem extends Item {
         tag.putUUID(TAG_CAPTAIN, captain.getUUID());
         tag.putString(TAG_CAPTAIN_NAME, captain.getDisplayName().getString());
         CompanyController company = captain.getCompany();
+        tag.putInt(TAG_SQUADS, company.getSquadCount());
+        tag.putInt(TAG_MEMBERS, company.getMemberCount());
         player.displayClientMessage(Component.translatable("requiem.standard.bound",
                 company.getSquadCount(), company.getMemberCount(),
                 company.isAutoFormation()
@@ -115,6 +116,34 @@ public class CompanyStandardItem extends Item {
             company.addSupportCaptain(artilleryCaptain);
             player.displayClientMessage(Component.translatable("requiem.standard.support.added",
                     artilleryCaptain.getDisplayName()), true);
+        }
+    }
+
+    /**
+     * 用连旗把骑兵队长加入（或移出）连队的骑兵掩护清单。
+     *
+     * <p>骑兵队长不编入名册，只登记到骑兵掩护清单里；
+     * 连队进入突击阶段时会命令这些队长冲锋掩护（见 {@link CompanyController#requestCavalryCover}）。
+     */
+    public static void toggleCavalrySupport(ItemStack stack, CavalryCaptainEntity cavalryCaptain, Player player) {
+        if (!isBound(stack)) {
+            player.displayClientMessage(Component.translatable("requiem.standard.unbound"), true);
+            return;
+        }
+        CaptainEntity companyCaptain = resolve(stack, cavalryCaptain.level());
+        if (companyCaptain == null) {
+            player.displayClientMessage(Component.translatable("requiem.standard.lost"), true);
+            return;
+        }
+        CompanyController company = companyCaptain.getCompany();
+        if (company.hasCavalryCaptain(cavalryCaptain)) {
+            company.removeCavalryCaptain(cavalryCaptain);
+            player.displayClientMessage(Component.translatable("requiem.standard.cavalry.removed",
+                    cavalryCaptain.getDisplayName()), true);
+        } else {
+            company.addCavalryCaptain(cavalryCaptain);
+            player.displayClientMessage(Component.translatable("requiem.standard.cavalry.added",
+                    cavalryCaptain.getDisplayName()), true);
         }
     }
 
@@ -220,7 +249,7 @@ public class CompanyStandardItem extends Item {
         } else {
             BlockPos pos = context.getClickedPos().above();
             company.pinAnchor(new Vec3(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D), player.getYRot());
-            company.lockStance(CompanyStance.FORM_UP, STANCE_LOCK_TICKS);
+            company.lockStance(CompanyStance.GARRISON, STANCE_LOCK_TICKS);
             player.displayClientMessage(Component.translatable("requiem.standard.pinned",
                     pos.getX(), pos.getY(), pos.getZ(), company.getFormation().getDisplayName()), true);
         }
@@ -228,11 +257,12 @@ public class CompanyStandardItem extends Item {
         return InteractionResult.SUCCESS;
     }
 
-    /** 手动姿态循环：整队 → 坚守 → 冲锋 → 整队。 */
+    /** 手动姿态循环：整队 → 坚守 → 驻扎 → 冲锋 → 整队。 */
     private static CompanyStance cycleStance(CompanyController company) {
         CompanyStance next = switch (company.getStance()) {
             case FORM_UP -> CompanyStance.HOLD;
-            case HOLD -> CompanyStance.CHARGE;
+            case HOLD -> CompanyStance.GARRISON;
+            case GARRISON -> CompanyStance.CHARGE;
             default -> CompanyStance.FORM_UP;
         };
         company.lockStance(next, STANCE_LOCK_TICKS);
@@ -245,11 +275,8 @@ public class CompanyStandardItem extends Item {
      * {@code SoundEvent}，按 ID 查更稳妥。
      */
     private static void playOrderSound(Level level, Player player) {
-        SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(ORDER_SOUND);
-        if (sound != null) {
-            level.playSound(null, player.getX(), player.getY(), player.getZ(),
-                    sound, SoundSource.PLAYERS, 0.5F, 1.2F);
-        }
+        level.playSound(null, player.getX(), player.getY(), player.getZ(),
+                SoundEvents.RAID_HORN.value(), SoundSource.PLAYERS, 0.5F, 1.2F);
     }
 
     @Override
@@ -258,6 +285,10 @@ public class CompanyStandardItem extends Item {
         if (tag != null && tag.contains(TAG_CAPTAIN_NAME)) {
             tooltip.add(Component.translatable("requiem.standard.tooltip.bound",
                     tag.getString(TAG_CAPTAIN_NAME)).withStyle(ChatFormatting.GOLD));
+            if (tag.contains(TAG_SQUADS) && tag.contains(TAG_MEMBERS)) {
+                tooltip.add(Component.translatable("requiem.standard.tooltip.strength",
+                        tag.getInt(TAG_SQUADS), tag.getInt(TAG_MEMBERS)).withStyle(ChatFormatting.YELLOW));
+            }
         } else {
             tooltip.add(Component.translatable("requiem.standard.tooltip.unbound").withStyle(ChatFormatting.GRAY));
         }

@@ -23,6 +23,7 @@ public class RequiemServants {
             modBus.addListener(ClientSetup::registerRenderers);
             modBus.addListener(ClientSetup::registerLayerDefinitions);
             modBus.addListener(ClientSetup::registerScreens);
+            modBus.addListener(ClientSetup::registerItemProperties);
         });
     }
 }
