@@ -1,0 +1,15 @@
+{
+  "name": "requiem:road_straight/acacia",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:acasia/road",
+        "projection": "rigid",
+        "processors": "requiem:fence_acasia"
+      }
+    }
+  ]
+}

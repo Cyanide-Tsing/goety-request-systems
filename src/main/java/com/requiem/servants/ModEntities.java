@@ -15,6 +15,7 @@ import com.requiem.servants.entity.GrenadierEntity;
 import com.requiem.servants.entity.GroomEntity;
 import com.requiem.servants.entity.LightCavalryEntity;
 import com.requiem.servants.entity.RecruiterEntity;
+import com.requiem.servants.entity.RequiemIceologerEntity;
 import com.requiem.servants.entity.projectile.RequiemAcidBall;
 import com.requiem.servants.entity.projectile.RequiemBolt;
 import com.requiem.servants.entity.projectile.RequiemSnareWeb;
@@ -161,6 +162,14 @@ public class ModEntities {
                     .clientTrackingRange(16)
                     .updateInterval(3)
                     .build("requiem:boticario_hostile"));
+
+    // 怪物型冰术师：默认敌对玩家的灾厄村民，与掠夺者/卫道士同阵营
+    public static final RegistryObject<EntityType<RequiemIceologerEntity>> ICEOLOGER = ENTITY_TYPES.register("iceologer",
+            () -> EntityType.Builder.of(RequiemIceologerEntity::new, MobCategory.MONSTER)
+                    .sized(0.6f, 1.95f)
+                    .clientTrackingRange(16)
+                    .updateInterval(3)
+                    .build("requiem:iceologer"));
 
     // 电流投掷/虚空飞弹共用飞弹
     public static final RegistryObject<EntityType<RequiemBolt>> REQUIEM_BOLT = ENTITY_TYPES.register("requiem_bolt",

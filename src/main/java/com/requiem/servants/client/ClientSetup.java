@@ -22,6 +22,7 @@ import com.requiem.servants.client.render.HorseFarmRegisterRenderer;
 import com.requiem.servants.client.render.LightCavalryRenderer;
 import com.requiem.servants.client.render.RecruiterRenderer;
 import com.requiem.servants.client.render.RequiemAcidBallRenderer;
+import com.requiem.servants.client.render.RequiemIceologerRenderer;
 import com.requiem.servants.client.render.RequiemProjectileRenderer;
 import com.requiem.servants.client.render.model.ConquerorModel;
 import com.requiem.servants.client.screen.DemandWorkScreen;
@@ -52,6 +53,7 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntities.FLETCHER.get(), FletcherRenderer::new);
         event.registerEntityRenderer(ModEntities.BOTICARIO.get(), BoticarioRenderer::new);
         event.registerEntityRenderer(ModEntities.BOTICARIO_HOSTILE.get(), BoticarioHostileRenderer::new);
+        event.registerEntityRenderer(ModEntities.ICEOLOGER.get(), RequiemIceologerRenderer::new);
         event.registerEntityRenderer(ModEntities.REQUIEM_BOLT.get(), RequiemProjectileRenderer::new);
         event.registerEntityRenderer(ModEntities.REQUIEM_ACID_BALL.get(), RequiemAcidBallRenderer::new);
         event.registerEntityRenderer(ModEntities.REQUIEM_SNARE_WEB.get(), RequiemProjectileRenderer::new);

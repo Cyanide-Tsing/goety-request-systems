@@ -16,6 +16,7 @@ import com.requiem.servants.entity.GrenadierEntity;
 import com.requiem.servants.entity.GroomEntity;
 import com.requiem.servants.entity.LightCavalryEntity;
 import com.requiem.servants.entity.RecruiterEntity;
+import com.requiem.servants.entity.RequiemIceologerEntity;
 import com.requiem.servants.train.RequiemIllagerType;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -43,6 +44,7 @@ public class CommonSetup {
         event.put(ModEntities.FLETCHER.get(), FletcherEntity.createAttributes().build());
         event.put(ModEntities.BOTICARIO.get(), BoticarioEntity.createAttributes().build());
         event.put(ModEntities.BOTICARIO_HOSTILE.get(), BoticarioHostileEntity.createAttributes().build());
+        event.put(ModEntities.ICEOLOGER.get(), RequiemIceologerEntity.createAttributes().build());
     }
 
     @SubscribeEvent

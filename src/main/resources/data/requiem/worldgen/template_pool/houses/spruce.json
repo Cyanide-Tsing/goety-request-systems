@@ -1,0 +1,33 @@
+{
+  "name": "requiem:houses/spruce",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:spruce/pillager_training_site",
+        "projection": "rigid",
+        "processors": "requiem:fence_spruce"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:spruce/vindicator_training_site",
+        "projection": "rigid",
+        "processors": "requiem:fence_spruce"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:spruce/iceologer_training_site",
+        "projection": "rigid",
+        "processors": "requiem:fence_spruce"
+      }
+    }
+  ]
+}

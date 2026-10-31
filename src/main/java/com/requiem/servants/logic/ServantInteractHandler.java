@@ -88,14 +88,9 @@ public final class ServantInteractHandler {
                 player.displayClientMessage(Component.literal("已设置炮兵 " + cannons.size() + " 个炮位、"
                         + sr.barrels.size() + " 个弹药木桶"), true);
             } else if (target instanceof ArtilleryCaptainEntity captain) {
-                List<BlockPos> cannons = NotepadItem.getCannons(held);
-                if (!cannons.isEmpty()) {
-                    captain.setBattery(cannons.get(0));
-                }
                 NotepadItem.StorageResult sr = NotepadItem.getStorage(held);
                 ServantLogic.writeBlockPosList(captain, "Barrels", sr.barrels);
-                player.displayClientMessage(Component.literal("已设置炮兵队长 " + cannons.size() + " 个炮位、"
-                        + sr.barrels.size() + " 个弹药木桶"), true);
+                player.displayClientMessage(Component.literal("已设置炮兵队长 " + sr.barrels.size() + " 个弹药木桶"), false);
             } else {
                 return;
             }
@@ -114,11 +109,12 @@ public final class ServantInteractHandler {
             }
             BlockPos strike = new BlockPos(tag.getInt("strikeX"), tag.getInt("strikeY"), tag.getInt("strikeZ"));
             ServantLogic.writeBlockPos(living, "StrikeTarget", strike);
-            if (living instanceof ArtilleryCaptainEntity) {
+            boolean isCaptain = living instanceof ArtilleryCaptainEntity;
+            if (isCaptain) {
                 living.getPersistentData().putString("captainFireMode", "marked");
             }
-            player.displayClientMessage(Component.literal("已设置打击坐标 (" + strike.getX() + "," + strike.getY()
-                    + "," + strike.getZ() + ")"), true);
+            player.displayClientMessage(Component.literal((isCaptain ? "炮兵队长" : "炮兵") + "已接受打击坐标 ("
+                    + strike.getX() + "," + strike.getY() + "," + strike.getZ() + ")"), false);
             event.setCanceled(true);
             return;
         }
@@ -240,8 +236,8 @@ public final class ServantInteractHandler {
         nbt.putInt("strikeX", pos.getX());
         nbt.putInt("strikeY", pos.getY());
         nbt.putInt("strikeZ", pos.getZ());
-        player.displayClientMessage(Component.literal("已设置打击坐标 (" + pos.getX() + "," + pos.getY() + ","
-                + pos.getZ() + ")"), true);
+        player.displayClientMessage(Component.literal("炮射地图已标记坐标 (" + pos.getX() + "," + pos.getY() + ","
+                + pos.getZ() + ")"), false);
     }
 
     private static ArtilleryCaptainEntity resolveHornCaptain(ItemStack horn, net.minecraft.world.level.LevelAccessor level) {

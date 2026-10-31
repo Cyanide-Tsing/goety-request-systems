@@ -1,0 +1,24 @@
+{
+  "name": "requiem:houses/dark_oak",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:dark_oak/pillager_training_site",
+        "projection": "rigid",
+        "processors": "requiem:fence_dark_oak"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:dark_oak/vindicator_training_site",
+        "projection": "rigid",
+        "processors": "requiem:fence_dark_oak"
+      }
+    }
+  ]
+}

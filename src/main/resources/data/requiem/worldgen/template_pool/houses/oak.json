@@ -1,0 +1,33 @@
+{
+  "name": "requiem:houses/oak",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:oak/pillager_training_site",
+        "projection": "rigid",
+        "processors": "requiem:fence_oak"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:oak/vindicator_training_site",
+        "projection": "rigid",
+        "processors": "requiem:fence_oak"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:oak/evoker_training_site",
+        "projection": "rigid",
+        "processors": "requiem:fence_oak"
+      }
+    }
+  ]
+}

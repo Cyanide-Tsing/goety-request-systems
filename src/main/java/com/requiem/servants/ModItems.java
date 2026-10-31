@@ -97,6 +97,10 @@ public class ModItems {
     public static final RegistryObject<Item> BOTICARIO_HOSTILE_SPAWN_EGG = ITEMS.register("boticario_hostile_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.BOTICARIO_HOSTILE, 0x2F6B4F, 0x8B0000, new Item.Properties()));
 
+    // 怪物型冰术师刷怪蛋
+    public static final RegistryObject<Item> ICEOLOGER_SPAWN_EGG = ITEMS.register("iceologer_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ICEOLOGER, 0x3B6B8C, 0xD8E8F0, new Item.Properties()));
+
     // 连队长刷怪蛋：底色沿用传令兵，副色用金色以示军官身份
     // 用 goety 的 ServantSpawnEggItem 而不是普通刷怪蛋，这样生成时会把使用者绑定为主人
     public static final RegistryObject<Item> CAPTAIN_SPAWN_EGG = ITEMS.register("captain_spawn_egg",
@@ -200,6 +204,7 @@ public class ModItems {
                         output.accept(FLETCHER_SPAWN_EGG.get());
                         output.accept(BOTICARIO_SPAWN_EGG.get());
                         output.accept(BOTICARIO_HOSTILE_SPAWN_EGG.get());
+                        output.accept(ICEOLOGER_SPAWN_EGG.get());
                         output.accept(ModBlocks.HORSE_FARM_REGISTER_ITEM.get());
                         output.accept(ModBlocks.PROCESSING_TABLE_ITEM.get());
                         output.accept(ModBlocks.GARDENING_TABLE_ITEM.get());

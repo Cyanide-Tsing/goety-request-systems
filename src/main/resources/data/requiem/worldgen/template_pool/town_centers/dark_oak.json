@@ -1,0 +1,15 @@
+{
+  "name": "requiem:town_centers/dark_oak",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:dark_oak/center",
+        "projection": "rigid",
+        "processors": "requiem:fence_dark_oak"
+      }
+    }
+  ]
+}

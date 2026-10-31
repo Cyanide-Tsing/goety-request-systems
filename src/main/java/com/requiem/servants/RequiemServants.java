@@ -18,6 +18,7 @@ public class RequiemServants {
         ModBlocks.register();
         ModBlockEntities.register();
         ModMenuTypes.register();
+        ModStructureProcessors.register();
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             modBus.addListener(ClientSetup::registerRenderers);

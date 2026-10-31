@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
@@ -59,6 +60,7 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
@@ -1034,12 +1036,25 @@ public final class ServantAI {
         }
         entity.setTarget(null);
 
+        int hornTimer = entity.getPersistentData().getInt("hornFireTimer");
+        if (hornTimer > 0) {
+            hornTimer--;
+            entity.getPersistentData().putInt("hornFireTimer", hornTimer);
+        }
+        boolean hornRecent = hornTimer > 0;
+
         if (!hostile && !entity.isGuardingArea()) {
+            artilleryDebug(entity, "following owner");
             ServantLogic.setTask(entity, "跟随主人");
             return;
         }
 
         BlockPos cannon = ServantLogic.readBlockPos(entity, "Cannon");
+        if (cannon != null && !isCannon(level, cannon)) {
+            artilleryDebug(entity, "cannon lost/gone, rebinding");
+            ServantLogic.writeBlockPos(entity, "Cannon", null);
+            cannon = null;
+        }
         if (cannon == null && hostile) {
             cannon = findNearestCannon(level, entity);
             if (cannon != null) {
@@ -1047,13 +1062,31 @@ public final class ServantAI {
             }
         }
         if (cannon == null) {
-            artilleryDebug(entity, "无炮位");
+            artilleryDebug(entity, "no cannon");
             ServantLogic.setTask(entity, hostile ? "未找到炮位" : "空闲（未设置炮位）");
             return;
         }
 
-        if ("cease".equals(entity.getPersistentData().getString("captainFireMode"))) {
+        if ("cease".equals(entity.getPersistentData().getString("captainFireMode")) && !hornRecent) {
+            artilleryDebug(entity, "cease fire");
             ServantLogic.setTask(entity, "停火");
+            return;
+        }
+
+        // 开炮后后撤避让（吹号集体开炮时跳过）
+        int retreat = entity.getPersistentData().getInt("artilleryRetreat");
+        if (retreat > 0 && !hornRecent) {
+            retreat--;
+            entity.getPersistentData().putInt("artilleryRetreat", retreat);
+            BlockPos rstand = findCannonRetreatStand(level, cannon);
+            double rdx = entity.getX() - (rstand.getX() + 0.5);
+            double rdy = entity.getY() - rstand.getY();
+            double rdz = entity.getZ() - (rstand.getZ() + 0.5);
+            if (rdx * rdx + rdy * rdy + rdz * rdz > 0.5) {
+                entity.getNavigation().moveTo(rstand.getX() + 0.5, rstand.getY(), rstand.getZ() + 0.5, 1.0);
+            }
+            artilleryDebug(entity, "retreating");
+            ServantLogic.setTask(entity, "后撤避让");
             return;
         }
 
@@ -1065,9 +1098,9 @@ public final class ServantAI {
             ty = strike.getY() + 0.5;
             tz = strike.getZ() + 0.5;
         } else {
-            LivingEntity target = findArtilleryTarget(level, entity, hostile, 48.0);
+            LivingEntity target = findArtilleryTarget(level, entity, hostile, 96.0);
             if (target == null) {
-                artilleryDebug(entity, "无目标");
+                artilleryDebug(entity, "no target");
                 ServantLogic.setTask(entity, "空闲（无目标）");
                 return;
             }
@@ -1080,13 +1113,16 @@ public final class ServantAI {
         double dx = entity.getX() - (stand.getX() + 0.5);
         double dy = entity.getY() - stand.getY();
         double dz = entity.getZ() - (stand.getZ() + 0.5);
-        if (dx * dx + dy * dy + dz * dz > 0.5) {
+        if (dx * dx + dy * dy + dz * dz > 6.25) {
             entity.getNavigation().moveTo(stand.getX() + 0.5, stand.getY(), stand.getZ() + 0.5, 1.0);
+            artilleryDebug(entity, "moving to cannon, stand=" + stand + " dist=" + (int) Math.sqrt(dx * dx + dy * dy + dz * dz));
             ServantLogic.setTask(entity, "前往炮位");
             return;
         }
 
-        loadAndFire(level, entity, cannon, tx, ty, tz);
+        if (loadAndFire(level, entity, cannon, tx, ty, tz, hostile, strike != null)) {
+            entity.getPersistentData().putInt("artilleryRetreat", 2);
+        }
         ServantLogic.setTask(entity, strike != null ? "定点打击" : "装填开火");
     }
 
@@ -1103,7 +1139,7 @@ public final class ServantAI {
         long last = entity.getPersistentData().getLong("artilleryDbg");
         if (now - last >= 60) {
             entity.getPersistentData().putLong("artilleryDbg", now);
-            ServantLogic.tellOwner(entity, "§7[炮兵] " + msg);
+            ServantLogic.tellOwner(entity, "§7[Artillery] " + msg);
             LOGGER.info("[Artillery {}] {}", entity.getStringUUID().substring(0, 8), msg);
         }
     }
@@ -1149,6 +1185,11 @@ public final class ServantAI {
         entity.getPersistentData().putBoolean("artillerySword", sword);
         entity.setItemSlot(EquipmentSlot.MAINHAND,
                 sword ? new ItemStack(ModItems.PALE_SABER.get()) : new ItemStack(Items.TORCH));
+    }
+
+    private static boolean isCannon(ServerLevel level, BlockPos pos) {
+        Block cannon = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("supplementaries", "cannon"));
+        return cannon != null && level.getBlockState(pos).is(cannon);
     }
 
     private static List<BlockPos> findCannonsNear(ServerLevel level, BlockPos center) {
@@ -1197,37 +1238,96 @@ public final class ServantAI {
     }
 
     private static BlockPos findCannonStand(ServerLevel level, BlockPos cannon) {
-        for (int dx = -1; dx <= 1; dx++) {
-            for (int dz = -1; dz <= 1; dz++) {
-                if (dx == 0 && dz == 0) {
-                    continue;
-                }
-                BlockPos p = cannon.offset(dx, 0, dz);
-                if (level.getBlockState(p).isAir() && level.getBlockState(p.above()).isAir()) {
-                    return p;
+        int rx = 0;
+        int rz = 0;
+        BlockState state = level.getBlockState(cannon);
+        Direction facing = Direction.NORTH;
+        if (state.hasProperty(BlockStateProperties.FACING)) {
+            facing = state.getValue(BlockStateProperties.FACING);
+        } else if (state.hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
+            facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+        }
+        if (facing.getAxis().isHorizontal()) {
+            Direction rear = facing.getOpposite();
+            rx = rear.getStepX();
+            rz = rear.getStepZ();
+        }
+        int[][] offsets = {
+                {rx, rz},                       // 炮尾正后
+                {rx - rz, rz + rx},             // 后左
+                {rx + rz, rz - rx},             // 后右
+                {1, 0}, {-1, 0}, {0, 1}, {0, -1},
+                {1, 1}, {1, -1}, {-1, 1}, {-1, -1}
+        };
+        for (int[] o : offsets) {
+            BlockPos p = cannon.offset(o[0], 0, o[1]);
+            if (level.getBlockState(p).isAir() && level.getBlockState(p.above()).isAir()) {
+                return p;
+            }
+        }
+        return cannon;
+    }
+
+    private static BlockPos findCannonRetreatStand(ServerLevel level, BlockPos cannon) {
+        int rx = 0;
+        int rz = 0;
+        BlockState state = level.getBlockState(cannon);
+        Direction facing = Direction.NORTH;
+        if (state.hasProperty(BlockStateProperties.FACING)) {
+            facing = state.getValue(BlockStateProperties.FACING);
+        } else if (state.hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
+            facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+        }
+        if (facing.getAxis().isHorizontal()) {
+            Direction rear = facing.getOpposite();
+            rx = rear.getStepX();
+            rz = rear.getStepZ();
+        }
+        int[][] offsets = {
+                {rx * 2, rz * 2},               // 炮尾后 2 格
+                {rx * 2 - rz, rz * 2 + rx},     // 后 2 左
+                {rx * 2 + rz, rz * 2 - rx},     // 后 2 右
+                {rx * 3, rz * 3}                // 炮尾后 3 格
+        };
+        for (int[] o : offsets) {
+            BlockPos p = cannon.offset(o[0], 0, o[1]);
+            if (level.getBlockState(p).isAir() && level.getBlockState(p.above()).isAir()) {
+                return p;
+            }
+        }
+        for (int r = 2; r <= 3; r++) {
+            for (int dx = -r; dx <= r; dx++) {
+                for (int dz = -r; dz <= r; dz++) {
+                    if (Math.abs(dx) + Math.abs(dz) < r) {
+                        continue;
+                    }
+                    BlockPos p = cannon.offset(dx, 0, dz);
+                    if (level.getBlockState(p).isAir() && level.getBlockState(p.above()).isAir()) {
+                        return p;
+                    }
                 }
             }
         }
         return cannon;
     }
 
-    private static void loadAndFire(ServerLevel level, ArtilleryEntity entity, BlockPos cannon,
-            double tx, double ty, double tz) {
+    private static boolean loadAndFire(ServerLevel level, ArtilleryEntity entity, BlockPos cannon,
+            double tx, double ty, double tz, boolean hostile, boolean isStrike) {
         try {
             Class<?> cannonClass = loadClass(
                     "net.mehvahdjukaar.supplementaries.common.block.tiles.CannonBlockTile");
             BlockEntity be = level.getBlockEntity(cannon);
             if (be == null) {
-                artilleryDebug(entity, "炮位无 BE: " + cannon);
-                return;
+                artilleryDebug(entity, "cannon BE null: " + cannon);
+                return false;
             }
             if (!cannonClass.isInstance(be)) {
-                artilleryDebug(entity, "炮位 BE 不是大炮: " + be.getClass().getSimpleName());
-                return;
+                artilleryDebug(entity, "BE is not cannon: " + be.getClass().getSimpleName());
+                return false;
             }
             Method isFiring = cannonClass.getMethod("isFiring");
             if ((boolean) isFiring.invoke(be)) {
-                return;
+                return false;
             }
             Method hasFuelAndProj = cannonClass.getMethod("hasFuelAndProjectiles");
             Method setFuel = cannonClass.getMethod("setFuel", ItemStack.class);
@@ -1238,14 +1338,22 @@ public final class ServantAI {
             Method ignite = cannonClass.getMethod("ignite", Entity.class);
 
             if (!(boolean) hasFuelAndProj.invoke(be)) {
-                setFuel.invoke(be, new ItemStack(Items.GUNPOWDER, 4));
-                Item bomb = ForgeRegistries.ITEMS.getValue(new ResourceLocation("supplementaries", "bomb"));
-                setProjectile.invoke(be, bomb == null ? ItemStack.EMPTY : new ItemStack(bomb));
-                artilleryDebug(entity, "已装填火药+炸弹");
+                if (hostile) {
+                    setFuel.invoke(be, new ItemStack(Items.GUNPOWDER, 4));
+                    Item bomb = ForgeRegistries.ITEMS.getValue(new ResourceLocation("supplementaries", "bomb"));
+                    setProjectile.invoke(be, bomb == null ? ItemStack.EMPTY : new ItemStack(bomb));
+                    artilleryDebug(entity, "loaded gunpowder+bomb (hostile)");
+                } else if (!takeAmmoFromBarrel(level, entity, be, setFuel, setProjectile, isStrike)) {
+                    artilleryDebug(entity, "barrel missing ammo");
+                    return false;
+                }
             }
             if (!(boolean) readyToFire.invoke(be)) {
-                artilleryDebug(entity, "readyToFire=false（冷却中或弹药不足）");
-                return;
+                boolean hasAmmo = (boolean) hasFuelAndProj.invoke(be);
+                boolean firing = (boolean) isFiring.invoke(be);
+                String reason = !hasAmmo ? "no ammo" : firing ? "fusing" : "cooldown";
+                artilleryDebug(entity, "readyToFire=false (" + reason + ")");
+                return false;
             }
 
             double cx = cannon.getX() + 0.5;
@@ -1256,18 +1364,82 @@ public final class ServantAI {
             double dz = tz - cz;
             double len = Math.sqrt(dx * dx + dy * dy + dz * dz);
             if (len < 0.5) {
-                artilleryDebug(entity, "目标过近，不开火");
-                return;
+                artilleryDebug(entity, "target too close");
+                return false;
             }
             float yaw = (float) Math.toDegrees(Math.atan2(dx, -dz));
             float pitch = (float) Math.toDegrees(Math.atan2(dy, Math.sqrt(dx * dx + dz * dz)));
             setAttributes.invoke(be, yaw, pitch, (byte) 4, false, null);
             ignite.invoke(be, entity);
-            artilleryDebug(entity, "已点火 -> (" + (int) tx + "," + (int) ty + "," + (int) tz + ")");
+            artilleryDebug(entity, "ignited -> (" + (int) tx + "," + (int) ty + "," + (int) tz + ")");
+            return true;
         } catch (Exception e) {
             LOGGER.error("Failed to operate supplementaries cannon", e);
-            artilleryDebug(entity, "反射异常: " + e.getMessage());
+            artilleryDebug(entity, "reflection error: " + e.getMessage());
+            return false;
         }
+    }
+
+    private static boolean takeAmmoFromBarrel(ServerLevel level, ArtilleryEntity entity, Object cannonBe,
+            Method setFuel, Method setProjectile, boolean isStrike) throws Exception {
+        List<BlockPos> barrels = ServantLogic.readBlockPosList(entity, "Barrels");
+        if (barrels.isEmpty()) {
+            return false;
+        }
+        String[] priority = isStrike
+                ? new String[]{"supplementaries:cannonball", "minecraft:fire_charge", "supplementaries:bomb"}
+                : new String[]{"supplementaries:bomb", "minecraft:fire_charge", "supplementaries:cannonball"};
+        for (BlockPos p : barrels) {
+            if (!(level.getBlockEntity(p) instanceof Container container)) {
+                continue;
+            }
+            int gunpowderSlot = -1;
+            for (int i = 0; i < container.getContainerSize(); i++) {
+                ItemStack s = container.getItem(i);
+                if (s.isEmpty()) {
+                    continue;
+                }
+                ResourceLocation key = ForgeRegistries.ITEMS.getKey(s.getItem());
+                if (key != null && "minecraft:gunpowder".equals(key.toString()) && s.getCount() >= 4) {
+                    gunpowderSlot = i;
+                    break;
+                }
+            }
+            if (gunpowderSlot < 0) {
+                continue;
+            }
+            // 按优先级找弹药（先遍历优先级，再遍历槽位），而不是固定取第一格
+            int projectileSlot = -1;
+            Item projectileItem = null;
+            for (String ammo : priority) {
+                for (int i = 0; i < container.getContainerSize(); i++) {
+                    ItemStack s = container.getItem(i);
+                    if (s.isEmpty()) {
+                        continue;
+                    }
+                    ResourceLocation key = ForgeRegistries.ITEMS.getKey(s.getItem());
+                    if (key != null && ammo.equals(key.toString())) {
+                        projectileSlot = i;
+                        projectileItem = s.getItem();
+                        break;
+                    }
+                }
+                if (projectileSlot >= 0) {
+                    break;
+                }
+            }
+            if (projectileSlot < 0) {
+                continue;
+            }
+            container.getItem(gunpowderSlot).shrink(4);
+            container.getItem(projectileSlot).shrink(1);
+            container.setChanged();
+            setFuel.invoke(cannonBe, new ItemStack(Items.GUNPOWDER, 4));
+            setProjectile.invoke(cannonBe, new ItemStack(projectileItem));
+            artilleryDebug(entity, "loaded ammo from barrel");
+            return true;
+        }
+        return false;
     }
 
     // ============================================================
@@ -1300,13 +1472,25 @@ public final class ServantAI {
             }
         }
 
+        List<BlockPos> barrels = ServantLogic.readBlockPosList(entity, "Barrels");
+        if (!barrels.isEmpty()) {
+            for (ArtilleryEntity a : squad) {
+                ServantLogic.writeBlockPosList(a, "Barrels", barrels);
+            }
+        }
+
         BlockPos companyStrike = entity.getCompanyStrike();
+        BlockPos strikeTarget = ServantLogic.readBlockPos(entity, "StrikeTarget");
         for (ArtilleryEntity a : squad) {
             if (companyStrike != null) {
                 a.setCompanyStrike(companyStrike);
                 a.getPersistentData().putString("captainFireMode", "marked");
+            } else if ("marked".equals(mode) && strikeTarget != null) {
+                ServantLogic.writeBlockPos(a, "StrikeTarget", strikeTarget);
+                a.getPersistentData().putString("captainFireMode", "marked");
             } else {
                 a.clearCompanyStrike();
+                ServantLogic.writeBlockPos(a, "StrikeTarget", null);
                 a.getPersistentData().putString("captainFireMode", mode);
             }
         }

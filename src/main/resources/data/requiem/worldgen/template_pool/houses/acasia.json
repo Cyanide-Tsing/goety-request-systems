@@ -1,0 +1,24 @@
+{
+  "name": "requiem:houses/acasia",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:acasia/pillager_training_site",
+        "projection": "rigid",
+        "processors": "requiem:fence_acasia"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:acasia/vindicator_training_site",
+        "projection": "rigid",
+        "processors": "requiem:fence_acasia"
+      }
+    }
+  ]
+}

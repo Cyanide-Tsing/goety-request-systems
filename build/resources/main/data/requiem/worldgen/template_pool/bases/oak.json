@@ -1,0 +1,60 @@
+{
+  "name": "requiem:bases/oak",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:oak/road",
+        "projection": "rigid",
+        "processors": "requiem:fence_oak"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:oak/crossroad",
+        "projection": "rigid",
+        "processors": "requiem:fence_oak"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:oak/tjunction_right",
+        "projection": "rigid",
+        "processors": "requiem:fence_oak"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:oak/tjunction_left",
+        "projection": "rigid",
+        "processors": "requiem:fence_oak"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:oak/corner_right",
+        "projection": "rigid",
+        "processors": "requiem:fence_oak"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:oak/corner_left",
+        "projection": "rigid",
+        "processors": "requiem:fence_oak"
+      }
+    }
+  ]
+}

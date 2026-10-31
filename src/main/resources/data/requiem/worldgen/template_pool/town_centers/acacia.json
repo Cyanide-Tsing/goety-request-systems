@@ -1,0 +1,15 @@
+{
+  "name": "requiem:town_centers/acacia",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:acasia/center",
+        "projection": "rigid",
+        "processors": "requiem:fence_acasia"
+      }
+    }
+  ]
+}

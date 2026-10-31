@@ -16,7 +16,8 @@
     "NodeMixin",
     "RaiderCelebrationMixin",
     "RaidMixin",
-    "AbstractArrowMixin"
+    "AbstractArrowMixin",
+    "JigsawStructureMixin"
   ],
   "injectors": {
     "defaultRequire": 1

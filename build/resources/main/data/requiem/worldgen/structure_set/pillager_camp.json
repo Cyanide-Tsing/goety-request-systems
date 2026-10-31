@@ -1,0 +1,14 @@
+﻿{
+  "structures": [
+    { "structure": "requiem:oak_camp", "weight": 1 },
+    { "structure": "requiem:dark_oak_camp", "weight": 1 },
+    { "structure": "requiem:spruce_camp", "weight": 1 },
+    { "structure": "requiem:acacia_camp", "weight": 1 }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 19990314,
+    "spacing": 34,
+    "separation": 8
+  }
+}

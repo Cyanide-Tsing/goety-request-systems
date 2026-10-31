@@ -1,0 +1,60 @@
+{
+  "name": "requiem:bases/spruce",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:spruce/road",
+        "projection": "rigid",
+        "processors": "requiem:fence_spruce"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:spruce/crossroad",
+        "projection": "rigid",
+        "processors": "requiem:fence_spruce"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:spruce/tjunction_right",
+        "projection": "rigid",
+        "processors": "requiem:fence_spruce"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:spruce/tjunction_left",
+        "projection": "rigid",
+        "processors": "requiem:fence_spruce"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:spruce/corner_right",
+        "projection": "rigid",
+        "processors": "requiem:fence_spruce"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:spruce/corner_left",
+        "projection": "rigid",
+        "processors": "requiem:fence_spruce"
+      }
+    }
+  ]
+}

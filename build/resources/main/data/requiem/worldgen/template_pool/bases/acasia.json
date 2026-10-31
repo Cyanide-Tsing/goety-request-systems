@@ -1,0 +1,60 @@
+{
+  "name": "requiem:bases/acasia",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:acasia/road",
+        "projection": "rigid",
+        "processors": "requiem:fence_acasia"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:acasia/crossroad",
+        "projection": "rigid",
+        "processors": "requiem:fence_acasia"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:acasia/tjunction_right",
+        "projection": "rigid",
+        "processors": "requiem:fence_acasia"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:acasia/tjunction_left",
+        "projection": "rigid",
+        "processors": "requiem:fence_acasia"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:acasia/corner_right",
+        "projection": "rigid",
+        "processors": "requiem:fence_acasia"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "requiem:acasia/corner_left",
+        "projection": "rigid",
+        "processors": "requiem:fence_acasia"
+      }
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 /**
- * 替代 KubeJS {@code ServerEvents.tick}：每 20 刻遍历所有维度，分发仆从 AI。
+ * 替代 KubeJS {@code ServerEvents.tick}：每 10 刻遍历所有维度，分发仆从 AI。
  */
 @Mod.EventBusSubscriber(modid = RequiemServants.MOD_ID)
 public final class ServantTickHandler {
@@ -22,7 +22,7 @@ public final class ServantTickHandler {
             return;
         }
         tickCounter++;
-        if (tickCounter % 20 != 0) {
+        if (tickCounter % 10 != 0) {
             return;
         }
         for (ServerLevel level : event.getServer().getAllLevels()) {
